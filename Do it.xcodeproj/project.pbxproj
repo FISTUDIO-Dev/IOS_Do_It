@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E8D83701B0AADF800FD44F5 /* PastAcheievementActivityInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D836F1B0AADF800FD44F5 /* PastAcheievementActivityInstance.m */; };
+		2E8D83731B0AB08300FD44F5 /* FailedActivityInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D83721B0AB08300FD44F5 /* FailedActivityInstance.m */; };
+		2E8D83771B0ABAF800FD44F5 /* ActivtyInstancesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D83761B0ABAF800FD44F5 /* ActivtyInstancesManager.m */; };
 		995EFE5E1AE8D29C00B6ED17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 995EFE5D1AE8D29C00B6ED17 /* main.m */; };
 		995EFE611AE8D29C00B6ED17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 995EFE601AE8D29C00B6ED17 /* AppDelegate.m */; };
 		995EFE641AE8D29C00B6ED17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995EFE631AE8D29C00B6ED17 /* ViewController.m */; };
@@ -28,6 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E8D836E1B0AADF800FD44F5 /* PastAcheievementActivityInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastAcheievementActivityInstance.h; sourceTree = "<group>"; };
+		2E8D836F1B0AADF800FD44F5 /* PastAcheievementActivityInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastAcheievementActivityInstance.m; sourceTree = "<group>"; };
+		2E8D83711B0AB08300FD44F5 /* FailedActivityInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailedActivityInstance.h; sourceTree = "<group>"; };
+		2E8D83721B0AB08300FD44F5 /* FailedActivityInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailedActivityInstance.m; sourceTree = "<group>"; };
+		2E8D83751B0ABAF800FD44F5 /* ActivtyInstancesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivtyInstancesManager.h; sourceTree = "<group>"; };
+		2E8D83761B0ABAF800FD44F5 /* ActivtyInstancesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivtyInstancesManager.m; sourceTree = "<group>"; };
 		995EFE581AE8D29C00B6ED17 /* Do it.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do it.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		995EFE5C1AE8D29C00B6ED17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		995EFE5D1AE8D29C00B6ED17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +72,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E8D83741B0ABA1900FD44F5 /* Activity Management  */ = {
+			isa = PBXGroup;
+			children = (
+				2E8D83751B0ABAF800FD44F5 /* ActivtyInstancesManager.h */,
+				2E8D83761B0ABAF800FD44F5 /* ActivtyInstancesManager.m */,
+			);
+			name = "Activity Management ";
+			sourceTree = "<group>";
+		};
 		995EFE4F1AE8D29C00B6ED17 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +154,7 @@
 		99E3B0FA1B0A00C900A13838 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2E8D83741B0ABA1900FD44F5 /* Activity Management  */,
 				99E3B0FD1B0A00F600A13838 /* Activity Instances */,
 			);
 			name = Classes;
@@ -160,6 +179,10 @@
 			children = (
 				99E3B0FE1B0A014200A13838 /* OngoingActivityInstance.h */,
 				99E3B0FF1B0A014200A13838 /* OngoingActivityInstance.m */,
+				2E8D836E1B0AADF800FD44F5 /* PastAcheievementActivityInstance.h */,
+				2E8D836F1B0AADF800FD44F5 /* PastAcheievementActivityInstance.m */,
+				2E8D83711B0AB08300FD44F5 /* FailedActivityInstance.h */,
+				2E8D83721B0AB08300FD44F5 /* FailedActivityInstance.m */,
 			);
 			name = "Activity Instances";
 			sourceTree = "<group>";
@@ -264,8 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8D83701B0AADF800FD44F5 /* PastAcheievementActivityInstance.m in Sources */,
 				995EFE641AE8D29C00B6ED17 /* ViewController.m in Sources */,
+				2E8D83731B0AB08300FD44F5 /* FailedActivityInstance.m in Sources */,
 				995EFE611AE8D29C00B6ED17 /* AppDelegate.m in Sources */,
+				2E8D83771B0ABAF800FD44F5 /* ActivtyInstancesManager.m in Sources */,
 				995EFE5E1AE8D29C00B6ED17 /* main.m in Sources */,
 				99E3B1001B0A014200A13838 /* OngoingActivityInstance.m in Sources */,
 			);

@@ -12,12 +12,23 @@
 
 @property(strong,nonatomic) NSString *activtyTitle;
 @property(strong,nonatomic) NSString *activityDescription;
-@property(nonatomic) double remainingSecs;
+@property(nonatomic) long remainingSecs;
 
+typedef NS_ENUM(NSUInteger, OngoingActivitySatusCode){
+    ONGOINGSTATUS_AMPLE = 5,
+    ONGOINGSTATUS_MEDIUM = 4,
+    ONGOINGSTATUS_STRESS = 3,
+    ONGOINGSTATUS_COMPLETED = 2,
+    ONGOINGSTATUS_GAVEUP = 1
+};
+@property (nonatomic) OngoingActivitySatusCode statusCode;
 
-//ample,medium,stress,completed,gave up
--(NSInteger)getStatusCode;
+@property(nonatomic) NSInteger delayedTimes;
 
--(instancetype)initWithTitle:(NSString*)title mainDescription:(NSString*)mainDes remainingSecs:(double)secs;
+//Constructor
++(instancetype)sharedOngoingActivityWithTitle:(NSString*)title mainDescription:(NSString*)mainDes remainingSecs:(long)secs;
+-(instancetype)initWithTitle:(NSString*)title mainDescription:(NSString*)mainDes remainingSecs:(long)secs;
+//Publics Methods
+-(void)delayActivityFor:(long)secs;
 
 @end
