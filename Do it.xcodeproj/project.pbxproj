@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E79C9C21B0C4827005AEDCD /* OngoingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E79C9C01B0C4827005AEDCD /* OngoingTableViewCell.m */; };
+		2E79C9C31B0C4827005AEDCD /* OngoingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E79C9C11B0C4827005AEDCD /* OngoingTableViewCell.xib */; };
 		2E8D83701B0AADF800FD44F5 /* PastAcheievementActivityInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D836F1B0AADF800FD44F5 /* PastAcheievementActivityInstance.m */; };
 		2E8D83731B0AB08300FD44F5 /* FailedActivityInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D83721B0AB08300FD44F5 /* FailedActivityInstance.m */; };
 		2E8D83771B0ABAF800FD44F5 /* ActivtyInstancesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D83761B0ABAF800FD44F5 /* ActivtyInstancesManager.m */; };
@@ -31,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E566A3A1B0C554500F05D55 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
+		2E79C9BF1B0C4827005AEDCD /* OngoingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OngoingTableViewCell.h; sourceTree = "<group>"; };
+		2E79C9C01B0C4827005AEDCD /* OngoingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OngoingTableViewCell.m; sourceTree = "<group>"; };
+		2E79C9C11B0C4827005AEDCD /* OngoingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OngoingTableViewCell.xib; sourceTree = "<group>"; };
 		2E8D836E1B0AADF800FD44F5 /* PastAcheievementActivityInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastAcheievementActivityInstance.h; sourceTree = "<group>"; };
 		2E8D836F1B0AADF800FD44F5 /* PastAcheievementActivityInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastAcheievementActivityInstance.m; sourceTree = "<group>"; };
 		2E8D83711B0AB08300FD44F5 /* FailedActivityInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailedActivityInstance.h; sourceTree = "<group>"; };
@@ -72,6 +78,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E566A391B0C552400F05D55 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2E566A3A1B0C554500F05D55 /* digital-7.ttf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
+		2E79C9BE1B0BFDD0005AEDCD /* Activity TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2E79C9BF1B0C4827005AEDCD /* OngoingTableViewCell.h */,
+				2E79C9C01B0C4827005AEDCD /* OngoingTableViewCell.m */,
+				2E79C9C11B0C4827005AEDCD /* OngoingTableViewCell.xib */,
+			);
+			name = "Activity TableViewCells";
+			sourceTree = "<group>";
+		};
 		2E8D83741B0ABA1900FD44F5 /* Activity Management  */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +178,7 @@
 		99E3B0FA1B0A00C900A13838 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2E79C9BE1B0BFDD0005AEDCD /* Activity TableViewCells */,
 				2E8D83741B0ABA1900FD44F5 /* Activity Management  */,
 				99E3B0FD1B0A00F600A13838 /* Activity Instances */,
 			);
@@ -170,6 +195,7 @@
 		99E3B0FC1B0A00D600A13838 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2E566A391B0C552400F05D55 /* Font */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -268,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				995EFE671AE8D29C00B6ED17 /* Main.storyboard in Resources */,
+				2E79C9C31B0C4827005AEDCD /* OngoingTableViewCell.xib in Resources */,
 				995EFE6C1AE8D29C00B6ED17 /* LaunchScreen.xib in Resources */,
 				995EFE691AE8D29C00B6ED17 /* Images.xcassets in Resources */,
 			);
@@ -292,6 +319,7 @@
 				2E8D83731B0AB08300FD44F5 /* FailedActivityInstance.m in Sources */,
 				995EFE611AE8D29C00B6ED17 /* AppDelegate.m in Sources */,
 				2E8D83771B0ABAF800FD44F5 /* ActivtyInstancesManager.m in Sources */,
+				2E79C9C21B0C4827005AEDCD /* OngoingTableViewCell.m in Sources */,
 				995EFE5E1AE8D29C00B6ED17 /* main.m in Sources */,
 				99E3B1001B0A014200A13838 /* OngoingActivityInstance.m in Sources */,
 			);

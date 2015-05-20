@@ -127,6 +127,11 @@
     return array;
 }
 
+#pragma mark - UI Manipulation
+-(NSString*)constructTimeWithTimeInSecs:(long)secs{
+    
+}
+
 
 #pragma mark - accessors
 - (NSMutableArray*)getAllActivities{

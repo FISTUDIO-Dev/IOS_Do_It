@@ -16,4 +16,8 @@
 +(id)sharedManager;
 -(instancetype)init;
 
+-(BOOL)saveToFile;
+-(NSMutableArray*)getAllActivities;
+-(void)convertToAchievementWithOngoingInstance:(OngoingActivityInstance*)instance;
+-(void)convertToFailedActivityWithOngoingInstance:(OngoingActivityInstance*)instance Giveup:(BOOL)giveup ExceededTime:(long)secs;
 @end
