@@ -27,6 +27,7 @@ typedef NS_ENUM(NSUInteger, OngoingActivitySatusCode){
 
 //Constructor
 +(instancetype)sharedOngoingActivityWithTitle:(NSString*)title mainDescription:(NSString*)mainDes remainingSecs:(long)secs;
+
 -(instancetype)initWithTitle:(NSString*)title mainDescription:(NSString*)mainDes remainingSecs:(long)secs;
 //Publics Methods
 -(void)delayActivityFor:(long)secs;

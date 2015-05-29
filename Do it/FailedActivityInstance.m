@@ -17,16 +17,7 @@
 
 
 #pragma mark - Constructors
--(instancetype)initWithFailedTitle:(NSString *)title Description:(NSString *)desc Date:(NSDate *)date exceededSecs:(long)secs{
-    if (self = [super init]) {
-        self.failedTitle = title;
-        self.failedDescription = desc;
-        self.failedDate = date;
-        self.exceededSecs = secs;
-        self.givenUp = NO;
-    }
-    return self;
-}
+
 
 -(instancetype)initWithFailedTitle:(NSString *)title Description:(NSString *)desc Date:(NSDate *)date gaveUp:(BOOL)givenup{
     if (self = [super init]) {
@@ -34,7 +25,6 @@
         self.failedDescription = desc;
         self.failedDate = date;
         self.givenUp = givenup;
-        self.exceededSecs = 0;
     }
     return self;
 }

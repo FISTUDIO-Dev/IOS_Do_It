@@ -61,7 +61,7 @@
     [ongoingActivityArray removeLastObject];
 }
 
--(void)convertToFailedActivityWithOngoingInstance: (OngoingActivityInstance*)instance Giveup:(BOOL)giveup ExceededTime:(long)secs{
+-(void)convertToFailedActivityWithOngoingInstance: (OngoingActivityInstance*)instance Giveup:(BOOL)giveup {
     //Extract data
     NSString *title = instance.activtyTitle;
     NSString *desc = instance.activityDescription;
@@ -71,7 +71,7 @@
     if (giveup) {
         failedInstance = [[FailedActivityInstance alloc]initWithFailedTitle:title Description:desc Date:date gaveUp:YES];
     }else{
-        failedInstance = [[FailedActivityInstance alloc]initWithFailedTitle:title Description:desc Date:date exceededSecs:secs];
+        failedInstance = [[FailedActivityInstance alloc]initWithFailedTitle:title Description:desc Date:date gaveUp:NO];
     }
     [failedActivityArray addObject:failedInstance];
     //Remove ongoing activity
@@ -128,7 +128,20 @@
 }
 
 #pragma mark - UI Manipulation
--(NSString*)constructTimeWithTimeInSecs:(long)secs{
+-(NSDictionary*)constructTimeComponentsWithTimeInSecs:(long)secs{
+    
+    //Construct compoents
+    NSInteger day = secs / 86400;
+    NSInteger hour = (secs % 86400)/ 3600;
+    NSInteger minute = ((secs % 86400) % 3600)/60;
+    NSInteger second = ((secs % 86400) % 3600)%60;
+    //Construct dictionary
+    NSDictionary* currentTimeDictionary = [[NSDictionary alloc]init];
+    [currentTimeDictionary setValue:[NSNumber numberWithInteger:day] forKey:@"day"];
+    [currentTimeDictionary setValue:[NSNumber numberWithInteger:hour] forKey:@"hour"];
+    [currentTimeDictionary setValue:[NSNumber numberWithInteger:minute] forKey:@"minute"];
+    [currentTimeDictionary setValue:[NSNumber numberWithInteger:second] forKey:@"second"];
+    return currentTimeDictionary;
     
 }
 

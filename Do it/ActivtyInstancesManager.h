@@ -19,5 +19,6 @@
 -(BOOL)saveToFile;
 -(NSMutableArray*)getAllActivities;
 -(void)convertToAchievementWithOngoingInstance:(OngoingActivityInstance*)instance;
--(void)convertToFailedActivityWithOngoingInstance:(OngoingActivityInstance*)instance Giveup:(BOOL)giveup ExceededTime:(long)secs;
+-(void)convertToFailedActivityWithOngoingInstance:(OngoingActivityInstance*)instance Giveup:(BOOL)giveup;
+-(NSDictionary*)constructTimeComponentsWithTimeInSecs:(long)secs;
 @end

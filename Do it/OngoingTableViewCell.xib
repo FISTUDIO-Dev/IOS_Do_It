@@ -20,9 +20,36 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efp-LI-GUh">
+                        <rect key="frame" x="22" y="15" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nU3-W4-J4u">
+                        <rect key="frame" x="20" y="73" width="126" height="30"/>
+                        <state key="normal" title="Complete Now">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="completeTask:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yub-C1-iet"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ueb-VW-RWj">
+                        <rect key="frame" x="22" y="44" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="201" y="419"/>
+            <connections>
+                <outlet property="completeNowButton" destination="nU3-W4-J4u" id="3ee-65-AJy"/>
+                <outlet property="ongoingDescriptionLabel" destination="Ueb-VW-RWj" id="F1u-n5-edd"/>
+                <outlet property="ongoingTitleLabel" destination="Efp-LI-GUh" id="GoA-of-UoK"/>
+                <outlet property="timeLeftLabel" destination="EJH-C2-2eR" id="DVV-Iy-IPr"/>
+            </connections>
+            <point key="canvasLocation" x="67" y="478"/>
         </tableViewCell>
     </objects>
 </document>
