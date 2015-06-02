@@ -19,7 +19,8 @@ typedef NS_ENUM(NSUInteger, OngoingActivitySatusCode){
     ONGOINGSTATUS_MEDIUM = 4,
     ONGOINGSTATUS_STRESS = 3,
     ONGOINGSTATUS_COMPLETED = 2,
-    ONGOINGSTATUS_GAVEUP = 1
+    ONGOINGSTATUS_GAVEUP = 1,
+    ONGOINGSTATUS_FAILED = 0
 };
 @property (nonatomic) OngoingActivitySatusCode statusCode;
 

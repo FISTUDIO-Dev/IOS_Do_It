@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActivitiesTableViewController : UITableViewController
+@interface ActivitiesTableViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate>
 
 @end

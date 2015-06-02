@@ -14,6 +14,7 @@
     NSDictionary *timeComponents;
     //timer components separated
     NSInteger day, hour, minute, second;
+   
     
 }
 @property(strong,nonatomic)NSTimer * countDownTimer;
@@ -40,6 +41,9 @@
         self.timeLeftLabel.text = [self timeLeftLabelTextFromTimeComponents];
         //Set count down timer
         self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
+        
+        //Set initial status
+        _cellDataInstance.statusCode = ONGOINGSTATUS_AMPLE;
     }
 }
 
@@ -80,7 +84,7 @@
 -(void)reduceTime{
     //update instance property
     _cellDataInstance.remainingSecs--;
-    
+    //Update cell property
     second--;
     if (second < 0) {
         minute --;
@@ -96,18 +100,33 @@
         //invalidate timer
         [self.countDownTimer invalidate];
         self.countDownTimer = nil;
+        //End activity
+        [self endActivity];
     }
     self.timeLeftLabel.text =  [NSString stringWithFormat:@"%ld:%ld:%ld:%ld",day,hour,minute,second];
+    
+    //Intensify
+    if (_cellDataInstance.remainingSecs <= 0.5 * secs) {
+        if (_cellDataInstance.remainingSecs <=0.1 * secs) {
+            [self increaseIntensityWithCurrentStatus:ONGOINGSTATUS_STRESS];
+            //update status
+            _cellDataInstance.statusCode = ONGOINGSTATUS_STRESS;
+        }else{
+            [self increaseIntensityWithCurrentStatus:ONGOINGSTATUS_MEDIUM];
+            //update status
+            _cellDataInstance.statusCode = ONGOINGSTATUS_MEDIUM;
+        }
+    }
 }
 
 
 #pragma mark - actions
-//Complete button action
+//Complete
 - (IBAction)completeTask:(id)sender {
    [[ActivtyInstancesManager sharedManager]convertToAchievementWithOngoingInstance:_cellDataInstance];
 }
 
-//Delay
+//Delay (should I?)
 -(void)delayActivityWithTime:(long)addedSecs{
     
     //Update instance property
@@ -123,16 +142,29 @@
     //Set count down timer
     self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
     
+    
 }
 
-
-
+//End
 -(void)endActivity{
     if (_cellDataInstance.remainingSecs < 0) {
         [[ActivtyInstancesManager sharedManager]convertToFailedActivityWithOngoingInstance:_cellDataInstance Giveup:NO];
+        //update status
+        _cellDataInstance.statusCode = ONGOINGSTATUS_FAILED;
     }else{
         [[ActivtyInstancesManager sharedManager]convertToFailedActivityWithOngoingInstance:_cellDataInstance Giveup:YES];
+        //update status
+        _cellDataInstance.statusCode = ONGOINGSTATUS_GAVEUP;
     }
+}
+
+//Notification receivers
+-(void)increaseIntensityWithCurrentStatus:(OngoingActivitySatusCode)statusCode{
+    //TODO:: Update cell color based on status code
+}
+
+-(void)dealloc{
+    
 }
 
 #pragma mark - UI methods
