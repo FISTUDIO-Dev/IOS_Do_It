@@ -21,7 +21,5 @@
 
 //Data Source
 @property (weak,nonatomic) OngoingActivityInstance * cellDataInstance;
-//Manager
-@property (weak,nonatomic) ActivtyInstancesManager * manager;
 
 @end

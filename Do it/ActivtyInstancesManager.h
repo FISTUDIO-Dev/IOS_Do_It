@@ -23,6 +23,6 @@
 -(NSDictionary*)constructTimeComponentsWithTimeInSecs:(long)secs;
 
 -(void)addOngoingActivity:(OngoingActivityInstance*)activity;
--(void)delay:)OngoingActivityInstance*) ongoingACtivity ForTime:(long)secs;
+-(void)delay:(OngoingActivityInstance*)ongoingActivity ForTime:(long)secs;
 
 @end

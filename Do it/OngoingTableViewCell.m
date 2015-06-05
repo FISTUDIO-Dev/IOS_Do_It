@@ -22,7 +22,6 @@
 
 @implementation OngoingTableViewCell
 @synthesize cellDataInstance = _cellDataInstance;
-@synthesize manager = _manager;
 
 #pragma mark - Initialization
 - (void)awakeFromNib {
