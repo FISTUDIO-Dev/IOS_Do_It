@@ -21,4 +21,8 @@
 -(void)convertToAchievementWithOngoingInstance:(OngoingActivityInstance*)instance;
 -(void)convertToFailedActivityWithOngoingInstance:(OngoingActivityInstance*)instance Giveup:(BOOL)giveup;
 -(NSDictionary*)constructTimeComponentsWithTimeInSecs:(long)secs;
+
+-(void)addOngoingActivity:(OngoingActivityInstance*)activity;
+-(void)delay:)OngoingActivityInstance*) ongoingACtivity ForTime:(long)secs;
+
 @end

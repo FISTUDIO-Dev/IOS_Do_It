@@ -8,7 +8,7 @@
 
 #import "OngoingTableViewCell.h"
 @interface OngoingTableViewCell(){
-    //secs direct from data
+    //initial secs direct from data
     long secs;
     //Initial timer components
     NSDictionary *timeComponents;
@@ -148,17 +148,19 @@
 //End
 -(void)endActivity{
     if (_cellDataInstance.remainingSecs < 0) {
-        [[ActivtyInstancesManager sharedManager]convertToFailedActivityWithOngoingInstance:_cellDataInstance Giveup:NO];
         //update status
         _cellDataInstance.statusCode = ONGOINGSTATUS_FAILED;
+        [[ActivtyInstancesManager sharedManager]convertToFailedActivityWithOngoingInstance:_cellDataInstance Giveup:NO];
+        
     }else{
-        [[ActivtyInstancesManager sharedManager]convertToFailedActivityWithOngoingInstance:_cellDataInstance Giveup:YES];
         //update status
         _cellDataInstance.statusCode = ONGOINGSTATUS_GAVEUP;
+        [[ActivtyInstancesManager sharedManager]convertToFailedActivityWithOngoingInstance:_cellDataInstance Giveup:YES];
+        
     }
 }
 
-//Notification receivers
+#pragma mark - Notfification receivers
 -(void)increaseIntensityWithCurrentStatus:(OngoingActivitySatusCode)statusCode{
     //TODO:: Update cell color based on status code
 }
