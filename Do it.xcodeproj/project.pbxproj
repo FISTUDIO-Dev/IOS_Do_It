@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E70B8CD1B22F61600A359D9 /* ActivityTableViewCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E70B8CC1B22F61600A359D9 /* ActivityTableViewCellController.m */; };
 		2E730E8F1B18194200110905 /* ActivitiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E730E8E1B18194200110905 /* ActivitiesTableViewController.m */; };
 		2E79C9C21B0C4827005AEDCD /* OngoingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E79C9C01B0C4827005AEDCD /* OngoingTableViewCell.m */; };
 		2E79C9C31B0C4827005AEDCD /* OngoingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E79C9C11B0C4827005AEDCD /* OngoingTableViewCell.xib */; };
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		2E566A3A1B0C554500F05D55 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
+		2E70B8CB1B22F61600A359D9 /* ActivityTableViewCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCellController.h; sourceTree = "<group>"; };
+		2E70B8CC1B22F61600A359D9 /* ActivityTableViewCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCellController.m; sourceTree = "<group>"; };
 		2E730E8D1B18194200110905 /* ActivitiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitiesTableViewController.h; sourceTree = "<group>"; };
 		2E730E8E1B18194200110905 /* ActivitiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitiesTableViewController.m; sourceTree = "<group>"; };
 		2E79C9BF1B0C4827005AEDCD /* OngoingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OngoingTableViewCell.h; sourceTree = "<group>"; };
@@ -89,6 +92,16 @@
 			name = Font;
 			sourceTree = "<group>";
 		};
+		2E70B8CA1B22D78400A359D9 /* Ongoings */ = {
+			isa = PBXGroup;
+			children = (
+				2E79C9BF1B0C4827005AEDCD /* OngoingTableViewCell.h */,
+				2E79C9C01B0C4827005AEDCD /* OngoingTableViewCell.m */,
+				2E79C9C11B0C4827005AEDCD /* OngoingTableViewCell.xib */,
+			);
+			name = Ongoings;
+			sourceTree = "<group>";
+		};
 		2E730E8C1B18191400110905 /* Activities TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +114,7 @@
 		2E79C9BE1B0BFDD0005AEDCD /* Activity TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				2E79C9BF1B0C4827005AEDCD /* OngoingTableViewCell.h */,
-				2E79C9C01B0C4827005AEDCD /* OngoingTableViewCell.m */,
-				2E79C9C11B0C4827005AEDCD /* OngoingTableViewCell.xib */,
+				2E70B8CA1B22D78400A359D9 /* Ongoings */,
 			);
 			name = "Activity TableViewCells";
 			sourceTree = "<group>";
@@ -113,6 +124,8 @@
 			children = (
 				2E8D83751B0ABAF800FD44F5 /* ActivtyInstancesManager.h */,
 				2E8D83761B0ABAF800FD44F5 /* ActivtyInstancesManager.m */,
+				2E70B8CB1B22F61600A359D9 /* ActivityTableViewCellController.h */,
+				2E70B8CC1B22F61600A359D9 /* ActivityTableViewCellController.m */,
 			);
 			name = "Activity Management ";
 			sourceTree = "<group>";
@@ -340,6 +353,7 @@
 				2E8D83771B0ABAF800FD44F5 /* ActivtyInstancesManager.m in Sources */,
 				2E79C9C21B0C4827005AEDCD /* OngoingTableViewCell.m in Sources */,
 				995EFE5E1AE8D29C00B6ED17 /* main.m in Sources */,
+				2E70B8CD1B22F61600A359D9 /* ActivityTableViewCellController.m in Sources */,
 				99E3B1001B0A014200A13838 /* OngoingActivityInstance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

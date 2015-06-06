@@ -16,17 +16,21 @@
 
 @implementation ActivitiesTableViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated{
+    //Preload data
     //create an ongoing instance
     OngoingActivityInstance * testInstance = [[OngoingActivityInstance alloc]initWithTitle:@"test" mainDescription:@"test description" remainingSecs:120];
     //copy
-    ongoingInstance = [testInstance copy];
+    ongoingInstance = testInstance;
     //add
     [[ActivtyInstancesManager sharedManager]addOngoingActivity:ongoingInstance];
     
-    
+
 }
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -48,16 +52,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //Create
-    OngoingTableViewCell * ongoingCell = [tableView dequeueReusableCellWithIdentifier:@"OngoingCell"];
-    //Configure
-    ongoingCell.cellDataInstance = ongoingInstance;
+    OngoingTableViewCell * ongoingCell = (OngoingTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"OngoingCell"];
     
-    
-    if (!ongoingCell) {
-        [tableView registerNib:[UINib nibWithNibName:@"OngoingTableViewCell.xib" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"OngoingCell"];
+    if(ongoingCell == nil){
+        ongoingCell = [[OngoingTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OngoingCell" datsSource:ongoingInstance];
+        [[NSBundle mainBundle]loadNibNamed:@"OngoingTableViewCell" owner:self options:nil];
     }
     
     return ongoingCell;
+}
+
+#pragma mark - Cell Configure
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section{
+    return 111;
+}
+
+#pragma mark - Cell Controller
+//Ongoing Cell
+//@prama dataInstance
+//@return OngoingTableviewCell
+-(OngoingTableViewCell*)initializeOngoingCellViewWithOngoingInstance:(OngoingActivityInstance*)dataInstance{
+    OngoingTableViewCell * cell = [[OngoingTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OngoingCell"];
+    //Set up data
+    [cell.ongoingTitleLabel setText:dataInstance.activtyTitle ];
+    [cell.ongoingDescriptionLabel setText:dataInstance.activtyTitle];
+    cell.cellDataInstance = dataInstance;
+    
+    
 }
 
 

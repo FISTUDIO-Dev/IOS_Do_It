@@ -15,7 +15,6 @@
     //timer components separated
     NSInteger day, hour, minute, second;
    
-    
 }
 @property(strong,nonatomic)NSTimer * countDownTimer;
 @end
@@ -24,29 +23,47 @@
 @synthesize cellDataInstance = _cellDataInstance;
 
 #pragma mark - Initialization
+
 - (void)awakeFromNib {
     // Initialization code
-    if (self.cellDataInstance) {
-        //TODO::Style elements
-        [self styleElements];
+    
+    //TODO::Style elements
+    [self styleElements];
         
-        //Set up data
-        self.ongoingTitleLabel.text = _cellDataInstance.activtyTitle;
-        self.ongoingDescriptionLabel.text = _cellDataInstance.activityDescription;
-        secs = _cellDataInstance.remainingSecs;
-        
-        //Initialize Timer components
-        timeComponents = [[ActivtyInstancesManager sharedManager]constructTimeComponentsWithTimeInSecs:secs];
-        self.timeLeftLabel.text = [self timeLeftLabelTextFromTimeComponents];
-        //Set count down timer
-        self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
-        
-        //Set initial status
-        _cellDataInstance.statusCode = ONGOINGSTATUS_AMPLE;
-    }
+    NSLog(@"%@",_cellDataInstance);
+
+    //Set up data
+    [self.ongoingTitleLabel setText:_cellDataInstance.activtyTitle ];
+    [self.ongoingDescriptionLabel setText:_cellDataInstance.activtyTitle];
+    secs = _cellDataInstance.remainingSecs;
+    
+    //Initialize Timer components
+    timeComponents = [[ActivtyInstancesManager sharedManager]constructTimeComponentsWithTimeInSecs:secs];
+    self.timeLeftLabel.text = [self timeLeftLabelTextFromTimeComponents];
+    //Set count down timer
+    self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
+    
+    //Set initial status
+    _cellDataInstance.statusCode = ONGOINGSTATUS_AMPLE;
+
 }
 
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier datsSource:(OngoingActivityInstance *)instance{
+    
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if (self) {
+        
+        //load data instance
+        _cellDataInstance= instance;
+
+        NSLog(@"%@",_cellDataInstance);
+    }
+    return self;
+    
+}
 #pragma mark - Data manipulation methods
+
 -(NSString*)timeLeftLabelTextFromTimeComponents{
     NSString * time;
     if (timeComponents) {
@@ -171,7 +188,6 @@
 #pragma mark - UI methods
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     
 }
 

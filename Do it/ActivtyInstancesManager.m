@@ -89,6 +89,7 @@
     [ongoingActivity delayActivityFor:secs];
 }
 
+
 //Past Achievement
 
 
@@ -136,7 +137,7 @@
     NSInteger minute = ((secs % 86400) % 3600)/60;
     NSInteger second = ((secs % 86400) % 3600)%60;
     //Construct dictionary
-    NSDictionary* currentTimeDictionary = [[NSDictionary alloc]init];
+    NSMutableDictionary* currentTimeDictionary = [[NSMutableDictionary alloc]init];
     [currentTimeDictionary setValue:[NSNumber numberWithInteger:day] forKey:@"day"];
     [currentTimeDictionary setValue:[NSNumber numberWithInteger:hour] forKey:@"hour"];
     [currentTimeDictionary setValue:[NSNumber numberWithInteger:minute] forKey:@"minute"];
