@@ -10,6 +10,6 @@
 
 @interface ActivityTableViewCellController : NSObject
 
-+(NSString*)timeLeftLabelTextFromTimeComponents:(NSDictionary*)components;
++(NSString*)timeLeftLabelTextFromTimeComponents:(NSDictionary*)timeComponents;
 
 @end

@@ -19,9 +19,6 @@
 //Data Source
 @property (strong,nonatomic) OngoingActivityInstance * cellDataInstance;
 
-//Initializer
--(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier datsSource:(OngoingActivityInstance*)instance;
-
 //Actions
 - (IBAction)completeTask:(id)sender;
 

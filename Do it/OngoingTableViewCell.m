@@ -7,6 +7,7 @@
 //
 
 #import "OngoingTableViewCell.h"
+#import "ActivityTableViewCellController.h"
 @interface OngoingTableViewCell(){
     //initial secs direct from data
     long secs;
@@ -30,73 +31,12 @@
     //TODO::Style elements
     [self styleElements];
         
-    NSLog(@"%@",_cellDataInstance);
-
-    //Set up data
-    [self.ongoingTitleLabel setText:_cellDataInstance.activtyTitle ];
-    [self.ongoingDescriptionLabel setText:_cellDataInstance.activtyTitle];
-    secs = _cellDataInstance.remainingSecs;
-    
-    //Initialize Timer components
-    timeComponents = [[ActivtyInstancesManager sharedManager]constructTimeComponentsWithTimeInSecs:secs];
-    self.timeLeftLabel.text = [self timeLeftLabelTextFromTimeComponents];
     //Set count down timer
     self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
     
-    //Set initial status
-    _cellDataInstance.statusCode = ONGOINGSTATUS_AMPLE;
-
 }
 
--(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier datsSource:(OngoingActivityInstance *)instance{
-    
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
-    if (self) {
-        
-        //load data instance
-        _cellDataInstance= instance;
-
-        NSLog(@"%@",_cellDataInstance);
-    }
-    return self;
-    
-}
 #pragma mark - Data manipulation methods
-
--(NSString*)timeLeftLabelTextFromTimeComponents{
-    NSString * time;
-    if (timeComponents) {
-        time = [[NSString alloc]init];
-        //Extract contents
-        day = [(NSNumber *)[timeComponents valueForKey:@"day"] integerValue];
-        hour = [(NSNumber*)[timeComponents valueForKey:@"hour"] integerValue];
-        minute = [(NSNumber*)[timeComponents valueForKey:@"minute"] integerValue];
-        second = [(NSNumber*)[timeComponents valueForKey:@"second"] integerValue];
-        //Construction
-        if (day == 0) {
-            if (hour == 0) {
-                if (minute == 0) {
-                    if (second == 0) {
-                        return @"empty";
-                    }else{
-                        return [NSString stringWithFormat:@"%ld",second];
-
-                    }
-                }else{
-                    return [NSString stringWithFormat:@"%ld:%ld",minute,second];
-                }
-            }else{
-                return [NSString stringWithFormat:@"%ld:%ld:%ld",hour,minute,second];
-            }
-        }else{
-            return [NSString stringWithFormat:@"%ld:%ld:%ld:%ld",day,hour,minute,second];
-        }
-    }
-    
-    return time;
-}
-
 -(void)reduceTime{
     //update instance property
     _cellDataInstance.remainingSecs--;
@@ -154,10 +94,9 @@
     //Reconstruct time (BETTER ACCOMPANYING WITH ANIMATION)
     secs = _cellDataInstance.remainingSecs;
     timeComponents = [[ActivtyInstancesManager sharedManager]constructTimeComponentsWithTimeInSecs:secs];
-    self.timeLeftLabel.text = [self timeLeftLabelTextFromTimeComponents];
+    self.timeLeftLabel.text = [ActivityTableViewCellController timeLeftLabelTextFromTimeComponents:timeComponents];
     //Set count down timer
     self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
-    
     
 }
 

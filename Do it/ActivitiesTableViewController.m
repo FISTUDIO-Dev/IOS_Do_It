@@ -8,6 +8,7 @@
 
 #import "ActivitiesTableViewController.h"
 #import "OngoingTableViewCell.h"
+#import "ActivityTableViewCellController.h"
 @interface ActivitiesTableViewController (){
     OngoingActivityInstance * ongoingInstance;
 }
@@ -55,10 +56,11 @@
     OngoingTableViewCell * ongoingCell = (OngoingTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"OngoingCell"];
     
     if(ongoingCell == nil){
-        ongoingCell = [[OngoingTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OngoingCell" datsSource:ongoingInstance];
-        [[NSBundle mainBundle]loadNibNamed:@"OngoingTableViewCell" owner:self options:nil];
+        ongoingCell = [[[NSBundle mainBundle]loadNibNamed:@"OngoingTableViewCell" owner:self options:nil]objectAtIndex:0];
     }
-    
+    [self initializeOngoingCell:ongoingCell WithOngoingInstance:ongoingInstance];
+
+    NSLog(@"%@",ongoingCell.ongoingDescriptionLabel.text);
     return ongoingCell;
 }
 
@@ -71,15 +73,17 @@
 //Ongoing Cell
 //@prama dataInstance
 //@return OngoingTableviewCell
--(OngoingTableViewCell*)initializeOngoingCellViewWithOngoingInstance:(OngoingActivityInstance*)dataInstance{
-    OngoingTableViewCell * cell = [[OngoingTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OngoingCell"];
+-(void)initializeOngoingCell:(OngoingTableViewCell*)cell WithOngoingInstance:(OngoingActivityInstance*)dataInstance{
     //Set up data
-    [cell.ongoingTitleLabel setText:dataInstance.activtyTitle ];
-    [cell.ongoingDescriptionLabel setText:dataInstance.activtyTitle];
     cell.cellDataInstance = dataInstance;
-    
-    
+    [cell.ongoingTitleLabel setText:cell.cellDataInstance.activtyTitle ];
+    [cell.ongoingDescriptionLabel setText:cell.cellDataInstance.activityDescription];
+    [cell.timeLeftLabel setText:[ActivityTableViewCellController timeLeftLabelTextFromTimeComponents:[[ActivtyInstancesManager sharedManager]constructTimeComponentsWithTimeInSecs:cell.cellDataInstance.remainingSecs]]];
+    //Set status
+    cell.cellDataInstance.statusCode = ONGOINGSTATUS_AMPLE;
 }
+
+
 
 
 
