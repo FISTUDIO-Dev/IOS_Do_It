@@ -14,6 +14,12 @@
 		2E8D83701B0AADF800FD44F5 /* PastAcheievementActivityInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D836F1B0AADF800FD44F5 /* PastAcheievementActivityInstance.m */; };
 		2E8D83731B0AB08300FD44F5 /* FailedActivityInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D83721B0AB08300FD44F5 /* FailedActivityInstance.m */; };
 		2E8D83771B0ABAF800FD44F5 /* ActivtyInstancesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D83761B0ABAF800FD44F5 /* ActivtyInstancesManager.m */; };
+		2EB6B4511B25735100D7C7A3 /* AchievedActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6B44F1B25735100D7C7A3 /* AchievedActivityTableViewCell.m */; };
+		2EB6B4521B25735100D7C7A3 /* AchievedActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB6B4501B25735100D7C7A3 /* AchievedActivityTableViewCell.xib */; };
+		2EB6B45E1B26960300D7C7A3 /* FailedActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6B45C1B26960300D7C7A3 /* FailedActivityTableViewCell.m */; };
+		2EB6B45F1B26960300D7C7A3 /* FailedActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB6B45D1B26960300D7C7A3 /* FailedActivityTableViewCell.xib */; };
+		2EC7B1441B2802D3007375C9 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B1411B2802D3007375C9 /* MGSwipeButton.m */; };
+		2EC7B1451B2802D3007375C9 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B1431B2802D3007375C9 /* MGSwipeTableCell.m */; };
 		995EFE5E1AE8D29C00B6ED17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 995EFE5D1AE8D29C00B6ED17 /* main.m */; };
 		995EFE611AE8D29C00B6ED17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 995EFE601AE8D29C00B6ED17 /* AppDelegate.m */; };
 		995EFE641AE8D29C00B6ED17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995EFE631AE8D29C00B6ED17 /* ViewController.m */; };
@@ -49,6 +55,16 @@
 		2E8D83721B0AB08300FD44F5 /* FailedActivityInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailedActivityInstance.m; sourceTree = "<group>"; };
 		2E8D83751B0ABAF800FD44F5 /* ActivtyInstancesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivtyInstancesManager.h; sourceTree = "<group>"; };
 		2E8D83761B0ABAF800FD44F5 /* ActivtyInstancesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivtyInstancesManager.m; sourceTree = "<group>"; };
+		2EB6B44E1B25735100D7C7A3 /* AchievedActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievedActivityTableViewCell.h; sourceTree = "<group>"; };
+		2EB6B44F1B25735100D7C7A3 /* AchievedActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievedActivityTableViewCell.m; sourceTree = "<group>"; };
+		2EB6B4501B25735100D7C7A3 /* AchievedActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AchievedActivityTableViewCell.xib; sourceTree = "<group>"; };
+		2EB6B45B1B26960300D7C7A3 /* FailedActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailedActivityTableViewCell.h; sourceTree = "<group>"; };
+		2EB6B45C1B26960300D7C7A3 /* FailedActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailedActivityTableViewCell.m; sourceTree = "<group>"; };
+		2EB6B45D1B26960300D7C7A3 /* FailedActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailedActivityTableViewCell.xib; sourceTree = "<group>"; };
+		2EC7B1401B2802D3007375C9 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
+		2EC7B1411B2802D3007375C9 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
+		2EC7B1421B2802D3007375C9 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
+		2EC7B1431B2802D3007375C9 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
 		995EFE581AE8D29C00B6ED17 /* Do it.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do it.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		995EFE5C1AE8D29C00B6ED17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		995EFE5D1AE8D29C00B6ED17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,6 +130,8 @@
 		2E79C9BE1B0BFDD0005AEDCD /* Activity TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				2EB6B4601B26960F00D7C7A3 /* Failed */,
+				2EB6B44D1B25731C00D7C7A3 /* Achievements */,
 				2E70B8CA1B22D78400A359D9 /* Ongoings */,
 			);
 			name = "Activity TableViewCells";
@@ -128,6 +146,37 @@
 				2E70B8CC1B22F61600A359D9 /* ActivityTableViewCellController.m */,
 			);
 			name = "Activity Management ";
+			sourceTree = "<group>";
+		};
+		2EB6B44D1B25731C00D7C7A3 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				2EB6B44E1B25735100D7C7A3 /* AchievedActivityTableViewCell.h */,
+				2EB6B44F1B25735100D7C7A3 /* AchievedActivityTableViewCell.m */,
+				2EB6B4501B25735100D7C7A3 /* AchievedActivityTableViewCell.xib */,
+			);
+			name = Achievements;
+			sourceTree = "<group>";
+		};
+		2EB6B4601B26960F00D7C7A3 /* Failed */ = {
+			isa = PBXGroup;
+			children = (
+				2EB6B45B1B26960300D7C7A3 /* FailedActivityTableViewCell.h */,
+				2EB6B45C1B26960300D7C7A3 /* FailedActivityTableViewCell.m */,
+				2EB6B45D1B26960300D7C7A3 /* FailedActivityTableViewCell.xib */,
+			);
+			name = Failed;
+			sourceTree = "<group>";
+		};
+		2EC7B13F1B2802BE007375C9 /* SwipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				2EC7B1401B2802D3007375C9 /* MGSwipeButton.h */,
+				2EC7B1411B2802D3007375C9 /* MGSwipeButton.m */,
+				2EC7B1421B2802D3007375C9 /* MGSwipeTableCell.h */,
+				2EC7B1431B2802D3007375C9 /* MGSwipeTableCell.m */,
+			);
+			name = SwipeCell;
 			sourceTree = "<group>";
 		};
 		995EFE4F1AE8D29C00B6ED17 = {
@@ -214,6 +263,7 @@
 		99E3B0FB1B0A00CF00A13838 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2EC7B13F1B2802BE007375C9 /* SwipeCell */,
 			);
 			name = Libs;
 			sourceTree = "<group>";
@@ -325,9 +375,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				995EFE671AE8D29C00B6ED17 /* Main.storyboard in Resources */,
+				2EB6B4521B25735100D7C7A3 /* AchievedActivityTableViewCell.xib in Resources */,
 				2E79C9C31B0C4827005AEDCD /* OngoingTableViewCell.xib in Resources */,
 				995EFE6C1AE8D29C00B6ED17 /* LaunchScreen.xib in Resources */,
 				995EFE691AE8D29C00B6ED17 /* Images.xcassets in Resources */,
+				2EB6B45F1B26960300D7C7A3 /* FailedActivityTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,13 +398,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E8D83701B0AADF800FD44F5 /* PastAcheievementActivityInstance.m in Sources */,
+				2EB6B45E1B26960300D7C7A3 /* FailedActivityTableViewCell.m in Sources */,
 				995EFE641AE8D29C00B6ED17 /* ViewController.m in Sources */,
+				2EC7B1451B2802D3007375C9 /* MGSwipeTableCell.m in Sources */,
+				2EC7B1441B2802D3007375C9 /* MGSwipeButton.m in Sources */,
 				2E8D83731B0AB08300FD44F5 /* FailedActivityInstance.m in Sources */,
 				995EFE611AE8D29C00B6ED17 /* AppDelegate.m in Sources */,
 				2E730E8F1B18194200110905 /* ActivitiesTableViewController.m in Sources */,
 				2E8D83771B0ABAF800FD44F5 /* ActivtyInstancesManager.m in Sources */,
 				2E79C9C21B0C4827005AEDCD /* OngoingTableViewCell.m in Sources */,
 				995EFE5E1AE8D29C00B6ED17 /* main.m in Sources */,
+				2EB6B4511B25735100D7C7A3 /* AchievedActivityTableViewCell.m in Sources */,
 				2E70B8CD1B22F61600A359D9 /* ActivityTableViewCellController.m in Sources */,
 				99E3B1001B0A014200A13838 /* OngoingActivityInstance.m in Sources */,
 			);

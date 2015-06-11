@@ -30,49 +30,7 @@
     
     //TODO::Style elements
     [self styleElements];
-        
-    //Set count down timer
-    self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
     
-}
-
-#pragma mark - Data manipulation methods
--(void)reduceTime{
-    //update instance property
-    _cellDataInstance.remainingSecs--;
-    //Update cell property
-    second--;
-    if (second < 0) {
-        minute --;
-    }
-    if (minute < 0) {
-        hour --;
-    }
-    if (hour < 0) {
-        day--;
-    }
-    if (day < 0) {
-        self.timeLeftLabel.text = @"End!";
-        //invalidate timer
-        [self.countDownTimer invalidate];
-        self.countDownTimer = nil;
-        //End activity
-        [self endActivity];
-    }
-    self.timeLeftLabel.text =  [NSString stringWithFormat:@"%ld:%ld:%ld:%ld",day,hour,minute,second];
-    
-    //Intensify
-    if (_cellDataInstance.remainingSecs <= 0.5 * secs) {
-        if (_cellDataInstance.remainingSecs <=0.1 * secs) {
-            [self increaseIntensityWithCurrentStatus:ONGOINGSTATUS_STRESS];
-            //update status
-            _cellDataInstance.statusCode = ONGOINGSTATUS_STRESS;
-        }else{
-            [self increaseIntensityWithCurrentStatus:ONGOINGSTATUS_MEDIUM];
-            //update status
-            _cellDataInstance.statusCode = ONGOINGSTATUS_MEDIUM;
-        }
-    }
 }
 
 
@@ -95,9 +53,6 @@
     secs = _cellDataInstance.remainingSecs;
     timeComponents = [[ActivtyInstancesManager sharedManager]constructTimeComponentsWithTimeInSecs:secs];
     self.timeLeftLabel.text = [ActivityTableViewCellController timeLeftLabelTextFromTimeComponents:timeComponents];
-    //Set count down timer
-    self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
-    
 }
 
 //End

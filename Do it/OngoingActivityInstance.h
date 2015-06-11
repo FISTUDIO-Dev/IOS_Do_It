@@ -24,6 +24,8 @@ typedef NS_ENUM(NSUInteger, OngoingActivitySatusCode){
 };
 @property (nonatomic) OngoingActivitySatusCode statusCode;
 
+@property(nonatomic) long initialTime;
+
 @property(nonatomic) NSInteger delayedTimes;
 
 //Constructor

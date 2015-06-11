@@ -22,12 +22,20 @@
         if (hour == 0) {
             if (minute == 0) {
                 if (second == 0) {
-                    return @"empty";
+                    return @"End!";
                 }else{
-                    return [NSString stringWithFormat:@"%ld",second];
-                    
+                    if (second < 10) {
+                        return [NSString stringWithFormat:@"00:0%ld",second];
+                    }
+                    return [NSString stringWithFormat:@"00:%ld",second];
                 }
             }else{
+                if (minute < 10) {
+                    if (second < 10) {
+                        return [NSString stringWithFormat:@"0%ld:0%ld",minute,second];
+                    }
+                    return [NSString stringWithFormat:@"0%ld:%ld",minute,second];
+                }
                 return [NSString stringWithFormat:@"%ld:%ld",minute,second];
             }
         }else{
@@ -38,6 +46,11 @@
     }
     
     return @"";
+}
+
++(NSString*)formattedDateStringFromDate:(NSDate *)date{
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
+    
 }
 
 @end

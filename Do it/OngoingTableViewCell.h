@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGSwipeTableCell.h"
 #import "ActivtyInstancesManager.h"
-@interface OngoingTableViewCell : UITableViewCell
+@interface OngoingTableViewCell : MGSwipeTableCell
 //Outlets
 @property (weak, nonatomic) IBOutlet UILabel *timeLeftLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ongoingTitleLabel;
@@ -21,5 +22,6 @@
 
 //Actions
 - (IBAction)completeTask:(id)sender;
-
+-(void)increaseIntensityWithCurrentStatus:(OngoingActivitySatusCode)statusCode;
+-(void)delayActivityWithTime:(long)addedSecs;
 @end

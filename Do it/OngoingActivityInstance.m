@@ -34,6 +34,7 @@
         self.remainingSecs = secs;
         //Non-visibles
         self.statusCode = ONGOINGSTATUS_AMPLE;
+        self.initialTime = secs;
     }
     return self;
 }

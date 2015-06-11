@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ActivitiesTableViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate>
+#import "MGSwipeTableCell.h"
+@interface ActivitiesTableViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate,MGSwipeTableCellDelegate>
 
 @end

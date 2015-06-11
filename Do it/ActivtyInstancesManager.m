@@ -82,13 +82,11 @@
 //Ongoing activity
 //---- Add
 -(void)addOngoingActivity:(OngoingActivityInstance*)activity{
+    if (ongoingActivityArray.count > 0) {
+        [ongoingActivityArray removeLastObject];
+    }
     [ongoingActivityArray addObject:activity];
 }
-//---- delay an ongoing event
--(void)delay:(OngoingActivityInstance*)ongoingActivity ForTime:(long)secs{
-    [ongoingActivity delayActivityFor:secs];
-}
-
 
 //Past Achievement
 
@@ -151,4 +149,14 @@
 - (NSMutableArray*)getAllActivities{
     return activitiesArray;
 }
+-(NSMutableArray*)getOngoingActivityInArray{
+    return ongoingActivityArray;
+}
+-(NSMutableArray*)getPastAchievementsArray{
+    return pastAchievementArray;
+}
+-(NSMutableArray*)getFailedActivityArray{
+    return failedActivityArray;
+}
+
 @end

@@ -17,12 +17,15 @@
 -(instancetype)init;
 
 -(BOOL)saveToFile;
--(NSMutableArray*)getAllActivities;
 -(void)convertToAchievementWithOngoingInstance:(OngoingActivityInstance*)instance;
 -(void)convertToFailedActivityWithOngoingInstance:(OngoingActivityInstance*)instance Giveup:(BOOL)giveup;
 -(NSDictionary*)constructTimeComponentsWithTimeInSecs:(long)secs;
 
 -(void)addOngoingActivity:(OngoingActivityInstance*)activity;
--(void)delay:(OngoingActivityInstance*)ongoingActivity ForTime:(long)secs;
 
+
+-(NSMutableArray*)getAllActivities;
+-(NSMutableArray*)getOngoingActivityInArray;
+-(NSMutableArray*)getPastAchievementsArray;
+-(NSMutableArray*)getFailedActivityArray;
 @end

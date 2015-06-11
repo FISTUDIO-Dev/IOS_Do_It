@@ -12,4 +12,5 @@
 
 +(NSString*)timeLeftLabelTextFromTimeComponents:(NSDictionary*)timeComponents;
 
++(NSString*)formattedDateStringFromDate:(NSDate*)date;
 @end
