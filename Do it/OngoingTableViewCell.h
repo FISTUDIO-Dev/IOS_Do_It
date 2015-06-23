@@ -24,4 +24,5 @@
 - (IBAction)completeTask:(id)sender;
 -(void)increaseIntensityWithCurrentStatus:(OngoingActivitySatusCode)statusCode;
 -(void)delayActivityWithTime:(long)addedSecs;
+-(void)endActivity;
 @end

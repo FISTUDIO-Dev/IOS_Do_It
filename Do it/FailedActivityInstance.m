@@ -34,6 +34,19 @@
     return [NSString stringWithFormat:@"This is a failed activty which has title %@, description %@ on date %@",self.failedTitle,self.failedDescription,self.failedDate];
 }
 
+-(NSUInteger)hash{
+    return [self.failedTitle hash]+[self.failedDescription hash]+[self.failedDate hash];
+}
 
+
+-(BOOL)isEqual:(id)object{
+    if ([object isKindOfClass:[self class]]) {
+        if ([self hash] == [object hash]) {
+            return YES;
+        }
+        return NO;
+    }
+    return NO;
+}
 
 @end

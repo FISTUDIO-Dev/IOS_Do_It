@@ -31,5 +31,20 @@
     return [NSString stringWithFormat:@"This is a past successful activity with title %@, description %@, finished on date %@", self.finishedTitle,self.finishedDescription,self.finishedDate];
 }
 
+-(NSUInteger)hash{
+    return [self.finishedTitle hash]+[self.finishedDescription hash]+[self.finishedDate hash]+ self.remainingSecs + self.delayedTimes;
+}
+
+
+
+-(BOOL)isEqual:(id)object{
+    if ([object isKindOfClass:[self class]]) {
+        if ([self hash] == [object hash]) {
+            return YES;
+        }
+        return NO;
+    }
+    return NO;
+}
 
 @end

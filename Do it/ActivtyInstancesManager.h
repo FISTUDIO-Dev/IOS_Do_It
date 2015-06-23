@@ -22,10 +22,13 @@
 -(NSDictionary*)constructTimeComponentsWithTimeInSecs:(long)secs;
 
 -(void)addOngoingActivity:(OngoingActivityInstance*)activity;
+-(void)deletePastAchievementInstanceIdenticalTo:(PastAcheievementActivityInstance*)instance;
+-(void)deleteFailedActivityInstanceIdenticalTo:(FailedActivityInstance*)isntance;
+-(void)deletePastAchievementInstanceAtIndex:(NSInteger)idx;
+-(void)deleteFailedACtivityInstanceAtIndex:(NSInteger)idx;
 
-
--(NSMutableArray*)getAllActivities;
--(NSMutableArray*)getOngoingActivityInArray;
--(NSMutableArray*)getPastAchievementsArray;
--(NSMutableArray*)getFailedActivityArray;
+-(NSArray*)getAllActivities;
+-(NSArray*)getOngoingActivityInArray;
+-(NSArray*)getPastAchievementsArray;
+-(NSArray*)getFailedActivityArray;
 @end

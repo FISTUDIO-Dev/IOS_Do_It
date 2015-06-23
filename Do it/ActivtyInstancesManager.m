@@ -20,6 +20,7 @@
 
 #pragma mark - Constructors
 +(id)sharedManager{
+    
     static ActivtyInstancesManager *manager = nil;
     static dispatch_once_t onceToken;
     
@@ -48,6 +49,8 @@
 #pragma mark - Instance Managements
 //Conversion
 - (void)convertToAchievementWithOngoingInstance:(OngoingActivityInstance*)instance{
+    //Remove ongoing activity
+    [ongoingActivityArray removeLastObject];
     //Extract data
     NSString *title = instance.activtyTitle;
     NSString *desc = instance.activityDescription;
@@ -57,8 +60,6 @@
     //Create past acheivement instance
     PastAcheievementActivityInstance * achievement = [[PastAcheievementActivityInstance alloc]initWithFinishedTitle:title Description:desc finishedDate:date remainingSecs:remainingSecs delayTimes:delayedTimes];
     [pastAchievementArray addObject:achievement];
-    //Remove ongoing activity
-    [ongoingActivityArray removeLastObject];
 }
 
 -(void)convertToFailedActivityWithOngoingInstance: (OngoingActivityInstance*)instance Giveup:(BOOL)giveup {
@@ -67,7 +68,7 @@
     NSString *desc = instance.activityDescription;
     NSDate* date = [NSDate date];
     //Create failed activity instance
-    FailedActivityInstance *failedInstance = NULL;
+    FailedActivityInstance *failedInstance;
     if (giveup) {
         failedInstance = [[FailedActivityInstance alloc]initWithFailedTitle:title Description:desc Date:date gaveUp:YES];
     }else{
@@ -89,10 +90,24 @@
 }
 
 //Past Achievement
-
+// ---- Delete
+-(void)deletePastAchievementInstanceIdenticalTo:(PastAcheievementActivityInstance*)instance{
+    NSUInteger findIndex = [pastAchievementArray indexOfObject:instance];
+    [pastAchievementArray removeObjectAtIndex:findIndex];
+}
+-(void)deletePastAchievementInstanceAtIndex:(NSInteger)idx{
+    [pastAchievementArray removeObjectAtIndex:idx];
+}
 
 //Past Failures
-
+// ---- Delete
+-(void)deleteFailedActivityInstanceIdenticalTo:(FailedActivityInstance*)instance{
+    NSUInteger findIndex = [failedActivityArray indexOfObject:instance];
+    [failedActivityArray removeObjectAtIndex:findIndex];
+}
+-(void)deleteFailedACtivityInstanceAtIndex:(NSInteger)idx{
+    [failedActivityArray removeObjectAtIndex:idx];
+}
 
 #pragma mark - File Manipulation
 -(BOOL)dataExists{
@@ -146,16 +161,16 @@
 
 
 #pragma mark - accessors
-- (NSMutableArray*)getAllActivities{
+- (NSArray*)getAllActivities{
     return activitiesArray;
 }
--(NSMutableArray*)getOngoingActivityInArray{
+-(NSArray*)getOngoingActivityInArray{
     return ongoingActivityArray;
 }
--(NSMutableArray*)getPastAchievementsArray{
+-(NSArray*)getPastAchievementsArray{
     return pastAchievementArray;
 }
--(NSMutableArray*)getFailedActivityArray{
+-(NSArray*)getFailedActivityArray{
     return failedActivityArray;
 }
 

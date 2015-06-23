@@ -10,6 +10,7 @@
 
 @implementation AchievedActivityTableViewCell
 
+#pragma mark - Overriden
 - (void)awakeFromNib {
     // style elements
     [self styleElements];
@@ -26,7 +27,9 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - Actions
 - (IBAction)shareTheSuccess:(id)sender {
     //TODO :: Share the achievement on social networks
 }
+
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MGSwipeTableCell.h"
+#import "UIViewController+CWPopup.h"
+
+
 @interface ActivitiesTableViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate,MGSwipeTableCellDelegate>
 
 @end

@@ -16,4 +16,7 @@
 @property (nonatomic) BOOL givenUp;
 
 -(instancetype)initWithFailedTitle:(NSString *)title Description:(NSString *)desc Date:(NSDate *)date gaveUp:(BOOL)givenup;
+
+-(NSUInteger)hash;
+-(BOOL)isEqual:(id)object;
 @end

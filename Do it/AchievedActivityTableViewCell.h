@@ -15,10 +15,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *achievedShareButton;
 @property (weak, nonatomic) IBOutlet UITextView *achievedTaskInfoText;
 
+@property (assign,nonatomic) UILabel * delayedTimes;
+@property (assign,nonatomic) UILabel * remainingTime;
+
 //Property
 @property (strong,nonatomic) PastAcheievementActivityInstance* pastAchievementCellInstance;
 
 //Actions
 - (IBAction)shareTheSuccess:(id)sender;
+
 
 @end

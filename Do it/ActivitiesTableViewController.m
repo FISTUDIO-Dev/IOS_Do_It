@@ -12,7 +12,11 @@
 #import "FailedActivityTableViewCell.h"
 #import "ActivityTableViewCellController.h"
 #import "MGSwipeButton.h"
-@interface ActivitiesTableViewController (){
+#import "DelayTimeSelectionViewController.h"
+#import "DelayTimeViewControllerDelegate.h"
+#import "EventCreationViewController.h"
+#import "EventCreationDelegate.h"
+@interface ActivitiesTableViewController ()<delayViewControllerDelegate,EventCreationDelegate>{
     //Ongoings
     OngoingActivityInstance * ongoingInstance;
     OngoingTableViewCell * ongoingCell;
@@ -24,31 +28,67 @@
 
 @implementation ActivitiesTableViewController
 
-- (void)viewWillAppear:(BOOL)animated{
-    //Preload data
-    
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    /* TEST START*/
     //create an ongoing instance for test
     OngoingActivityInstance * testInstance = [[OngoingActivityInstance alloc]initWithTitle:@"test" mainDescription:@"test description" remainingSecs:120];
     //copy
     ongoingInstance = testInstance;
     //add
     [[ActivtyInstancesManager sharedManager]addOngoingActivity:ongoingInstance];
+    /* TEST END */
     
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    //Intialize Ongoing Cell Timer
     //Initialize timer
-    self.ongoingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateOngoingCellText) userInfo:nil repeats:YES];
+    [self initialize];
 
     [[NSRunLoop mainRunLoop]addTimer:self.ongoingTimer forMode:NSRunLoopCommonModes];
+    
+    //Use blur for popup
+    self.useBlurForPopup = YES;
+    
+    //Add observer
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateTableView) name:@"notif_updateTableViewData" object:nil];
+    
+    BOOL ongoingExists = ([[ActivtyInstancesManager sharedManager]getOngoingActivityInArray].count > 0)?YES:NO;
+    
+    if (ongoingExists) {
+        EventCreationViewController *eventCreationViewController = [[EventCreationViewController alloc]initWithNibName:@"EventCreationViewController" bundle:nil];
+        eventCreationViewController.delegate = self;
+        [self presentPopupViewController:eventCreationViewController animated:YES completion:^(void){
+            [self.tableView setScrollEnabled:NO];
+        }];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) updateTableView{
+    [self.tableView reloadData];
+}
+
+-(void)pause{
+    [_ongoingTimer invalidate];
+}
+
+-(void)resume{
+    _ongoingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateOngoingCellText) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop]addTimer:self.ongoingTimer forMode:NSRunLoopCommonModes];
+}
+
+-(void)initialize{
+    _ongoingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateOngoingCellText) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop]addTimer:self.ongoingTimer forMode:NSRunLoopCommonModes];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"notif_updateTableViewData" object:nil];
 }
 
 #pragma mark - Table view data source
@@ -93,9 +133,13 @@
             //Create
             AchievedActivityTableViewCell * achievementCell = (AchievedActivityTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"achievementCell"];
             if (achievementCell == nil) {
-                achievementCell = [[[NSBundle mainBundle]loadNibNamed:@"AchievedActivityTableViewCell" owner:self options:nil]objectAtIndex:0 ];
+                achievementCell = [[[NSBundle mainBundle]loadNibNamed:@"AchievedActivityTableViewCell" owner:self options:nil]objectAtIndex:0];
             }
             achievementCell.delegate = self;
+            PastAcheievementActivityInstance* instance = [[[ActivtyInstancesManager sharedManager]getPastAchievementsArray]objectAtIndex:indexPath.row];
+            [self initializeAchievementCell:achievementCell WithAchievementInstance:instance];
+            
+            return achievementCell;
         }
             break;
         case 2:{
@@ -105,6 +149,10 @@
                 failedCell = [[[NSBundle mainBundle]loadNibNamed:@"FailedActivityTableViewCell" owner:self options:nil]objectAtIndex:0];
             }
             failedCell.delegate = self;
+            FailedActivityInstance* instance = [[[ActivtyInstancesManager sharedManager]getFailedActivityArray]objectAtIndex:indexPath.row];
+            [self initializeFailedActivityCell:failedCell WithFailedInstance:instance];
+            
+            return failedCell;
         }
         default:
             break;
@@ -161,22 +209,55 @@
 //Setup view for achievement cell
 -(void)initializeAchievementCell:(AchievedActivityTableViewCell*)cell WithAchievementInstance:(PastAcheievementActivityInstance*)dataInstance{
     
-    //TODO :: Initialize
-    NSString * achievedTitleText = [NSString stringWithFormat:@"Title: %@",dataInstance.finishedTitle];
-    NSString * achievedDescriptionText = [NSString stringWithFormat:@"Description: %@",dataInstance.finishedDescription];
+    //Data Instance
+    cell.pastAchievementCellInstance = dataInstance;
+    /* Visible */
+    //Title
+    NSString * achievedTitleText = [NSString stringWithFormat:@"Title: %@",cell.pastAchievementCellInstance.finishedTitle];
+    //Description
+    NSString * achievedDescriptionText = [NSString stringWithFormat:@"Description: %@",cell.pastAchievementCellInstance.finishedDescription];
+    //Date
+    NSString * achievedDateText = [NSString stringWithFormat:@"Finished on: %@",[ActivityTableViewCellController formattedDateStringFromDate:cell.pastAchievementCellInstance.finishedDate]];
+    /* Expandable */
+    NSString * achievedRemainingTimeText = [ActivityTableViewCellController remainingTimeTextFromTimeComponents:[[ActivtyInstancesManager sharedManager]constructTimeComponentsWithTimeInSecs:cell.pastAchievementCellInstance.remainingSecs]];
+    NSString * achievedDelayTimesText = [NSString stringWithFormat:@"Delayed: %ld times",cell.pastAchievementCellInstance.delayedTimes];
     
+    //Add to textview
+    cell.achievedTaskInfoText.text = [cell.achievedTaskInfoText.text stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@",achievedTitleText,achievedDescriptionText,achievedDateText]];
+    
+    //TODO :: Find out a way to expand tableviewcell
+    cell.remainingTime.text = achievedRemainingTimeText;
+    cell.delayedTimes.text = achievedDelayTimesText;
 }
 
 #pragma mark - Cell Controller - Failed activity Cell
 //Set up view for achievement cell
 -(void)initializeFailedActivityCell:(FailedActivityTableViewCell*)cell WithFailedInstance:(FailedActivityInstance*)dataInstance{
+
+    //Data instance
+    cell.failedCellInstance = dataInstance;
     
-    //TODO :: Initialize
+    //Status label
+    if (cell.failedCellInstance.givenUp) {
+        cell.failedActivityStatusLabel.text = @"Give up";
+    }else{
+        cell.failedActivityStatusLabel.text = @"Failed";
+    }
+    
+    //Title & Desc & Date
+    NSString * failedTitleText = [NSString stringWithFormat:@"Title: %@",cell.failedCellInstance.failedTitle];
+    NSString * failedDescText = [NSString stringWithFormat:@"Description: %@",cell.failedCellInstance.failedDescription];
+    NSString * failedDateText = [NSString stringWithFormat:@"Failed on: %@",[ActivityTableViewCellController formattedDateStringFromDate:cell.failedCellInstance.failedDate ]];
+    
+    //Add to text view
+    cell.failedActivityTaskInfo.text = [cell.failedActivityTaskInfo.text stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@",failedTitleText,failedDescText,failedDateText]];
+    
 }
 
 
 #pragma mark - Table view Config
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //TODO :: Change default height values
     switch (indexPath.section) {
         case 0:
             return 111;
@@ -246,14 +327,22 @@
     if (direction == MGSwipeDirectionRightToLeft) {
         //Ongoing cell
         if ([cell respondsToSelector:@selector(completeTask:)]) {
-            MGSwipeButton * delayBtn = [MGSwipeButton buttonWithTitle:@"Delay" backgroundColor:[UIColor colorWithRed:123/255 green:241/255 blue:255/255 alpha:1.0] padding:padding callback:^BOOL(MGSwipeTableCell* sender){
-                //TODO :: Delay action
-                return NO;
+            MGSwipeButton * delayBtn = [MGSwipeButton buttonWithTitle:@"Delay" backgroundColor:[UIColor colorWithRed:145/255 green:226/255 blue:255/255 alpha:0.57] padding:padding callback:^BOOL(MGSwipeTableCell* sender){
+                DelayTimeSelectionViewController * dtsvc = [[DelayTimeSelectionViewController alloc]initWithNibName:@"DelayTimeSelectionViewController" bundle:nil];
+                dtsvc.delayDelegate = self;
+                [self presentPopupViewController:dtsvc animated:YES completion:^(void){
+                    NSLog(@"Presented");
+                    [self.tableView setScrollEnabled:NO];
+                    [self pause];
+                }];
+                return YES;
             }];
             
-            MGSwipeButton * giveUpBtn = [MGSwipeButton buttonWithTitle:@"Give up" backgroundColor:[UIColor redColor] padding:padding callback:^BOOL(MGSwipeTableCell* sender){
-                //TODO :: Give up action
-                return NO;
+            MGSwipeButton * giveUpBtn = [MGSwipeButton buttonWithTitle:@"Give up" backgroundColor:[UIColor colorWithRed:255/255 green:0/255 blue:0/255 alpha:0.57] padding:padding callback:^BOOL(MGSwipeTableCell* sender){
+                
+                [ongoingCell endActivity];
+                [self updateTableView];
+                return YES;
             }];
             
             buttonArray = @[giveUpBtn,delayBtn];
@@ -263,8 +352,11 @@
         //Past Achievement Cell
         if ([cell respondsToSelector:@selector(shareTheSuccess:)]) {
             MGSwipeButton * deleteAchievementBtn = [MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:[UIColor redColor] padding:padding callback:^BOOL(MGSwipeTableCell* sender){
-                //TODO:: Delete past achievement
-                return NO;
+                //TOTEST:: Delete past achievement
+                NSInteger index = [self.tableView indexPathForCell:cell].row;
+                [[ActivtyInstancesManager sharedManager]deletePastAchievementInstanceAtIndex:index];
+                [self updateTableView];
+                return YES;
             }];
             
             buttonArray = @[deleteAchievementBtn];
@@ -274,8 +366,10 @@
         //Failed activity cell
         if ([cell respondsToSelector:@selector(retryFailedActivity:)]) {
             MGSwipeButton * deleteFailedBtn = [MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:[UIColor redColor] padding:padding callback:^BOOL(MGSwipeTableCell* sender){
-                //TODO:: Delete past achievement
-                return NO;
+                NSInteger index = [self.tableView indexPathForCell:cell].row;
+                [[ActivtyInstancesManager sharedManager]deleteFailedACtivityInstanceAtIndex:index];
+                [self updateTableView];
+                return YES;
             }];
             
             buttonArray = @[deleteFailedBtn];
@@ -287,12 +381,38 @@
 }
 
 -(void)swipeTableCell:(MGSwipeTableCell *)cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive{
-    
-    //TODO :: Add blur to indicate that timer is still ongoing
-    NSLog(@"Swiped..");
+    if (gestureIsActive) {
+        [self pause];
+    }else{
+        [self resume];
+    }
 }
 
+#pragma mark - delayTimeVC Delegate
+-(void)dismissDelayTimePopupViewController{
+    if (self.popupViewController !=nil) {
+        [self dismissPopupViewControllerAnimated:YES completion:^(void){
+            NSLog(@"Dismissed");
+            [self.tableView setScrollEnabled:YES];
+            [self resume];
+        }];
+    }
+}
+-(void)retrieveDelayedTimeInSeconds:(long)secs{
+    //Add delayed seconds
+    ongoingCell.cellDataInstance.remainingSecs += secs;
+    //Wait for update
+}
 
+#pragma mark - EventCreationViewController Delegate
+-(void)dismissEventCreationViewController{
+    if (self.popupViewController != nil) {
+        [self dismissPopupViewControllerAnimated:YES completion:^(void){
+            NSLog(@"Dismissed");
+            [self.tableView setScrollEnabled:YES];
+        }];
+    }
+}
 
 
 @end

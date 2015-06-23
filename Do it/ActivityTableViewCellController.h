@@ -10,7 +10,12 @@
 
 @interface ActivityTableViewCellController : NSObject
 
+//Construct Time Label for Ongong Activity
 +(NSString*)timeLeftLabelTextFromTimeComponents:(NSDictionary*)timeComponents;
 
+//Construct date text for Achievement cells
 +(NSString*)formattedDateStringFromDate:(NSDate*)date;
+
+//Construct remaining time text for Achievement cells
++(NSString*)remainingTimeTextFromTimeComponents:(NSDictionary*)timeComponents;
 @end

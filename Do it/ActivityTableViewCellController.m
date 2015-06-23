@@ -45,12 +45,50 @@
         return [NSString stringWithFormat:@"%ld:%ld:%ld:%ld",day,hour,minute,second];
     }
     
-    return @"";
+    return @"No Time Records";
 }
 
 +(NSString*)formattedDateStringFromDate:(NSDate *)date{
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
-    
+    NSDateComponents * dateComponents = [[NSCalendar currentCalendar]components:NSCalendarUnitMinute|NSCalendarUnitHour|NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear fromDate:date];
+    NSInteger month = [dateComponents month];
+    NSInteger day = [dateComponents day];
+    NSInteger year = [dateComponents year];
+    NSString* monthWithName = [[dateFormatter shortMonthSymbols]objectAtIndex:month-1];
+    //Contruction
+    NSString * dateString = [NSString stringWithFormat:@"%@ %ld,%ld",monthWithName,day,year];
+    return dateString;
 }
+
++(NSString*)remainingTimeTextFromTimeComponents:(NSDictionary *)timeComponents{
+    //Extract data
+    NSInteger day = [(NSNumber *)[timeComponents valueForKey:@"day"] integerValue];
+    NSInteger hour = [(NSNumber*)[timeComponents valueForKey:@"hour"] integerValue];
+    NSInteger minute = [(NSNumber*)[timeComponents valueForKey:@"minute"] integerValue];
+    NSInteger second = [(NSNumber*)[timeComponents valueForKey:@"second"] integerValue];
+    //Prefix
+    NSString* remainingPrefix = @"Time left: ";
+    //Construction
+    if (day == 0) {
+        if (hour == 0) {
+            if (minute == 0) {
+                if (second == 0) {
+                    return @"Completed On Time.";
+                }else{
+                    return [NSString stringWithFormat:@"%@:%ld secs",remainingPrefix,second];
+                }
+            }else{
+                return [NSString stringWithFormat:@"%@: %ld mins %ld secs",remainingPrefix,minute,second];
+            }
+        }else{
+            return [NSString stringWithFormat:@"%@: %ld hours %ld mins %ld secs",remainingPrefix,hour,minute,second];
+        }
+    }else{
+        return [NSString stringWithFormat:@"%@: %ld days %ld hours %ld mins %ld secs",remainingPrefix,day,hour,minute,second];
+    }
+    
+    return @"No Time Records";
+}
+
 
 @end

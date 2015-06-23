@@ -18,5 +18,7 @@
 
 -(instancetype)initWithFinishedTitle:(NSString*)title Description:(NSString*)desc finishedDate:(NSDate*)date remainingSecs:(long)secs delayTimes:(NSInteger)times;
 
+-(BOOL)isEqual:(id)object;
 
+-(NSUInteger)hash;
 @end

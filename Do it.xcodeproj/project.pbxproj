@@ -20,6 +20,32 @@
 		2EB6B45F1B26960300D7C7A3 /* FailedActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB6B45D1B26960300D7C7A3 /* FailedActivityTableViewCell.xib */; };
 		2EC7B1441B2802D3007375C9 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B1411B2802D3007375C9 /* MGSwipeButton.m */; };
 		2EC7B1451B2802D3007375C9 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B1431B2802D3007375C9 /* MGSwipeTableCell.m */; };
+		8C675CF41B2FF29F00D517CB /* JCDataPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675CF21B2FF29F00D517CB /* JCDataPicker.m */; };
+		8C675CF81B2FF30B00D517CB /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675CF71B2FF30B00D517CB /* UIViewController+CWPopup.m */; };
+		8C675CFD1B2FF44900D517CB /* DelayTimeSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675CFB1B2FF44900D517CB /* DelayTimeSelectionViewController.m */; };
+		8C675CFE1B2FF44900D517CB /* DelayTimeSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C675CFC1B2FF44900D517CB /* DelayTimeSelectionViewController.xib */; };
+		8C675D091B303E0A00D517CB /* UIView+MaterialDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675D081B303E0A00D517CB /* UIView+MaterialDesign.m */; };
+		8C675D131B30407D00D517CB /* EventCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675D111B30407D00D517CB /* EventCreationViewController.m */; };
+		8C675D141B30407D00D517CB /* EventCreationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C675D121B30407D00D517CB /* EventCreationViewController.xib */; };
+		8C675D171B30412100D517CB /* IntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675D161B30412100D517CB /* IntroView.m */; };
+		8C675D1C1B30497300D517CB /* FeRadialButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675D191B30497300D517CB /* FeRadialButton.m */; };
+		8C675D1D1B30497300D517CB /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675D1B1B30497300D517CB /* UIColor+flat.m */; };
+		8C675D201B30498F00D517CB /* FeBasicAnimationBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675D1F1B30498F00D517CB /* FeBasicAnimationBlock.m */; };
+		8C675D221B3049A300D517CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C675D211B3049A300D517CB /* QuartzCore.framework */; };
+		8CA45A0F1B39030400A18768 /* FinalizingTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA45A0E1B39030400A18768 /* FinalizingTaskView.m */; };
+		8CA45A111B39032C00A18768 /* FinalizingTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CA45A101B39032C00A18768 /* FinalizingTaskView.xib */; };
+		8CA45A131B39059A00A18768 /* icon_finish_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CA45A121B39059A00A18768 /* icon_finish_white@2x.png */; };
+		8CD23EB31B3425E300452F43 /* icon_proceed_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CD23EB21B3425E300452F43 /* icon_proceed_white@2x.png */; };
+		8CD23EB91B342EA400452F43 /* MKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD23EB81B342EA400452F43 /* MKTextField.swift */; };
+		8CD23EBD1B3430A500452F43 /* MKLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD23EBB1B3430A500452F43 /* MKLayer.swift */; };
+		8CD23EBE1B3430A500452F43 /* MKColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD23EBC1B3430A500452F43 /* MKColor.swift */; };
+		8CD23EC21B34354A00452F43 /* TimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD23EC11B34354A00452F43 /* TimePickerView.m */; };
+		8CD23EC41B34359800452F43 /* TimePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CD23EC31B34359800452F43 /* TimePickerView.xib */; };
+		8CDFB39B1B30FEB0009B431A /* IntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CDFB39A1B30FEB0009B431A /* IntroView.xib */; };
+		8CDFB3A01B31308C009B431A /* TaskCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDFB39F1B31308C009B431A /* TaskCreation.m */; };
+		8CDFB3A21B3130AE009B431A /* TaskCreation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CDFB3A11B3130AE009B431A /* TaskCreation.xib */; };
+		8CDFB3A51B3133B2009B431A /* icon_proceed_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CDFB3A41B3133B2009B431A /* icon_proceed_blue@2x.png */; };
+		8CDFB3AA1B313A12009B431A /* FeRippleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDFB3A91B313A12009B431A /* FeRippleButton.m */; };
 		995EFE5E1AE8D29C00B6ED17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 995EFE5D1AE8D29C00B6ED17 /* main.m */; };
 		995EFE611AE8D29C00B6ED17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 995EFE601AE8D29C00B6ED17 /* AppDelegate.m */; };
 		995EFE641AE8D29C00B6ED17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995EFE631AE8D29C00B6ED17 /* ViewController.m */; };
@@ -65,6 +91,49 @@
 		2EC7B1411B2802D3007375C9 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
 		2EC7B1421B2802D3007375C9 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
 		2EC7B1431B2802D3007375C9 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
+		8C675CF11B2FF29F00D517CB /* JCDataPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCDataPicker.h; sourceTree = "<group>"; };
+		8C675CF21B2FF29F00D517CB /* JCDataPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCDataPicker.m; sourceTree = "<group>"; };
+		8C675CF31B2FF29F00D517CB /* JCDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCDataDelegate.h; sourceTree = "<group>"; };
+		8C675CF61B2FF30B00D517CB /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
+		8C675CF71B2FF30B00D517CB /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
+		8C675CFA1B2FF44900D517CB /* DelayTimeSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayTimeSelectionViewController.h; sourceTree = "<group>"; };
+		8C675CFB1B2FF44900D517CB /* DelayTimeSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayTimeSelectionViewController.m; sourceTree = "<group>"; };
+		8C675CFC1B2FF44900D517CB /* DelayTimeSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DelayTimeSelectionViewController.xib; sourceTree = "<group>"; };
+		8C675D001B2FF7EA00D517CB /* DelayTimeViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayTimeViewControllerDelegate.h; sourceTree = "<group>"; };
+		8C675D071B303E0A00D517CB /* UIView+MaterialDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MaterialDesign.h"; sourceTree = "<group>"; };
+		8C675D081B303E0A00D517CB /* UIView+MaterialDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MaterialDesign.m"; sourceTree = "<group>"; };
+		8C675D101B30407D00D517CB /* EventCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCreationViewController.h; sourceTree = "<group>"; };
+		8C675D111B30407D00D517CB /* EventCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCreationViewController.m; sourceTree = "<group>"; };
+		8C675D121B30407D00D517CB /* EventCreationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCreationViewController.xib; sourceTree = "<group>"; };
+		8C675D151B30412100D517CB /* IntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroView.h; sourceTree = "<group>"; };
+		8C675D161B30412100D517CB /* IntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroView.m; sourceTree = "<group>"; };
+		8C675D181B30497300D517CB /* FeRadialButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeRadialButton.h; sourceTree = "<group>"; };
+		8C675D191B30497300D517CB /* FeRadialButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeRadialButton.m; sourceTree = "<group>"; };
+		8C675D1A1B30497300D517CB /* UIColor+flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+flat.h"; sourceTree = "<group>"; };
+		8C675D1B1B30497300D517CB /* UIColor+flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+flat.m"; sourceTree = "<group>"; };
+		8C675D1E1B30498F00D517CB /* FeBasicAnimationBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeBasicAnimationBlock.h; sourceTree = "<group>"; };
+		8C675D1F1B30498F00D517CB /* FeBasicAnimationBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeBasicAnimationBlock.m; sourceTree = "<group>"; };
+		8C675D211B3049A300D517CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8CA45A0D1B39030400A18768 /* FinalizingTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinalizingTaskView.h; sourceTree = "<group>"; };
+		8CA45A0E1B39030400A18768 /* FinalizingTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinalizingTaskView.m; sourceTree = "<group>"; };
+		8CA45A101B39032C00A18768 /* FinalizingTaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinalizingTaskView.xib; sourceTree = "<group>"; };
+		8CA45A121B39059A00A18768 /* icon_finish_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_finish_white@2x.png"; sourceTree = "<group>"; };
+		8CA45A151B39116300A18768 /* EventCreationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCreationDelegate.h; sourceTree = "<group>"; };
+		8CD23EB21B3425E300452F43 /* icon_proceed_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_proceed_white@2x.png"; sourceTree = "<group>"; };
+		8CD23EB81B342EA400452F43 /* MKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKTextField.swift; sourceTree = "<group>"; };
+		8CD23EBA1B342FA200452F43 /* SwiftBridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftBridging.h; sourceTree = "<group>"; };
+		8CD23EBB1B3430A500452F43 /* MKLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLayer.swift; sourceTree = "<group>"; };
+		8CD23EBC1B3430A500452F43 /* MKColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKColor.swift; sourceTree = "<group>"; };
+		8CD23EC01B34354A00452F43 /* TimePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerView.h; sourceTree = "<group>"; };
+		8CD23EC11B34354A00452F43 /* TimePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerView.m; sourceTree = "<group>"; };
+		8CD23EC31B34359800452F43 /* TimePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerView.xib; sourceTree = "<group>"; };
+		8CDFB39A1B30FEB0009B431A /* IntroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroView.xib; sourceTree = "<group>"; };
+		8CDFB39E1B31308C009B431A /* TaskCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCreation.h; sourceTree = "<group>"; };
+		8CDFB39F1B31308C009B431A /* TaskCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCreation.m; sourceTree = "<group>"; };
+		8CDFB3A11B3130AE009B431A /* TaskCreation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCreation.xib; sourceTree = "<group>"; };
+		8CDFB3A41B3133B2009B431A /* icon_proceed_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_proceed_blue@2x.png"; sourceTree = "<group>"; };
+		8CDFB3A81B313A12009B431A /* FeRippleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeRippleButton.h; sourceTree = "<group>"; };
+		8CDFB3A91B313A12009B431A /* FeRippleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeRippleButton.m; sourceTree = "<group>"; };
 		995EFE581AE8D29C00B6ED17 /* Do it.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do it.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		995EFE5C1AE8D29C00B6ED17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		995EFE5D1AE8D29C00B6ED17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C675D221B3049A300D517CB /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,9 +249,156 @@
 			name = SwipeCell;
 			sourceTree = "<group>";
 		};
+		8C675CF01B2FF03800D517CB /* PopupPicker */ = {
+			isa = PBXGroup;
+			children = (
+				8C675CF11B2FF29F00D517CB /* JCDataPicker.h */,
+				8C675CF21B2FF29F00D517CB /* JCDataPicker.m */,
+				8C675CF31B2FF29F00D517CB /* JCDataDelegate.h */,
+			);
+			name = PopupPicker;
+			sourceTree = "<group>";
+		};
+		8C675CF51B2FF2F900D517CB /* PopupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C675CF61B2FF30B00D517CB /* UIViewController+CWPopup.h */,
+				8C675CF71B2FF30B00D517CB /* UIViewController+CWPopup.m */,
+			);
+			name = PopupViewController;
+			sourceTree = "<group>";
+		};
+		8C675CF91B2FF3C700D517CB /* Extra ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C675D021B302E5D00D517CB /* EventCreationViewController */,
+				8C675D011B302E4700D517CB /* DelayTimeViewController */,
+			);
+			name = "Extra ViewControllers";
+			sourceTree = "<group>";
+		};
+		8C675D011B302E4700D517CB /* DelayTimeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C675CFA1B2FF44900D517CB /* DelayTimeSelectionViewController.h */,
+				8C675CFB1B2FF44900D517CB /* DelayTimeSelectionViewController.m */,
+				8C675CFC1B2FF44900D517CB /* DelayTimeSelectionViewController.xib */,
+				8C675D001B2FF7EA00D517CB /* DelayTimeViewControllerDelegate.h */,
+			);
+			name = DelayTimeViewController;
+			sourceTree = "<group>";
+		};
+		8C675D021B302E5D00D517CB /* EventCreationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C675D0F1B303F6100D517CB /* Views */,
+				8C675D101B30407D00D517CB /* EventCreationViewController.h */,
+				8C675D111B30407D00D517CB /* EventCreationViewController.m */,
+				8C675D121B30407D00D517CB /* EventCreationViewController.xib */,
+				8CA45A151B39116300A18768 /* EventCreationDelegate.h */,
+			);
+			name = EventCreationViewController;
+			sourceTree = "<group>";
+		};
+		8C675D061B303DF300D517CB /* MaterialViewTransition */ = {
+			isa = PBXGroup;
+			children = (
+				8C675D071B303E0A00D517CB /* UIView+MaterialDesign.h */,
+				8C675D081B303E0A00D517CB /* UIView+MaterialDesign.m */,
+			);
+			name = MaterialViewTransition;
+			sourceTree = "<group>";
+		};
+		8C675D0A1B303EE000D517CB /* MaterialRadialButton */ = {
+			isa = PBXGroup;
+			children = (
+				8CDFB3A81B313A12009B431A /* FeRippleButton.h */,
+				8CDFB3A91B313A12009B431A /* FeRippleButton.m */,
+				8C675D1E1B30498F00D517CB /* FeBasicAnimationBlock.h */,
+				8C675D1F1B30498F00D517CB /* FeBasicAnimationBlock.m */,
+				8C675D181B30497300D517CB /* FeRadialButton.h */,
+				8C675D191B30497300D517CB /* FeRadialButton.m */,
+				8C675D1A1B30497300D517CB /* UIColor+flat.h */,
+				8C675D1B1B30497300D517CB /* UIColor+flat.m */,
+			);
+			name = MaterialRadialButton;
+			sourceTree = "<group>";
+		};
+		8C675D0F1B303F6100D517CB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8CA45A0C1B3902D400A18768 /* Finalizing */,
+				8CD23EBF1B34351A00452F43 /* Time Picker */,
+				8CDFB39D1B313031009B431A /* Task */,
+				8CDFB39C1B313019009B431A /* Intro */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8CA45A0C1B3902D400A18768 /* Finalizing */ = {
+			isa = PBXGroup;
+			children = (
+				8CA45A0D1B39030400A18768 /* FinalizingTaskView.h */,
+				8CA45A0E1B39030400A18768 /* FinalizingTaskView.m */,
+				8CA45A101B39032C00A18768 /* FinalizingTaskView.xib */,
+			);
+			name = Finalizing;
+			sourceTree = "<group>";
+		};
+		8CD23EB41B342C4600452F43 /* MaterialKit */ = {
+			isa = PBXGroup;
+			children = (
+				8CD23EBB1B3430A500452F43 /* MKLayer.swift */,
+				8CD23EBC1B3430A500452F43 /* MKColor.swift */,
+				8CD23EB81B342EA400452F43 /* MKTextField.swift */,
+			);
+			name = MaterialKit;
+			sourceTree = "<group>";
+		};
+		8CD23EBF1B34351A00452F43 /* Time Picker */ = {
+			isa = PBXGroup;
+			children = (
+				8CD23EC01B34354A00452F43 /* TimePickerView.h */,
+				8CD23EC11B34354A00452F43 /* TimePickerView.m */,
+				8CD23EC31B34359800452F43 /* TimePickerView.xib */,
+			);
+			name = "Time Picker";
+			sourceTree = "<group>";
+		};
+		8CDFB39C1B313019009B431A /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				8C675D151B30412100D517CB /* IntroView.h */,
+				8C675D161B30412100D517CB /* IntroView.m */,
+				8CDFB39A1B30FEB0009B431A /* IntroView.xib */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
+		8CDFB39D1B313031009B431A /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				8CDFB39E1B31308C009B431A /* TaskCreation.h */,
+				8CDFB39F1B31308C009B431A /* TaskCreation.m */,
+				8CDFB3A11B3130AE009B431A /* TaskCreation.xib */,
+			);
+			name = Task;
+			sourceTree = "<group>";
+		};
+		8CDFB3A31B313256009B431A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8CA45A121B39059A00A18768 /* icon_finish_white@2x.png */,
+				8CD23EB21B3425E300452F43 /* icon_proceed_white@2x.png */,
+				8CDFB3A41B3133B2009B431A /* icon_proceed_blue@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		995EFE4F1AE8D29C00B6ED17 = {
 			isa = PBXGroup;
 			children = (
+				8C675D211B3049A300D517CB /* QuartzCore.framework */,
 				995EFE5A1AE8D29C00B6ED17 /* Do it */,
 				995EFE741AE8D29C00B6ED17 /* Do itTests */,
 				995EFE591AE8D29C00B6ED17 /* Products */,
@@ -252,6 +469,7 @@
 		99E3B0FA1B0A00C900A13838 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8C675CF91B2FF3C700D517CB /* Extra ViewControllers */,
 				2E730E8C1B18191400110905 /* Activities TableView */,
 				2E79C9BE1B0BFDD0005AEDCD /* Activity TableViewCells */,
 				2E8D83741B0ABA1900FD44F5 /* Activity Management  */,
@@ -263,6 +481,12 @@
 		99E3B0FB1B0A00CF00A13838 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				8CD23EBA1B342FA200452F43 /* SwiftBridging.h */,
+				8CD23EB41B342C4600452F43 /* MaterialKit */,
+				8C675D0A1B303EE000D517CB /* MaterialRadialButton */,
+				8C675D061B303DF300D517CB /* MaterialViewTransition */,
+				8C675CF51B2FF2F900D517CB /* PopupViewController */,
+				8C675CF01B2FF03800D517CB /* PopupPicker */,
 				2EC7B13F1B2802BE007375C9 /* SwipeCell */,
 			);
 			name = Libs;
@@ -271,6 +495,7 @@
 		99E3B0FC1B0A00D600A13838 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8CDFB3A31B313256009B431A /* Images */,
 				2E566A391B0C552400F05D55 /* Font */,
 			);
 			name = Resources;
@@ -375,10 +600,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				995EFE671AE8D29C00B6ED17 /* Main.storyboard in Resources */,
+				8CDFB3A21B3130AE009B431A /* TaskCreation.xib in Resources */,
+				8CA45A111B39032C00A18768 /* FinalizingTaskView.xib in Resources */,
+				8CDFB3A51B3133B2009B431A /* icon_proceed_blue@2x.png in Resources */,
+				8CD23EC41B34359800452F43 /* TimePickerView.xib in Resources */,
 				2EB6B4521B25735100D7C7A3 /* AchievedActivityTableViewCell.xib in Resources */,
+				8CD23EB31B3425E300452F43 /* icon_proceed_white@2x.png in Resources */,
+				8C675CFE1B2FF44900D517CB /* DelayTimeSelectionViewController.xib in Resources */,
 				2E79C9C31B0C4827005AEDCD /* OngoingTableViewCell.xib in Resources */,
 				995EFE6C1AE8D29C00B6ED17 /* LaunchScreen.xib in Resources */,
+				8CDFB39B1B30FEB0009B431A /* IntroView.xib in Resources */,
+				8CA45A131B39059A00A18768 /* icon_finish_white@2x.png in Resources */,
 				995EFE691AE8D29C00B6ED17 /* Images.xcassets in Resources */,
+				8C675D141B30407D00D517CB /* EventCreationViewController.xib in Resources */,
 				2EB6B45F1B26960300D7C7A3 /* FailedActivityTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,19 +632,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E8D83701B0AADF800FD44F5 /* PastAcheievementActivityInstance.m in Sources */,
+				8CDFB3A01B31308C009B431A /* TaskCreation.m in Sources */,
 				2EB6B45E1B26960300D7C7A3 /* FailedActivityTableViewCell.m in Sources */,
+				8CD23EC21B34354A00452F43 /* TimePickerView.m in Sources */,
+				8C675D091B303E0A00D517CB /* UIView+MaterialDesign.m in Sources */,
 				995EFE641AE8D29C00B6ED17 /* ViewController.m in Sources */,
 				2EC7B1451B2802D3007375C9 /* MGSwipeTableCell.m in Sources */,
 				2EC7B1441B2802D3007375C9 /* MGSwipeButton.m in Sources */,
+				8CD23EBD1B3430A500452F43 /* MKLayer.swift in Sources */,
 				2E8D83731B0AB08300FD44F5 /* FailedActivityInstance.m in Sources */,
 				995EFE611AE8D29C00B6ED17 /* AppDelegate.m in Sources */,
 				2E730E8F1B18194200110905 /* ActivitiesTableViewController.m in Sources */,
+				8C675CFD1B2FF44900D517CB /* DelayTimeSelectionViewController.m in Sources */,
 				2E8D83771B0ABAF800FD44F5 /* ActivtyInstancesManager.m in Sources */,
 				2E79C9C21B0C4827005AEDCD /* OngoingTableViewCell.m in Sources */,
 				995EFE5E1AE8D29C00B6ED17 /* main.m in Sources */,
+				8C675D1C1B30497300D517CB /* FeRadialButton.m in Sources */,
+				8C675CF81B2FF30B00D517CB /* UIViewController+CWPopup.m in Sources */,
+				8C675CF41B2FF29F00D517CB /* JCDataPicker.m in Sources */,
+				8CDFB3AA1B313A12009B431A /* FeRippleButton.m in Sources */,
+				8CD23EBE1B3430A500452F43 /* MKColor.swift in Sources */,
+				8C675D1D1B30497300D517CB /* UIColor+flat.m in Sources */,
 				2EB6B4511B25735100D7C7A3 /* AchievedActivityTableViewCell.m in Sources */,
 				2E70B8CD1B22F61600A359D9 /* ActivityTableViewCellController.m in Sources */,
+				8CA45A0F1B39030400A18768 /* FinalizingTaskView.m in Sources */,
+				8C675D131B30407D00D517CB /* EventCreationViewController.m in Sources */,
 				99E3B1001B0A014200A13838 /* OngoingActivityInstance.m in Sources */,
+				8CD23EB91B342EA400452F43 /* MKTextField.swift in Sources */,
+				8C675D171B30412100D517CB /* IntroView.m in Sources */,
+				8C675D201B30498F00D517CB /* FeBasicAnimationBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,10 +782,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Do it/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Do it/SwiftBridging.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -543,10 +798,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Do it/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Do it/SwiftBridging.h";
 			};
 			name = Release;
 		};

@@ -38,6 +38,7 @@
 //Complete
 - (IBAction)completeTask:(id)sender {
    [[ActivtyInstancesManager sharedManager]convertToAchievementWithOngoingInstance:_cellDataInstance];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"notif_updateTableViewData" object:nil];
 }
 
 //Delay (should I?)
@@ -57,7 +58,7 @@
 
 //End
 -(void)endActivity{
-    if (_cellDataInstance.remainingSecs < 0) {
+    if (_cellDataInstance.remainingSecs < 1) {
         //update status
         _cellDataInstance.statusCode = ONGOINGSTATUS_FAILED;
         [[ActivtyInstancesManager sharedManager]convertToFailedActivityWithOngoingInstance:_cellDataInstance Giveup:NO];
@@ -73,6 +74,7 @@
 #pragma mark - Notfification receivers
 -(void)increaseIntensityWithCurrentStatus:(OngoingActivitySatusCode)statusCode{
     //TODO:: Update cell color based on status code
+    
 }
 
 -(void)dealloc{
