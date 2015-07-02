@@ -16,10 +16,15 @@
 #import "DelayTimeViewControllerDelegate.h"
 #import "EventCreationViewController.h"
 #import "EventCreationDelegate.h"
-@interface ActivitiesTableViewController ()<delayViewControllerDelegate,EventCreationDelegate>{
+#import "TimePickerViewController.h"
+#import "TimePickerViewControllerDelegate.h"
+@interface ActivitiesTableViewController ()<delayViewControllerDelegate,EventCreationDelegate,TimePickerViewControllerDelegate,UIActionSheetDelegate>{
     //Ongoings
     OngoingActivityInstance * ongoingInstance;
     OngoingTableViewCell * ongoingCell;
+    
+    //Temporary Failed Instance for Retrial
+    FailedActivityInstance* tempFailedInstance;
     
 }
 @property(nonatomic,weak)NSTimer * ongoingTimer;
@@ -31,35 +36,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    /* TEST START*/
-    //create an ongoing instance for test
-    OngoingActivityInstance * testInstance = [[OngoingActivityInstance alloc]initWithTitle:@"test" mainDescription:@"test description" remainingSecs:120];
-    //copy
-    ongoingInstance = testInstance;
-    //add
+    /* Test instance */
+    ongoingInstance = [[OngoingActivityInstance alloc]initWithTitle:@"test for spesh" mainDescription:@"This time focus on speed" remainingSecs:5];
     [[ActivtyInstancesManager sharedManager]addOngoingActivity:ongoingInstance];
-    /* TEST END */
-    
-    //Initialize timer
-    [self initialize];
-
-    [[NSRunLoop mainRunLoop]addTimer:self.ongoingTimer forMode:NSRunLoopCommonModes];
     
     //Use blur for popup
     self.useBlurForPopup = YES;
     
-    //Add observer
+    //Add observer for update tableview
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateTableView) name:@"notif_updateTableViewData" object:nil];
+    //Add observer for present actionsheet
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(presentNewTimeSelectionSheet:) name:@"notif_presentRetryTimePickerActionSheet" object:nil];
     
+    //Check if ongoing exits
     BOOL ongoingExists = ([[ActivtyInstancesManager sharedManager]getOngoingActivityInArray].count > 0)?YES:NO;
-    
-    if (ongoingExists) {
+    //If !exist -> create a new one
+    if (!ongoingExists) {
         EventCreationViewController *eventCreationViewController = [[EventCreationViewController alloc]initWithNibName:@"EventCreationViewController" bundle:nil];
         eventCreationViewController.delegate = self;
         [self presentPopupViewController:eventCreationViewController animated:YES completion:^(void){
             [self.tableView setScrollEnabled:NO];
         }];
+    }else{
+        [self loadOngoingInstance];
     }
     
 }
@@ -73,13 +72,21 @@
     [self.tableView reloadData];
 }
 
+-(void)loadOngoingInstance{
+    ongoingInstance = [[ActivtyInstancesManager sharedManager]getOngoingInstance];
+    [self updateTableView];
+    //Initialize timer
+    [self initialize];
+    
+    [[NSRunLoop mainRunLoop]addTimer:self.ongoingTimer forMode:NSRunLoopCommonModes];
+}
+
 -(void)pause{
     [_ongoingTimer invalidate];
 }
 
 -(void)resume{
     _ongoingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateOngoingCellText) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop]addTimer:self.ongoingTimer forMode:NSRunLoopCommonModes];
 }
 
 -(void)initialize{
@@ -89,6 +96,7 @@
 
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"notif_updateTableViewData" object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"notifi_presentRetryTimePickerActionSheet" object:nil ];
 }
 
 #pragma mark - Table view data source
@@ -101,7 +109,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 0) {
-        return 1;
+        return [[ActivtyInstancesManager sharedManager]getOngoingActivityInArray].count;
     }
     if (section == 1) {
         return [[ActivtyInstancesManager sharedManager] getPastAchievementsArray].count;
@@ -160,6 +168,8 @@
     return nil;
     
 }
+
+
 #pragma mark - Cell Controller - Ongoing Cell
 //Setup view for Ongoing Cell
 //@prama dataInstance
@@ -201,9 +211,13 @@
         
     }else{
         [self.ongoingTimer invalidate];
+        [ongoingCell endActivity];
+        [self updateTableView];
     }
     
 }
+
+
 
 #pragma mark - Cell Controller - Past Achievement Cell
 //Setup view for achievement cell
@@ -228,6 +242,7 @@
     //TODO :: Find out a way to expand tableviewcell
     cell.remainingTime.text = achievedRemainingTimeText;
     cell.delayedTimes.text = achievedDelayTimesText;
+    
 }
 
 #pragma mark - Cell Controller - Failed activity Cell
@@ -254,10 +269,37 @@
     
 }
 
+//Received Notification ->Present UIActionSheet for picking a time
+-(void)presentNewTimeSelectionSheet:(NSNotification*)notification{
+    //Load the temporary trial secss
+    NSDictionary* dictionary = notification.userInfo;
+    tempFailedInstance = [dictionary objectForKey:@"FAILED_INSTANCE"];
+    
+    //Present Actionsheet
+    UIActionSheet * timeSelectionSheet = [[UIActionSheet alloc]initWithTitle:@"Set the time for your activity" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Use original time",@"Set a new time", nil];
+    [timeSelectionSheet showInView:self.view];
+}
+
+
+
+//Delegate Method -> dismiss TimePickerViewController
+-(void)dismissTimePickerViewControllerWithRetrievedTime:(long)secs{
+    if (self.popupViewController != nil) {
+        
+        [self dismissPopupViewControllerAnimated:YES completion:^(void){
+            [self.tableView setScrollEnabled:YES];
+        }];
+        //Make new instance
+        if (tempFailedInstance) {
+            [[ActivtyInstancesManager sharedManager]convertToOngoingInstanceWithFailedInstance:tempFailedInstance AndTime:secs];
+        }
+        [self loadOngoingInstance];
+    }
+}
 
 #pragma mark - Table view Config
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //TODO :: Change default height values
+    
     switch (indexPath.section) {
         case 0:
             return 111;
@@ -283,7 +325,6 @@
     //Configure view depends on sections
     if (section == 0) {
         if ([[ActivtyInstancesManager sharedManager] getOngoingActivityInArray].count<1) {
-            //TODO :: Use a default button for replacement for now
             UIButton * addOngoingEventButton = [UIButton buttonWithType:UIButtonTypeSystem];
             addOngoingEventButton.frame = footerView.frame;
             addOngoingEventButton.titleLabel.text = @"Add an Activity";
@@ -367,7 +408,7 @@
         if ([cell respondsToSelector:@selector(retryFailedActivity:)]) {
             MGSwipeButton * deleteFailedBtn = [MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:[UIColor redColor] padding:padding callback:^BOOL(MGSwipeTableCell* sender){
                 NSInteger index = [self.tableView indexPathForCell:cell].row;
-                [[ActivtyInstancesManager sharedManager]deleteFailedACtivityInstanceAtIndex:index];
+                [[ActivtyInstancesManager sharedManager]deleteFailedActivityInstanceAtIndex:index];
                 [self updateTableView];
                 return YES;
             }];
@@ -388,6 +429,8 @@
     }
 }
 
+
+
 #pragma mark - delayTimeVC Delegate
 -(void)dismissDelayTimePopupViewController{
     if (self.popupViewController !=nil) {
@@ -400,8 +443,7 @@
 }
 -(void)retrieveDelayedTimeInSeconds:(long)secs{
     //Add delayed seconds
-    ongoingCell.cellDataInstance.remainingSecs += secs;
-    //Wait for update
+    [ongoingCell.cellDataInstance delayActivityFor:secs];
 }
 
 #pragma mark - EventCreationViewController Delegate
@@ -410,7 +452,42 @@
         [self dismissPopupViewControllerAnimated:YES completion:^(void){
             NSLog(@"Dismissed");
             [self.tableView setScrollEnabled:YES];
+            [self loadOngoingInstance];
         }];
+    }
+}
+
+
+#pragma mark - UIActionSheetDelegate
+//Pick time for converting failedInstance to Ongoing Instance
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:{
+            // Use original time
+            if (tempFailedInstance) {
+                [[ActivtyInstancesManager sharedManager]convertToOngoingInstanceWithFailedInstance:tempFailedInstance AndTime:tempFailedInstance.trialTime];
+            }
+            [self loadOngoingInstance];
+            [self updateTableView];
+        }
+            
+            break;
+        case 1:{
+            // Present TimePickerViewController
+            if (self.popupViewController == nil) {
+                // Present popup
+                TimePickerViewController* tpvc = [[TimePickerViewController alloc]initWithNibName:@"TimePickerViewController" bundle:nil];
+                tpvc.delegate = self;
+                [self presentPopupViewController:tpvc animated:YES completion:^(void){
+                    [self.tableView setScrollEnabled:NO];
+                }];
+                
+            }
+        }
+            
+            break;
+        default:
+            break;
     }
 }
 

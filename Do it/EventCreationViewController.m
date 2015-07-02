@@ -116,10 +116,6 @@
         case 2:{
             [self setDataWithTimeRemainingSeconds:[_pickerView.dataPicker returnSecondsFromSelectedComponents]];
         }
-        case 3:{
-            [self addDataInstance];
-        }
-            break;
         default:
             break;
     }
@@ -143,6 +139,7 @@
         [UIView mdDeflateTransitionFromView:[viewArray objectAtIndex:previousIndex] toView:nilView originalPoint:exactTouchPosition duration:0.65 completion:^(void){
             if ([_delegate respondsToSelector:@selector(dismissEventCreationViewController)]) {
                 [_delegate dismissEventCreationViewController];
+                [self addDataInstance];
             }
         }];
     }

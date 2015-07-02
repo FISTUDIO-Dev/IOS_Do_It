@@ -7,6 +7,10 @@
 //
 
 #import "FailedActivityTableViewCell.h"
+@interface FailedActivityTableViewCell(){
+    
+}
+@end
 
 @implementation FailedActivityTableViewCell
 
@@ -17,13 +21,18 @@
 
 
 - (IBAction)retryFailedActivity:(id)sender {
-    //TODO :: convert the same instance back to ongoing instance 
+    // Post notification to present UIActionSheet
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"notif_presentRetryTimePickerActionSheet" object:nil userInfo:@{@"FAILED_INSTANCE": _failedCellInstance}];
 }
+
+
 
 #pragma mark - UI Manipulation
 -(void)styleElements{
     
 }
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

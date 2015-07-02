@@ -7,23 +7,21 @@
 //
 
 #import "FailedActivityInstance.h"
-@interface FailedActivityInstance()
 
+@interface FailedActivityInstance()
 
 @end
 
-
 @implementation FailedActivityInstance
-
 
 #pragma mark - Constructors
 
-
--(instancetype)initWithFailedTitle:(NSString *)title Description:(NSString *)desc Date:(NSDate *)date gaveUp:(BOOL)givenup{
+-(instancetype)initWithFailedTitle:(NSString *)title Description:(NSString *)desc Date:(NSDate *)date TrialTime:(long)secs gaveUp:(BOOL)givenup{
     if (self = [super init]) {
         self.failedTitle = title;
         self.failedDescription = desc;
         self.failedDate = date;
+        self.trialTime = secs;
         self.givenUp = givenup;
     }
     return self;

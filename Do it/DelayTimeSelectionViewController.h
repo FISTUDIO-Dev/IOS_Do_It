@@ -11,4 +11,6 @@
 @interface DelayTimeSelectionViewController : UIViewController
 
 @property (weak,nonatomic)id <delayViewControllerDelegate>delayDelegate;
+
+@property (weak,nonatomic) NSString * titleText;
 @end

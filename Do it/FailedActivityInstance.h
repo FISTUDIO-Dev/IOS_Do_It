@@ -13,9 +13,10 @@
 @property (strong,nonatomic) NSString* failedTitle;
 @property (strong,nonatomic) NSString* failedDescription;
 @property (strong,nonatomic) NSDate* failedDate;
+@property (nonatomic) long trialTime;
 @property (nonatomic) BOOL givenUp;
 
--(instancetype)initWithFailedTitle:(NSString *)title Description:(NSString *)desc Date:(NSDate *)date gaveUp:(BOOL)givenup;
+-(instancetype)initWithFailedTitle:(NSString *)title Description:(NSString *)desc Date:(NSDate *)date TrialTime:(long)secs gaveUp:(BOOL)givenup;
 
 -(NSUInteger)hash;
 -(BOOL)isEqual:(id)object;

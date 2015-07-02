@@ -22,7 +22,7 @@
         if (hour == 0) {
             if (minute == 0) {
                 if (second == 0) {
-                    return @"End!";
+                    return [NSString stringWithFormat:@"00:0%ld",second];
                 }else{
                     if (second < 10) {
                         return [NSString stringWithFormat:@"00:0%ld",second];

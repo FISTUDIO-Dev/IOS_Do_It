@@ -308,7 +308,10 @@ const float LBL_BORDER_OFFSET = 8.0;
     
     //Create save button
     _delayButton = [[MGPickerButton alloc] initWithFrame:CGRectMake(5.0, 10.0, (self.frame.size.width-20.0)/2, SAVE_AREA_HEIGHT-20.0)];
+    //Set title
+
     [_delayButton setTitle:@"Delay Now" forState:UIControlStateNormal];
+    
     [_delayButton addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     _cancelButton = [[MGPickerButton alloc] initWithFrame:CGRectMake(_delayButton.frame.origin.x+_delayButton.frame.size.width+10, 10.0, _delayButton.frame.size.width, _delayButton.frame.size.height)];

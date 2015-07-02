@@ -53,6 +53,10 @@
 		995EFE691AE8D29C00B6ED17 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 995EFE681AE8D29C00B6ED17 /* Images.xcassets */; };
 		995EFE6C1AE8D29C00B6ED17 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 995EFE6A1AE8D29C00B6ED17 /* LaunchScreen.xib */; };
 		995EFE781AE8D29C00B6ED17 /* Do_itTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 995EFE771AE8D29C00B6ED17 /* Do_itTests.m */; };
+		9984D9871B416FD500330E00 /* TimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9984D9851B416FD500330E00 /* TimePickerViewController.m */; };
+		9984D9881B416FD500330E00 /* TimePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9984D9861B416FD500330E00 /* TimePickerViewController.xib */; };
+		9984D98E1B44DD3800330E00 /* UIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9984D98D1B44DD3800330E00 /* UIHelper.m */; };
+		99E073EF1B3A9E27000C5EFF /* GlobalNoticeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E073EE1B3A9E27000C5EFF /* GlobalNoticeHandler.m */; };
 		99E3B1001B0A014200A13838 /* OngoingActivityInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E3B0FF1B0A014200A13838 /* OngoingActivityInstance.m */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +151,14 @@
 		995EFE711AE8D29C00B6ED17 /* Do itTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Do itTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		995EFE761AE8D29C00B6ED17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		995EFE771AE8D29C00B6ED17 /* Do_itTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Do_itTests.m; sourceTree = "<group>"; };
+		9984D9841B416FD500330E00 /* TimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerViewController.h; sourceTree = "<group>"; };
+		9984D9851B416FD500330E00 /* TimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerViewController.m; sourceTree = "<group>"; };
+		9984D9861B416FD500330E00 /* TimePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerViewController.xib; sourceTree = "<group>"; };
+		9984D98A1B42B5C200330E00 /* TimePickerViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimePickerViewControllerDelegate.h; sourceTree = "<group>"; };
+		9984D98C1B44DD3800330E00 /* UIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHelper.h; sourceTree = "<group>"; };
+		9984D98D1B44DD3800330E00 /* UIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIHelper.m; sourceTree = "<group>"; };
+		99E073ED1B3A9E27000C5EFF /* GlobalNoticeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalNoticeHandler.h; sourceTree = "<group>"; };
+		99E073EE1B3A9E27000C5EFF /* GlobalNoticeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalNoticeHandler.m; sourceTree = "<group>"; };
 		99E3B0FE1B0A014200A13838 /* OngoingActivityInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OngoingActivityInstance.h; sourceTree = "<group>"; };
 		99E3B0FF1B0A014200A13838 /* OngoingActivityInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OngoingActivityInstance.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -398,7 +410,6 @@
 		995EFE4F1AE8D29C00B6ED17 = {
 			isa = PBXGroup;
 			children = (
-				8C675D211B3049A300D517CB /* QuartzCore.framework */,
 				995EFE5A1AE8D29C00B6ED17 /* Do it */,
 				995EFE741AE8D29C00B6ED17 /* Do itTests */,
 				995EFE591AE8D29C00B6ED17 /* Products */,
@@ -459,6 +470,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9984D9891B42B58B00330E00 /* TimePickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9984D9841B416FD500330E00 /* TimePickerViewController.h */,
+				9984D9851B416FD500330E00 /* TimePickerViewController.m */,
+				9984D9861B416FD500330E00 /* TimePickerViewController.xib */,
+				9984D98A1B42B5C200330E00 /* TimePickerViewControllerDelegate.h */,
+			);
+			name = TimePickerViewController;
+			sourceTree = "<group>";
+		};
+		9984D98B1B44DD1C00330E00 /* UIHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9984D98C1B44DD3800330E00 /* UIHelper.h */,
+				9984D98D1B44DD3800330E00 /* UIHelper.m */,
+			);
+			name = UIHelper;
+			sourceTree = "<group>";
+		};
+		99E073EB1B3A9DB2000C5EFF /* NoticesHandler */ = {
+			isa = PBXGroup;
+			children = (
+				99E073ED1B3A9E27000C5EFF /* GlobalNoticeHandler.h */,
+				99E073EE1B3A9E27000C5EFF /* GlobalNoticeHandler.m */,
+			);
+			name = NoticesHandler;
+			sourceTree = "<group>";
+		};
+		99E073EC1B3A9DC7000C5EFF /* LocalNotificationHandler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LocalNotificationHandler;
+			sourceTree = "<group>";
+		};
 		99E3B0F91B0A00C000A13838 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +516,9 @@
 		99E3B0FA1B0A00C900A13838 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9984D98B1B44DD1C00330E00 /* UIHelper */,
+				99E073EC1B3A9DC7000C5EFF /* LocalNotificationHandler */,
+				99E073EB1B3A9DB2000C5EFF /* NoticesHandler */,
 				8C675CF91B2FF3C700D517CB /* Extra ViewControllers */,
 				2E730E8C1B18191400110905 /* Activities TableView */,
 				2E79C9BE1B0BFDD0005AEDCD /* Activity TableViewCells */,
@@ -481,6 +531,8 @@
 		99E3B0FB1B0A00CF00A13838 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				9984D9891B42B58B00330E00 /* TimePickerViewController */,
+				8C675D211B3049A300D517CB /* QuartzCore.framework */,
 				8CD23EBA1B342FA200452F43 /* SwiftBridging.h */,
 				8CD23EB41B342C4600452F43 /* MaterialKit */,
 				8C675D0A1B303EE000D517CB /* MaterialRadialButton */,
@@ -608,6 +660,7 @@
 				8CD23EB31B3425E300452F43 /* icon_proceed_white@2x.png in Resources */,
 				8C675CFE1B2FF44900D517CB /* DelayTimeSelectionViewController.xib in Resources */,
 				2E79C9C31B0C4827005AEDCD /* OngoingTableViewCell.xib in Resources */,
+				9984D9881B416FD500330E00 /* TimePickerViewController.xib in Resources */,
 				995EFE6C1AE8D29C00B6ED17 /* LaunchScreen.xib in Resources */,
 				8CDFB39B1B30FEB0009B431A /* IntroView.xib in Resources */,
 				8CA45A131B39059A00A18768 /* icon_finish_white@2x.png in Resources */,
@@ -631,6 +684,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99E073EF1B3A9E27000C5EFF /* GlobalNoticeHandler.m in Sources */,
+				9984D9871B416FD500330E00 /* TimePickerViewController.m in Sources */,
 				2E8D83701B0AADF800FD44F5 /* PastAcheievementActivityInstance.m in Sources */,
 				8CDFB3A01B31308C009B431A /* TaskCreation.m in Sources */,
 				2EB6B45E1B26960300D7C7A3 /* FailedActivityTableViewCell.m in Sources */,
@@ -658,6 +713,7 @@
 				8CA45A0F1B39030400A18768 /* FinalizingTaskView.m in Sources */,
 				8C675D131B30407D00D517CB /* EventCreationViewController.m in Sources */,
 				99E3B1001B0A014200A13838 /* OngoingActivityInstance.m in Sources */,
+				9984D98E1B44DD3800330E00 /* UIHelper.m in Sources */,
 				8CD23EB91B342EA400452F43 /* MKTextField.swift in Sources */,
 				8C675D171B30412100D517CB /* IntroView.m in Sources */,
 				8C675D201B30498F00D517CB /* FeBasicAnimationBlock.m in Sources */,

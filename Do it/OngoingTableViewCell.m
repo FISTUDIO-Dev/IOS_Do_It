@@ -74,7 +74,6 @@
 #pragma mark - Notfification receivers
 -(void)increaseIntensityWithCurrentStatus:(OngoingActivitySatusCode)statusCode{
     //TODO:: Update cell color based on status code
-    
 }
 
 -(void)dealloc{
@@ -89,7 +88,9 @@
 
 //Style elements
 -(void)styleElements{
-
+    CGRect ongoingLabelFrame = self.ongoingTitleLabel.frame;
+    [self.ongoingTitleLabel setFrame:CGRectMake(ongoingLabelFrame.origin.x, ongoingLabelFrame.origin.y, 200, ongoingLabelFrame.size.height)];
+    NSLog(@"%f",ongoingLabelFrame.size.width);
 }
 
 

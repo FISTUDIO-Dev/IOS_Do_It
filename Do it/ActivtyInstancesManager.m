@@ -7,6 +7,7 @@
 //
 
 #import "ActivtyInstancesManager.h"
+#import "GlobalNoticeHandler.h"
 @interface ActivtyInstancesManager(){
     NSMutableArray* activitiesArray;
     NSMutableArray* ongoingActivityArray;
@@ -67,17 +68,32 @@
     NSString *title = instance.activtyTitle;
     NSString *desc = instance.activityDescription;
     NSDate* date = [NSDate date];
+    long secs = instance.initialTime;
     //Create failed activity instance
     FailedActivityInstance *failedInstance;
     if (giveup) {
-        failedInstance = [[FailedActivityInstance alloc]initWithFailedTitle:title Description:desc Date:date gaveUp:YES];
+        failedInstance = [[FailedActivityInstance alloc]initWithFailedTitle:title Description:desc Date:date TrialTime:secs gaveUp:YES];
     }else{
-        failedInstance = [[FailedActivityInstance alloc]initWithFailedTitle:title Description:desc Date:date gaveUp:NO];
+        failedInstance = [[FailedActivityInstance alloc]initWithFailedTitle:title Description:desc Date:date TrialTime:secs gaveUp:NO];
     }
     [failedActivityArray addObject:failedInstance];
     //Remove ongoing activity
     [ongoingActivityArray removeLastObject];
     
+}
+
+-(void)convertToOngoingInstanceWithFailedInstance: (FailedActivityInstance*)instance AndTime:(long)secs{
+    NSString * failedTitle = instance.failedTitle;
+    NSString * failedDescription = instance.failedDescription;
+    //delete old instance
+    [self deleteFailedActivityInstanceIdenticalTo:instance];
+    //create new ongoing instance
+    OngoingActivityInstance* newInstance = [[OngoingActivityInstance alloc]initWithTitle:failedTitle mainDescription:failedDescription remainingSecs:secs];
+    if (ongoingActivityArray.count ==0) {
+        [ongoingActivityArray addObject:newInstance];
+    }else{
+        [GlobalNoticeHandler createInformationalAlertViewWithTitle:@"Oops" Description:@"Hey ! You have an ongoing task ! Please do it first!" ButtonText:@"I Get It"];
+    }
 }
 
 //Ongoing activity
@@ -105,7 +121,7 @@
     NSUInteger findIndex = [failedActivityArray indexOfObject:instance];
     [failedActivityArray removeObjectAtIndex:findIndex];
 }
--(void)deleteFailedACtivityInstanceAtIndex:(NSInteger)idx{
+-(void)deleteFailedActivityInstanceAtIndex:(NSInteger)idx{
     [failedActivityArray removeObjectAtIndex:idx];
 }
 
@@ -172,6 +188,12 @@
 }
 -(NSArray*)getFailedActivityArray{
     return failedActivityArray;
+}
+-(OngoingActivityInstance*)getOngoingInstance{
+    if (ongoingActivityArray.count > 0) {
+        return [ongoingActivityArray objectAtIndex:ongoingActivityArray.count-1];
+    }
+    return nil;
 }
 
 @end

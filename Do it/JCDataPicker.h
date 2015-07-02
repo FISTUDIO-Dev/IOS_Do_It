@@ -37,5 +37,9 @@
 
 @property (nonatomic) BOOL hasSavedArea;
 
+@property (weak,nonatomic) NSString * btnOneText;
+@property (weak,nonatomic) NSString * btnTwoText;
+
 -(long)returnSecondsFromSelectedComponents;
+
 @end

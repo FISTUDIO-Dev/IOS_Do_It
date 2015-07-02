@@ -22,7 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Nav bar
-    self.title = @"Get more time";
+    if (_titleText) {
+        self.title = _titleText;
+    }else{
+        self.title = @"Get more time";
+    }
     //Picker
     picker = [[JCDataPicker alloc]initWithFrame:self.view.frame];
     picker.parentViewFrame = self.view.frame;
