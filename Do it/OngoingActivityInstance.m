@@ -7,24 +7,17 @@
 //
 
 #import "OngoingActivityInstance.h"
+#import "GlobalNoticeHandler.h"
+#import "Constants.h"
 
-@interface OngoingActivityInstance()
-
-
+@interface OngoingActivityInstance(){
+    BOOL isFocusing;
+}
 @end
-
 
 @implementation OngoingActivityInstance
 
 #pragma mark - Constructors
-+(instancetype)sharedOngoingActivityWithTitle:(NSString *)title mainDescription:(NSString *)mainDes remainingSecs:(long)secs{
-    static OngoingActivityInstance* myInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^(void){
-        myInstance = [[self alloc]initWithTitle:title mainDescription:mainDes remainingSecs:secs];
-    });
-    return myInstance;
-}
 
 -(instancetype)initWithTitle:(NSString *)title mainDescription:(NSString *)mainDes remainingSecs:(long)secs{
     if (self = [super init]) {
@@ -35,6 +28,7 @@
         //Non-visibles
         self.statusCode = ONGOINGSTATUS_AMPLE;
         self.initialTime = secs;
+        isFocusing = NO;
     }
     return self;
 }
@@ -47,11 +41,31 @@
     self.delayedTimes ++;
 }
 
-#pragma mark - Private methods
+-(void)setFocused:(BOOL)isFocused{
+    isFocusing = isFocused;
+    if (isFocusing) {
+        [self activateFocusMode];
+    }else{
+        [self deactviateFocusMode];
+    }
+}
+
+-(BOOL)getFocus{
+    return isFocusing;
+}
 -(NSString*)description{
     return [NSString stringWithFormat:@"Ongoing activty with title %@, description %@ and remaining seconds %ld",self.activtyTitle,self.activityDescription,self.remainingSecs];
 }
 
+#pragma mark - Private methods
+-(void)activateFocusMode{
+    //Post notfication to TableViewCell to apply UIChanges
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_ACTIVATE_FOCUS_MODE object:nil];
+}
+-(void)deactviateFocusMode{
+    //Post notification to TableViewCell to apply UIChanges
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_DEACTIVATE_FOCUS_MODE object:nil];
+}
 
 
 

@@ -25,6 +25,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>digital-7.ttf</string>
+		<string>SF-UI-Display-Light.otf</string>
+		<string>SF-UI-Display-Medium.otf</string>
+		<string>SF-UI-Display-Regular.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

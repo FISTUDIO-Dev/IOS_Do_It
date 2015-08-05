@@ -7,6 +7,7 @@
 //
 
 #import "FailedActivityTableViewCell.h"
+#import "Constants.h"
 @interface FailedActivityTableViewCell(){
     
 }
@@ -22,7 +23,7 @@
 
 - (IBAction)retryFailedActivity:(id)sender {
     // Post notification to present UIActionSheet
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"notif_presentRetryTimePickerActionSheet" object:nil userInfo:@{@"FAILED_INSTANCE": _failedCellInstance}];
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_PRESENT_RETRY_TIME_SELECTION_ACTION_SHEET object:nil userInfo:@{@"FAILED_INSTANCE": _failedCellInstance}];
 }
 
 
@@ -31,7 +32,6 @@
 -(void)styleElements{
     
 }
-
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Do_it-Swift.h"
 
 @interface TaskCreation : UIView
 
-@property (strong, nonatomic) MKTextField * titleText;
-@property (strong, nonatomic) MKTextField * descText;
+@property (retain,nonatomic) NSString* titleTextString;
+@property (retain,nonatomic) NSString* descTextString;
+@property (nonatomic) BOOL isFocus;
 @end

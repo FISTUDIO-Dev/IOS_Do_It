@@ -12,6 +12,7 @@
 #import "FeRippleButton.h"
 #import "OngoingActivityInstance.h"
 #import "ActivtyInstancesManager.h"
+#import "Constants.h"
 @interface EventCreationViewController (){
     FeRippleButton*proceedBtn;
     NSArray * viewArray;
@@ -34,6 +35,25 @@
     [self setUpViews];
     //Set up buttons
     [self setUpViewContents];
+    
+    //add observers
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(introProcReceived:) name:kNOTIF_EC_INTRO_VIEW_PROCEEDING object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(introCancReceived) name:kNOTIF_EC_INTRO_VIEW_CANCELLING object:nil];
+    
+    
+    //TODO :: Keep implementing the notifications 
+}
+
+#pragma mark Notification receivers and action triggers
+
+-(void)introProcReceived:(NSNotification*)notification{
+    CGPoint touchPoint = [(NSValue*)[[notification userInfo]objectForKey:@"touch_loc"] CGPointValue];
+    [UIView mdInflateTransitionFromView:_introView toView:_taskView originalPoint:touchPoint duration:0.65 completion:nil];
+}
+
+-(void)introCancReceived{
+    //Dismiss
+    [self triggerDelegateDismissVCWithData:NO];
 }
 
 #pragma mark - Set up UI Elements
@@ -49,11 +69,11 @@
     viewArray = @[_introView,_taskView,_pickerView,_finalView];
     // add first view to the controller
     [self.view addSubview:_introView];
-
+    
 }
 
 -(void)setUpViewContents{
-    for (int i = 0; i<viewArray.count; i++) {
+    for (int i = 1; i<viewArray.count; i++) {
         //Add buttons
         [self buildTransitionButtonInViewWithIndex:i];
         //Initialize Views
@@ -81,6 +101,7 @@
     NSArray * colorArray = @[firstColor,secondColor,thirdColor,fourthColor];
     
     proceedBtn = [[FeRippleButton alloc]initWithFrame:CGRectMake(65, 242, 130, 60)];
+    
     //for all the following view
     if ([[viewArray objectAtIndex:index] backgroundColor] == [UIColor whiteColor]) {
         [proceedBtn setImage:[UIImage imageNamed:@"icon_proceed_blue"] forState:UIControlStateNormal];
@@ -92,7 +113,6 @@
         }
         
     }
-    
     proceedBtn.backgroundColor = [UIColor clearColor];
     [proceedBtn addTarget:self action:@selector(jumpToNextView:forEvent:) forControlEvents:UIControlEventTouchUpInside];
     //Configuration
@@ -110,7 +130,7 @@
     //Contruct data
     switch (currentViewIndex) {
         case 1:{
-            [self setDataWithTitle:_taskView.titleText.text Description:_taskView.descText.text];
+            [self setDataWithTitle:_taskView.titleTextString Description:_taskView.descTextString isFocused:_taskView.isFocus];
         }
             break;
         case 2:{
@@ -123,9 +143,7 @@
     //Proceed to next view
     currentViewIndex ++;
     if (currentViewIndex <= 3) {
-        [UIView mdInflateTransitionFromView:[viewArray objectAtIndex:previousIndex] toView:[viewArray objectAtIndex:currentViewIndex] originalPoint:exactTouchPosition duration:0.65 completion:^(void){
-            // Set Completion Methods
-        }];
+        [UIView mdInflateTransitionFromView:[viewArray objectAtIndex:previousIndex] toView:[viewArray objectAtIndex:currentViewIndex] originalPoint:exactTouchPosition duration:0.65 completion:nil];
     }else{
         [self.view setBackgroundColor:[UIColor whiteColor]];
         
@@ -137,19 +155,18 @@
         }];
         
         [UIView mdDeflateTransitionFromView:[viewArray objectAtIndex:previousIndex] toView:nilView originalPoint:exactTouchPosition duration:0.65 completion:^(void){
-            if ([_delegate respondsToSelector:@selector(dismissEventCreationViewController)]) {
-                [_delegate dismissEventCreationViewController];
-                [self addDataInstance];
-            }
+            [self triggerDelegateDismissVCWithData:YES];
         }];
     }
     
 }
 
-#pragma mark - Construct Data
--(void)setDataWithTitle:(NSString*)title Description:(NSString*)desc{
+#pragma mark - Private Functions
+// ========== Data contruction
+-(void)setDataWithTitle:(NSString*)title Description:(NSString*)desc isFocused:(BOOL)focused{
     constructingInstance.activtyTitle = title;
     constructingInstance.activityDescription = desc;
+    [constructingInstance setFocused:focused];
 }
 
 -(void)setDataWithTimeRemainingSeconds:(long)secs{
@@ -160,9 +177,27 @@
     [[ActivtyInstancesManager sharedManager]addOngoingActivity:constructingInstance];
 }
 
+// ========== Dismiss VC
+-(void)triggerDelegateDismissVCWithData:(BOOL)haveData{
+    if ([_delegate respondsToSelector:@selector(dismissEventCreationViewControllerWithData:)]) {
+        if (haveData) {
+            [self addDataInstance];
+            [_delegate dismissEventCreationViewControllerWithData:YES];
+        }else{
+            [_delegate dismissEventCreationViewControllerWithData:NO];
+        }
+    }
+}
+
+#pragma mark - Defaults
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc{
+    constructingInstance = nil;
 }
 
 

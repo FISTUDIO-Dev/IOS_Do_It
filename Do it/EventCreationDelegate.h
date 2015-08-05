@@ -9,6 +9,6 @@
 @protocol EventCreationDelegate <NSObject>
 
 @required
--(void)dismissEventCreationViewController;
+-(void)dismissEventCreationViewControllerWithData:(BOOL)haveData;
 
 @end

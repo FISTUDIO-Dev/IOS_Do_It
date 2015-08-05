@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 @interface OngoingActivityInstance : NSObject
 
 @property(strong,nonatomic) NSString *activtyTitle;
@@ -29,10 +28,9 @@ typedef NS_ENUM(NSUInteger, OngoingActivitySatusCode){
 @property(nonatomic) NSInteger delayedTimes;
 
 //Constructor
-+(instancetype)sharedOngoingActivityWithTitle:(NSString*)title mainDescription:(NSString*)mainDes remainingSecs:(long)secs;
-
 -(instancetype)initWithTitle:(NSString*)title mainDescription:(NSString*)mainDes remainingSecs:(long)secs;
 //Publics Methods
 -(void)delayActivityFor:(long)secs;
-
+-(void)setFocused:(BOOL)isFocused;
+-(BOOL)getFocus;
 @end

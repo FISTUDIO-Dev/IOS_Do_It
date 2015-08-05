@@ -7,10 +7,16 @@
 //
 
 #import "TaskCreation.h"
+#import "GlobalNoticeHandler.h"
+#import "Do_it-Swift.h"
+
 @interface TaskCreation()<UITextFieldDelegate>{
     UILabel * infoLabel;
+    UILabel * focusLabel;
 }
-
+@property (strong, nonatomic) MKTextField * titleText;
+@property (strong, nonatomic) MKTextField * descText;
+@property (strong,nonatomic) UISwitch * focusModeSwitch;
 @end
 @implementation TaskCreation
 
@@ -36,26 +42,35 @@
     _titleText = [[MKTextField alloc]initWithFrame:CGRectMake(37, 61, 183, 45)];
     _titleText.layer.borderColor = [UIColor clearColor].CGColor;
     _titleText.floatingPlaceholderEnabled = true;
-    _titleText.placeholder = @"Enter task title";
-    _titleText.tintColor = [UIColor whiteColor];
-    _titleText.cornerRadius = 0;
-    _titleText.bottomBorderEnabled = true;
-    _titleText.textColor = [UIColor whiteColor];
+    _titleText.placeholder = @"Title";
+    _titleText.tintColor = [UIColor grayColor];
+    _titleText.backgroundColor = [UIColor whiteColor];
     
     //Desc text
-    _descText = [[MKTextField alloc]initWithFrame:CGRectMake(37, 125, 183, 45)];
+    _descText = [[MKTextField alloc]initWithFrame:CGRectMake(37, 122, 183, 45)];
     _descText.layer.borderColor = [[UIColor clearColor]CGColor];
     _descText.floatingPlaceholderEnabled = true;
-    _descText.placeholder = @"Enter task description";
-    _descText.tintColor = [UIColor whiteColor];
-    _descText.cornerRadius = 0;
-    _descText.bottomBorderEnabled = true;
-    _descText.textColor = [UIColor whiteColor];
+    _descText.placeholder = @"Description";
+    _descText.tintColor = [UIColor grayColor];
+    _descText.backgroundColor = [UIColor whiteColor];
+    
+    //Focus label
+    focusLabel = [[UILabel alloc]initWithFrame:CGRectMake(37, 182, 109, 21)];
+    focusLabel.text = @"Focus mode:";
+    focusLabel.textColor = [UIColor whiteColor];
+    
+    //Focus switch
+    self.focusModeSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(171, 177, 51, 31)];
+    [_focusModeSwitch setOn:NO];
+    [_focusModeSwitch addTarget:self action:@selector(toggleFocusMode:) forControlEvents:UIControlEventValueChanged];
+
     
     //Add to view
     [self addSubview:infoLabel];
     [self addSubview:_titleText];
     [self addSubview:_descText];
+    [self addSubview:focusLabel];
+    [self addSubview:_focusModeSwitch];
 
     //Delegate
     [_titleText setDelegate:self];
@@ -64,8 +79,27 @@
 
 #pragma mark - Text Field Delegate
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    //Validate
+    if ([_titleText.text isEqualToString:@""] ||[_descText.text isEqualToString:@""]) {
+        [GlobalNoticeHandler createInformationalAlertViewWithTitle:@"Oops" Description:@"Please fill in the required fields" ButtonText:@"Ok"];
+        
+        return NO;
+    }
     [textField resignFirstResponder];
+
+    //Set text
+    _titleTextString = _titleText.text;
+    _descTextString = _descText.text;
     return YES;
 }
 
+#pragma mark - Switch
+-(void)toggleFocusMode:(id)sender{
+    if ([(UISwitch*)sender isOn] == YES) {
+        [GlobalNoticeHandler createInformationalAlertViewWithTitle:@"Focus mode enabled" Description:@"With focus mode, if you leave app for more than 10 seconds, the task is failed!" ButtonText:@"I Get It"];
+        _isFocus = YES;
+    }else{
+        _isFocus = NO;
+    }
+}
 @end

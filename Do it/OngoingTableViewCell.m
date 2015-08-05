@@ -8,6 +8,7 @@
 
 #import "OngoingTableViewCell.h"
 #import "ActivityTableViewCellController.h"
+#import "Constants.h"
 @interface OngoingTableViewCell(){
     //initial secs direct from data
     long secs;
@@ -26,11 +27,12 @@
 #pragma mark - Initialization
 
 - (void)awakeFromNib {
-    // Initialization code
     
     //TODO::Style elements
     [self styleElements];
-    
+    //Add observer for activating/deactivating focus mode
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(activateFocusMode) name:kNOTIF_ACTIVATE_FOCUS_MODE object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(deactivateFocusMode) name:kNOTIF_DEACTIVATE_FOCUS_MODE object:nil];
 }
 
 
@@ -38,14 +40,17 @@
 //Complete
 - (IBAction)completeTask:(id)sender {
    [[ActivtyInstancesManager sharedManager]convertToAchievementWithOngoingInstance:_cellDataInstance];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"notif_updateTableViewData" object:nil];
+    //Post notif to update tableview so that achievement cell can be loaded
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_UPDATE_ACTIVITY_TABLE_VIEW object:nil];
+    //Post notif to invalidate NSTimer so that failed activity won't shown up
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_ONGOING_ACTIVITY_COMPLETE_PRESSED object:nil];
 }
 
 //Delay (should I?)
 -(void)delayActivityWithTime:(long)addedSecs{
     
     //Update instance property
-    [[OngoingActivityInstance sharedOngoingActivityWithTitle:_cellDataInstance.activtyTitle mainDescription:_cellDataInstance.activityDescription remainingSecs:_cellDataInstance.remainingSecs]delayActivityFor:addedSecs];
+    [_cellDataInstance delayActivityFor:addedSecs];
     
     //invalidate timer
     [self.countDownTimer invalidate];
@@ -73,7 +78,17 @@
 
 #pragma mark - Notfification receivers
 -(void)increaseIntensityWithCurrentStatus:(OngoingActivitySatusCode)statusCode{
+    _cellDataInstance.statusCode = statusCode;
     //TODO:: Update cell color based on status code
+}
+
+-(void)activateFocusMode{
+    //TODO::
+    
+}
+
+-(void)deactivateFocusMode{
+    //TODO::
 }
 
 -(void)dealloc{
@@ -88,10 +103,10 @@
 
 //Style elements
 -(void)styleElements{
-    CGRect ongoingLabelFrame = self.ongoingTitleLabel.frame;
-    [self.ongoingTitleLabel setFrame:CGRectMake(ongoingLabelFrame.origin.x, ongoingLabelFrame.origin.y, 200, ongoingLabelFrame.size.height)];
-    NSLog(@"%f",ongoingLabelFrame.size.width);
+   
 }
+
+
 
 
 @end

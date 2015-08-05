@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 
 @IBDesignable
-public class MKTextField : UITextField {
+@objc public class MKTextField : UITextField {
     @IBInspectable public var padding: CGSize = CGSize(width: 5, height: 5)
     @IBInspectable public var floatingLabelBottomMargin: CGFloat = 2.0
     @IBInspectable public var floatingPlaceholderEnabled: Bool = false
@@ -68,9 +68,9 @@ public class MKTextField : UITextField {
             }
         }
     }
-    @IBInspectable public var bottomBorderWidth: CGFloat = 1.0
-    @IBInspectable public var bottomBorderColor: UIColor = UIColor.lightGrayColor()
-    @IBInspectable public var bottomBorderHighlightWidth: CGFloat = 1.75
+    @IBInspectable public var bottomBorderWidth: CGFloat = 2.75
+    @IBInspectable public var bottomBorderColor: UIColor = UIColor.whiteColor()
+    @IBInspectable public var bottomBorderHighlightWidth: CGFloat = 4.0
 
     override public var placeholder: String? {
         didSet {

@@ -13,4 +13,7 @@
 
 @interface ActivitiesTableViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate,MGSwipeTableCellDelegate>
 
+// Timer
+@property(nonatomic,weak)NSTimer * ongoingTimer;
+
 @end

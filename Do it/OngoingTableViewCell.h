@@ -16,12 +16,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *ongoingDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *completeNowButton;
 
-
 //Data Source
 @property (strong,nonatomic) OngoingActivityInstance * cellDataInstance;
 
 //Actions
-- (IBAction)completeTask:(id)sender;
+-(IBAction)completeTask:(id)sender;
 -(void)increaseIntensityWithCurrentStatus:(OngoingActivitySatusCode)statusCode;
 -(void)delayActivityWithTime:(long)addedSecs;
 -(void)endActivity;

@@ -10,6 +10,4 @@
 
 @interface IntroView : UIView
 
-@property (nonatomic) NSInteger index;
-
 @end
