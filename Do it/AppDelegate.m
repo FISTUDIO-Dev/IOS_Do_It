@@ -9,12 +9,11 @@
 #import "AppDelegate.h"
 #import "Constants.h"
 #import "GlobalNoticeHandler.h"
-#import "ActivitiesTableViewController.h"
+#import "ViewController.h"
 #import "ActivtyInstancesManager.h"
 #import "LNNotificationsUI_iOS7.1.h"
 #import "LocalNotificationHandler.h"
 @interface AppDelegate (){
-    ActivitiesTableViewController * activitiesTableViewVC;
 }
 
 @end
@@ -25,8 +24,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    activitiesTableViewVC = [[ActivitiesTableViewController alloc]initWithStyle:UITableViewStylePlain];
-    self.window.rootViewController = activitiesTableViewVC;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
+    UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];;
+    ViewController * rootVC = [storyBoard instantiateViewControllerWithIdentifier:@"rootVC"];
+    
+    self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
     
     //Register local notification

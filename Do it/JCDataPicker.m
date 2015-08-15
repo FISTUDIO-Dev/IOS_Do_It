@@ -9,7 +9,7 @@
 
 #import "JCDataPicker.h"
 #import "JCDataDelegate.h"
-
+#import "Constants.h"
 #define IS_OS_6_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0 )
 #define IS_OS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
@@ -30,14 +30,14 @@ float DL_SECS_WIDTH = 100.0;
 float PICKER_TEXT_SIZE = 19.0;
 
 //Editable values
-float PICKER_HEIGHT = 150;
+float PICKER_HEIGHT = 50;
 NSString *FONT_NAME = @"HelveticaNeue";
 
 //Static macros and constants
 #define SELECTOR_ORIGIN (PICKER_HEIGHT/2.0-VALUE_HEIGHT/2.0)
 #define SAVE_AREA_ORIGIN_Y self.bounds.size.height-SAVE_AREA_HEIGHT
 #define PICKER_ORIGIN_Y SAVE_AREA_ORIGIN_Y-SAVE_AREA_MARGIN_TOP-PICKER_HEIGHT
-#define BAR_SEL_ORIGIN_Y PICKER_HEIGHT/2.0-VALUE_HEIGHT/2.0
+#define BAR_SEL_ORIGIN_Y VALUE_HEIGHT+20
 
 
 //Custom UIButton

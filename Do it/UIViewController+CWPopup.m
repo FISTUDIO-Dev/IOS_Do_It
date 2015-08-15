@@ -332,7 +332,7 @@ NSString const *CWPopupViewOffset = @"CWPopupViewOffset";
     CGFloat x;
     CGFloat y;
     x = ([UIScreen mainScreen].bounds.size.width - frame.size.width)/2;
-    y = ([UIScreen mainScreen].bounds.size.height - frame.size.height)/2;
+    y = ([UIScreen mainScreen].bounds.size.height - frame.size.height)/2-40;
     
     return CGRectMake(x + viewController.popupViewOffset.x, y + viewController.popupViewOffset.y, frame.size.width, frame.size.height);
 }

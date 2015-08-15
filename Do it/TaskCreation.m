@@ -8,11 +8,15 @@
 
 #import "TaskCreation.h"
 #import "GlobalNoticeHandler.h"
+#import "FeRippleButton.h"
+#import "Constants.h"
 #import "Do_it-Swift.h"
 
 @interface TaskCreation()<UITextFieldDelegate>{
     UILabel * infoLabel;
     UILabel * focusLabel;
+    
+    FeRippleButton* proceedBtn;
 }
 @property (strong, nonatomic) MKTextField * titleText;
 @property (strong, nonatomic) MKTextField * descText;
@@ -64,6 +68,13 @@
     [_focusModeSwitch setOn:NO];
     [_focusModeSwitch addTarget:self action:@selector(toggleFocusMode:) forControlEvents:UIControlEventValueChanged];
 
+    //Proceed button
+    proceedBtn = [[FeRippleButton alloc]initWithFrame:CGRectMake(65, 242, 130, 60)];
+    [proceedBtn setImage:[UIImage imageNamed:@"icon_proceed_white"] forState:UIControlStateNormal];
+    proceedBtn.backgroundColor = [UIColor clearColor];
+    proceedBtn.rippleOverBound = YES;
+    proceedBtn.rippleColor = [UIColor whiteColor];
+    [proceedBtn addTarget:self action:@selector(proceedPressed) forControlEvents:UIControlEventTouchUpInside];
     
     //Add to view
     [self addSubview:infoLabel];
@@ -71,8 +82,8 @@
     [self addSubview:_descText];
     [self addSubview:focusLabel];
     [self addSubview:_focusModeSwitch];
-
-    //Delegate
+    [self addSubview:proceedBtn];
+    //Textfield delegate
     [_titleText setDelegate:self];
     [_descText setDelegate:self];
 }
@@ -93,7 +104,15 @@
     return YES;
 }
 
-#pragma mark - Switch
+#pragma mark - Proceed btn send notification
+-(void)proceedPressed{
+    //Make user info
+    NSDictionary* userInfo = @{@"touch_loc":[NSValue valueWithCGPoint:proceedBtn.center],@"task_title":_titleText.text,@"task_desc":_descText.text,@"focused":[NSNumber numberWithBool:_isFocus]};
+    //Post notification
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_EC_TASK_VIEW_PROCEEDING object:nil userInfo:userInfo];
+}
+
+#pragma mark - Switch Changed
 -(void)toggleFocusMode:(id)sender{
     if ([(UISwitch*)sender isOn] == YES) {
         [GlobalNoticeHandler createInformationalAlertViewWithTitle:@"Focus mode enabled" Description:@"With focus mode, if you leave app for more than 10 seconds, the task is failed!" ButtonText:@"I Get It"];

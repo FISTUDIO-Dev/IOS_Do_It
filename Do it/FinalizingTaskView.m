@@ -7,8 +7,12 @@
 //
 
 #import "FinalizingTaskView.h"
+#import "FeRippleButton.h"
+#import "Constants.h"
+
 @interface FinalizingTaskView(){
     UILabel * infolabel;
+    FeRippleButton* finishBtn;
 }
 
 @end
@@ -34,7 +38,21 @@
     infolabel.font = [UIFont fontWithName:@"Kohinoor Devanagari" size:25];
     infolabel.textColor = [UIColor whiteColor];
     
+    //Finish button
+    finishBtn = [[FeRippleButton alloc]initWithFrame:CGRectMake(65, 242, 130, 60)];
+    [finishBtn setImage:[UIImage imageNamed:@"icon_finish_white"] forState:UIControlStateNormal];
+    finishBtn.backgroundColor = [UIColor clearColor];
+    finishBtn.rippleOverBound = YES;
+    finishBtn.rippleColor = [UIColor clearColor];
+    [finishBtn addTarget:self action:@selector(finishBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     //Add to view
     [self addSubview:infolabel];
+    [self addSubview:finishBtn];
+}
+
+#pragma mark - Send finishing notification
+-(void)finishBtnPressed{
+    //Post
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_EC_FINAL_FINISH object:nil userInfo:@{@"touch_loc":[NSValue valueWithCGPoint:finishBtn.center]}];
 }
 @end

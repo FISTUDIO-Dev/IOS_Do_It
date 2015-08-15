@@ -32,6 +32,8 @@
     //Save date for comparison when enter background
     NSDate* previousDateOfEnteringBG;
     
+    //Notification Identifier
+    
 }
 
 @end
@@ -43,7 +45,7 @@
     [super viewDidLoad];
     
     // Test instance
-    ongoingInstance = [[OngoingActivityInstance alloc]initWithTitle:@"test for spesh" mainDescription:@"This time focus on speed" remainingSecs:100];
+    ongoingInstance = [[OngoingActivityInstance alloc]initWithTitle:@"test for spesh" mainDescription:@"This time focus on speed" remainingSecs:10];
     [ongoingInstance setFocused:YES];
     [[ActivtyInstancesManager sharedManager]addOngoingActivity:ongoingInstance];
     
@@ -99,8 +101,11 @@
 }
 
 -(void)completeButtonPressed{
+    //End timer
     [self.ongoingTimer invalidate];
     self.ongoingTimer = nil;
+    //Push success message
+    [GlobalNoticeHandler showIndicativeAlertWithTitle:@"Fantastic! You DID IT!" Subtitle:@"Congratulations on you success! You can now show to your friends you've done this:)" Closebuttontitle:@"Great!" AlertType:DIALERT_SUCCESS Duration:INFINITY];
 }
 
 // NSTimer Controls
@@ -145,10 +150,10 @@
             //Let user know
             [GlobalNoticeHandler showHUDWithText:@"Oops! You have been distracted for too long! The task is now failed. Please try again later!" ForPeriod:1.5 Success:NO Interactive:NO Callback:nil];
             //End the task
-            dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue(), ^(void){
-                [ongoingCell endActivity];
-                [self updateTableView];
-            });
+            [ongoingCell endActivity];
+            [self updateTableView];
+        }else{
+            [self resume];
         }
     }
     
@@ -269,15 +274,25 @@
         
         //Intensify (if available)
         if (ongoingCell.cellDataInstance.remainingSecs <= 0.5 * ongoingCell.cellDataInstance.initialTime) {
+            
             if (ongoingCell.cellDataInstance.remainingSecs <= 0.1 * ongoingCell.cellDataInstance.initialTime) {
+                
+                //only a little time remains
+                [LocalNotificationHandler pushLocalNotificationWithTitle:@"Most of the time are gone!" Message:@"Are you still on the task? Hurry up, there is not much time left!" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
                 [ongoingCell increaseIntensityWithCurrentStatus:ONGOINGSTATUS_STRESS];
+                
             }else{
+                //Time half remain
+                [LocalNotificationHandler pushLocalNotificationWithTitle:@"Half way through!" Message:@"Hey! You are half way through your task! Carry on !" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
                 [ongoingCell increaseIntensityWithCurrentStatus:ONGOINGSTATUS_MEDIUM];
             }
         }
         
     }else{
         // Just to end the activity
+        [LocalNotificationHandler pushLocalNotificationWithTitle:@"The task is now finished!" Message:@"Didn't expect this? Try next time! You can DO IT !" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
+        [GlobalNoticeHandler showHUDWithText:@"Failed! Try again next time!" ForPeriod:1.0 Success:NO Interactive:NO Callback:nil];
+        
         [self.ongoingTimer invalidate];
         [ongoingCell endActivity];
         [self updateTableView];
@@ -322,7 +337,7 @@
     
     //Status label
     if (cell.failedCellInstance.givenUp) {
-        cell.failedActivityStatusLabel.text = @"Give up";
+        cell.failedActivityStatusLabel.text = @"Gave up";
     }else{
         cell.failedActivityStatusLabel.text = @"Failed";
     }
@@ -555,8 +570,6 @@
 }
 
 -(void)presentEventCreationViewController{
-    //Show alert
-    [LocalNotificationHandler pushLocalNotificationWithTitle:@"Hey !" Message:@"Do you know you can tap background to dismiss this act?" ScheduledAt:[NSDate date] SoundName:nil ExtraData:@{kLOCAL_IN_APP_NOTIF_INFO_ALERT_REGISTERED_IDENTIFIER_KEY:@"R_dismiss_popup",kLOCAL_IN_APP_NOTIF_INFO_ALERT_REGISTERED_IDENTIFIER_KEY:@"1"}];
     //Show creator
     EventCreationViewController *eventCreationViewController = [[EventCreationViewController alloc]initWithNibName:@"EventCreationViewController" bundle:nil];
     eventCreationViewController.delegate = self;

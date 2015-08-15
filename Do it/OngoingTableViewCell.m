@@ -14,11 +14,8 @@
     long secs;
     //Initial timer components
     NSDictionary *timeComponents;
-    //timer components separated
-    NSInteger day, hour, minute, second;
    
 }
-@property(strong,nonatomic)NSTimer * countDownTimer;
 @end
 
 @implementation OngoingTableViewCell
@@ -51,9 +48,6 @@
     
     //Update instance property
     [_cellDataInstance delayActivityFor:addedSecs];
-    
-    //invalidate timer
-    [self.countDownTimer invalidate];
     
     //Reconstruct time (BETTER ACCOMPANYING WITH ANIMATION)
     secs = _cellDataInstance.remainingSecs;
@@ -92,7 +86,7 @@
 }
 
 -(void)dealloc{
-    
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 #pragma mark - UI methods

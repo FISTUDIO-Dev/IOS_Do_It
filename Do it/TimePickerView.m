@@ -7,8 +7,11 @@
 //
 
 #import "TimePickerView.h"
+#import "FeRippleButton.h"
+#import "Constants.h"
 @interface TimePickerView(){
     UILabel * infoLabel;
+    FeRippleButton* proceedBtn;
 }
 
 @end
@@ -38,8 +41,25 @@
     infoLabel.textAlignment = NSTextAlignmentCenter;
     infoLabel.backgroundColor = [UIColor whiteColor];
     
+    //Proceed button
+    proceedBtn = [[FeRippleButton alloc]initWithFrame:CGRectMake(65, 242, 130, 60)];
+    [proceedBtn setImage:[UIImage imageNamed:@"icon_proceed_blue"] forState:UIControlStateNormal];
+    proceedBtn.backgroundColor = [UIColor clearColor];
+    proceedBtn.rippleOverBound = YES;
+    proceedBtn.rippleColor = [UIColor colorWithRed:36.0f/255.0f green:215.0f/255.0f blue:247.0f/255.0f alpha:1.0];
+    [proceedBtn addTarget:self action:@selector(proceedBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self addSubview:proceedBtn];
     [self addSubview:_dataPicker];
     [self addSubview:infoLabel];
+}
+
+#pragma mark - notfication sender
+-(void)proceedBtnPressed{
+    //Make user info
+    NSDictionary* userInfo = @{@"touch_loc":[NSValue valueWithCGPoint:proceedBtn.center],@"time":[NSNumber numberWithLong:_dataPicker.returnSecondsFromSelectedComponents]};
+    //Post
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_EC_TIME_PICKER_PROCEEDING object:nil userInfo:userInfo];
 }
 
 
