@@ -32,8 +32,6 @@
     //Save date for comparison when enter background
     NSDate* previousDateOfEnteringBG;
     
-    //Notification Identifier
-    
 }
 
 @end
@@ -45,7 +43,7 @@
     [super viewDidLoad];
     
     // Test instance
-    ongoingInstance = [[OngoingActivityInstance alloc]initWithTitle:@"test for spesh" mainDescription:@"This time focus on speed" remainingSecs:10];
+    ongoingInstance = [[OngoingActivityInstance alloc]initWithTitle:@"test for spesh" mainDescription:@"This time focus on speed" remainingSecs:20];
     [ongoingInstance setFocused:YES];
     [[ActivtyInstancesManager sharedManager]addOngoingActivity:ongoingInstance];
     
@@ -59,13 +57,10 @@
     //Add observer for complete button pressed
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(completeButtonPressed) name:kNOTIF_ONGOING_ACTIVITY_COMPLETE_PRESSED object:nil];
     
-    //Add observer for resigning activity
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(pause) name:UIApplicationWillResignActiveNotification object:nil];
     //Add observer for entering background
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backgroundPause) name:UIApplicationDidEnterBackgroundNotification object:nil];
     //Add observer for reentering foreground
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backgroundResume) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
     
     //Check if ongoing exits
     BOOL ongoingExists = ([[ActivtyInstancesManager sharedManager]getOngoingActivityInArray].count > 0)?YES:NO;
@@ -76,9 +71,11 @@
         [self loadOngoingInstance];
     }
     
-
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -102,15 +99,14 @@
 
 -(void)completeButtonPressed{
     //End timer
-    [self.ongoingTimer invalidate];
-    self.ongoingTimer = nil;
+    [self stop];
     //Push success message
     [GlobalNoticeHandler showIndicativeAlertWithTitle:@"Fantastic! You DID IT!" Subtitle:@"Congratulations on you success! You can now show to your friends you've done this:)" Closebuttontitle:@"Great!" AlertType:DIALERT_SUCCESS Duration:INFINITY];
 }
 
 // NSTimer Controls
 // Generic Pause
--(void)pause{
+-(void)stop{
     [_ongoingTimer invalidate];
     _ongoingTimer = nil;
 }
@@ -128,8 +124,7 @@
         //Push notification
         [LocalNotificationHandler pushLocalNotificationWithTitle:@"You left the task!" Message:@"Having an emergency? Don't worry, the task timer is paused for you! Get back quickly!" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
         //Invalidate timer
-        [_ongoingTimer invalidate];
-        _ongoingTimer = nil;
+        [self stop];
     }else{
         //Push a notification to warn user that the focus mode is enabled
         [LocalNotificationHandler pushLocalNotificationWithTitle:@"Warning! Focus mode enabled!" Message:@"Uh hur? You seems to be distracted! The task will fail if you leave the app for more than ten seconds! Tap me to go back to task quickly!" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
@@ -151,6 +146,9 @@
             [GlobalNoticeHandler showHUDWithText:@"Oops! You have been distracted for too long! The task is now failed. Please try again later!" ForPeriod:1.5 Success:NO Interactive:NO Callback:nil];
             //End the task
             [ongoingCell endActivity];
+            //Stop timer
+            [self stop];
+            //Update tableview
             [self updateTableView];
         }else{
             [self resume];
@@ -170,7 +168,6 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self name:kNOTIF_ONGOING_ACTIVITY_COMPLETE_PRESSED object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
 }
 
 #pragma mark - Table view data source
@@ -278,29 +275,39 @@
             if (ongoingCell.cellDataInstance.remainingSecs <= 0.1 * ongoingCell.cellDataInstance.initialTime) {
                 
                 //only a little time remains
-                [LocalNotificationHandler pushLocalNotificationWithTitle:@"Most of the time are gone!" Message:@"Are you still on the task? Hurry up, there is not much time left!" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
-                [ongoingCell increaseIntensityWithCurrentStatus:ONGOINGSTATUS_STRESS];
+                static dispatch_once_t tokenLittle;
+                dispatch_once(&tokenLittle, ^(void){
+                    //TODO:Prepare UserInfo With ImageName
+                    [LocalNotificationHandler pushLocalNotificationWithTitle:@"Most of the time are gone!" Message:@"Are you still on the task? Hurry up, there is not much time left!" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
+                    [ongoingCell increaseIntensityWithCurrentStatus:ONGOINGSTATUS_STRESS];
+                });
+                
+                
                 
             }else{
                 //Time half remain
-                [LocalNotificationHandler pushLocalNotificationWithTitle:@"Half way through!" Message:@"Hey! You are half way through your task! Carry on !" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
-                [ongoingCell increaseIntensityWithCurrentStatus:ONGOINGSTATUS_MEDIUM];
+                static dispatch_once_t tokenHalf;
+                dispatch_once(&tokenHalf, ^(void){
+                    //TODO:Prepare UserInfo With ImageName
+                    [LocalNotificationHandler pushLocalNotificationWithTitle:@"Half way through!" Message:@"Hey! You are half way through your task! Carry on !" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
+                    [ongoingCell increaseIntensityWithCurrentStatus:ONGOINGSTATUS_MEDIUM];
+                });
+                
             }
         }
         
     }else{
         // Just to end the activity
         [LocalNotificationHandler pushLocalNotificationWithTitle:@"The task is now finished!" Message:@"Didn't expect this? Try next time! You can DO IT !" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
-        [GlobalNoticeHandler showHUDWithText:@"Failed! Try again next time!" ForPeriod:1.0 Success:NO Interactive:NO Callback:nil];
+        [GlobalNoticeHandler showHUDWithText:@"Failed! Try again next time!" ForPeriod:2.0 Success:NO Interactive:NO Callback:nil];
         
-        [self.ongoingTimer invalidate];
+        [self stop];
+        
         [ongoingCell endActivity];
         [self updateTableView];
     }
     
 }
-
-
 
 #pragma mark - Cell Controller - Past Achievement Cell
 //Setup view for achievement cell
@@ -452,7 +459,7 @@
     swipeSettings.transition = MGSwipeTransitionBorder;
     CGFloat padding = 15.0;
     NSArray * buttonArray;
-    if (direction == MGSwipeDirectionRightToLeft) {
+    if (direction == MGSwipeDirectionLeftToRight) {
         //Ongoing cell
         if ([cell respondsToSelector:@selector(completeTask:)]) {
             NSString * focusBtnText;
@@ -484,13 +491,17 @@
                 [self presentPopupViewController:dtsvc animated:YES completion:^(void){
                     NSLog(@"Presented");
                     [self.tableView setScrollEnabled:NO];
-                    [self pause];
+                    [self stop];
                 }];
                 return YES;
             }];
             
             MGSwipeButton * giveUpBtn = [MGSwipeButton buttonWithTitle:@"Give up" backgroundColor:[UIColor colorWithRed:255/255 green:0/255 blue:0/255 alpha:0.57] padding:padding callback:^BOOL(MGSwipeTableCell* sender){
+                //End the activity
                 [ongoingCell endActivity];
+                //Stop timers
+                [self stop];
+                //Update TableView
                 [self updateTableView];
                 return YES;
             }];
@@ -531,10 +542,12 @@
 }
 
 -(void)swipeTableCell:(MGSwipeTableCell *)cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive{
-    if (gestureIsActive) {
-        [self pause];
-    }else{
-        [self resume];
+    if ([cell respondsToSelector:@selector(completeTask:)]) {
+        if (gestureIsActive) {
+            [self stop];
+        }else{
+            [self resume];
+        }
     }
 }
 
@@ -586,15 +599,14 @@
             if (tempFailedInstance) {
                 [[ActivtyInstancesManager sharedManager]convertToOngoingInstanceWithFailedInstance:tempFailedInstance AndTime:tempFailedInstance.trialTime];
             }
-            [self pause];
-
+            [self stop];
             [self loadOngoingInstance];
             [self updateTableView];
         }
             
             break;
         case 1:{
-            // Present TimePickerViewController
+            // Present TimePickerViewController to get a new time
             if (self.popupViewController == nil) {
                 // Present popup
                 TimePickerViewController* tpvc = [[TimePickerViewController alloc]initWithNibName:@"TimePickerViewController" bundle:nil];

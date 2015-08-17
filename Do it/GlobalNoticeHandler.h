@@ -16,7 +16,12 @@ typedef NS_ENUM(NSInteger, DIAlertTypes) {
     DIALERT_WARNING,
     DIALERT_INFO
 };
-
+//Banner alert types
+typedef NS_ENUM(NSInteger, DNBannerTypes) {
+    DNBANNER_SUCCESS,
+    DNBANNER_WARNING,
+    DNBANNER_ERROR
+};
 
 @interface GlobalNoticeHandler : NSObject
 
@@ -26,7 +31,11 @@ typedef NS_ENUM(NSInteger, DIAlertTypes) {
 //HUD without button
 +(void)showHUDWithText:(NSString*)title ForPeriod:(CGFloat)time Success:(BOOL)isSuccess Interactive:(BOOL)isinteractive Callback:(void (^)())callback;
 
-//Indicator alert
+//Indicator alert with close button
 +(void)showIndicativeAlertWithTitle:(NSString*)title Subtitle:(NSString*)subtitle Closebuttontitle:(NSString*)cbtitle AlertType:(DIAlertTypes)type Duration:(NSTimeInterval)interval;
 
+//Notification Alert
++(void)showNotificationAlertWithMessage:(NSString*)message Duration:(CGFloat)duration Type:(DNBannerTypes)type Completion:(void(^)())completion;
+
++(void)showNotificationBannerWithTitle:(NSString*)title Message:(NSString*)message Duration:(CGFloat)duration ImageName:(NSString*)imagename OnTapCompletion:(void(^)())completion;
 @end

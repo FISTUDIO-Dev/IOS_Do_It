@@ -11,7 +11,6 @@
 #import "GlobalNoticeHandler.h"
 #import "ViewController.h"
 #import "ActivtyInstancesManager.h"
-#import "LNNotificationsUI_iOS7.1.h"
 #import "LocalNotificationHandler.h"
 @interface AppDelegate (){
 }
@@ -48,7 +47,6 @@
         }
         
     }
-    
     //Check if this launch is from a local notification
     
     
@@ -91,11 +89,12 @@
 // Received local notification
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
     UIApplicationState appState = [application applicationState];
-    NSDictionary* data = [notification userInfo];
+    NSDictionary* userInfo = notification.userInfo;
     //When app is foreground ->
     if (appState == UIApplicationStateActive) {
-        //Show in-app notification
-        [LocalNotificationHandler showInAppLocalNotificationWithTitle:notification.alertAction Message:notification.alertBody ImageName:[data objectForKey:kLOCAL_IN_APP_NOTIF_INFO_IMAGE_NAME_KEY] SoundName:notification.soundName TappedAction:[data objectForKey:kLOCAL_IN_APP_NOTIF_INFO_TRIGGERING_ACTION_KEY] RegisteredIdentifier:[data objectForKey:kLOCAL_IN_APP_NOTIF_INFO_ALERT_REGISTERED_IDENTIFIER_KEY] RegisteredName:[data objectForKey:kLOCAL_IN_APP_NOTIF_INFO_ALERT_REGISTERED_IDENTIFIER_KEY]];
+        //Show in-app notification with HDNotification
+        NSString*iconImageName = [userInfo objectForKey:kLOCAL_IN_APP_NOTIF_INFO_IMAGE_NAME_KEY];
+        [GlobalNoticeHandler showNotificationBannerWithTitle:notification.alertAction Message:notification.alertBody Duration:0.0 ImageName:iconImageName OnTapCompletion:nil];
     }
     if (appState == UIApplicationStateInactive) {
     

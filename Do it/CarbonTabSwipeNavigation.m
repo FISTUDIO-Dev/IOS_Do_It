@@ -329,7 +329,7 @@
 	pageController.view.userInteractionEnabled = NO;
 	[pageController setViewControllers:@[viewController]
 				 direction:animateDirection
-				  animated:NO
+				  animated:YES
 				completion:^(BOOL finished) {
 					__strong __typeof__(self) strongSelf = weakSelf;
 					strongSelf->isNotDragging = NO;

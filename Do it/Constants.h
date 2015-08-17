@@ -30,7 +30,5 @@ static NSString* const kNOTIF_EC_FINAL_FINISH = @"notif_final_finish";
 
 /* LocalNotification to LNNotification User Info Keys */
 static NSString* const kLOCAL_IN_APP_NOTIF_INFO_TRIGGERING_ACTION_KEY = @"local_notif_triggering_action_key";
-static NSString* const kLOCAL_IN_APP_NOTIF_INFO_ALERT_REGISTERED_IDENTIFIER_KEY = @"local_notif_registered_identifier_key";
-static NSString* const kLOCAL_IN_APP_NOTIF_INFO_ALERT_REGISTERED_NAME_KEY = @"local_notif_registered_name_key";
 static NSString* const kLOCAL_IN_APP_NOTIF_INFO_IMAGE_NAME_KEY = @"local_notif_image_name_key";
 

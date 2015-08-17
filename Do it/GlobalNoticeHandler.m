@@ -9,7 +9,8 @@
 #import "GlobalNoticeHandler.h"
 #import "Do_it-Swift.h"
 #import "ProgressHUD.h"
-
+#import "Alert.h"
+#import "HDNotificationView.h"
 //indicator alert styles
 static const NSUInteger DIALERT_TINT_SUCCESS = 0x22B573;
 static const NSUInteger DIALERT_TINT_ERROR = 0xC1272D;
@@ -86,5 +87,46 @@ static const NSUInteger DIALERT_BTN_BLACK = 0x000000;
             break;
     }
 }
+
++(void)showNotificationAlertWithMessage:(NSString *)message Duration:(CGFloat)duration Type:(DNBannerTypes)type Completion:(void (^)())completion{
+    Alert* alert = [[Alert alloc]initWithTitle:message duration:duration completion:completion];
+    switch (type) {
+        case DNBANNER_SUCCESS:
+            [alert setAlertType:AlertTypeSuccess];
+            break;
+        case DNBANNER_ERROR:
+            [alert setAlertType:AlertTypeError];
+            break;
+        case DNBANNER_WARNING:
+            [alert setAlertType:AlertTypeWarning];
+            break;
+        default:
+            break;
+    }
+    [alert setIncomingTransition:AlertIncomingTransitionTypeSlideFromTop];
+    [alert setOutgoingTransition:AlertOutgoingTransitionTypeSlideToTop];
+    [alert setShowStatusBar:NO];
+    [alert setBounces:YES];
+    
+    [alert showAlert];
+}
+
++(void)showNotificationBannerWithTitle:(NSString *)title Message:(NSString *)message Duration:(CGFloat)duration ImageName:(NSString *)imagename OnTapCompletion:(void (^)())completion{
+    if (duration == 0) {
+        //autohide
+        [HDNotificationView showNotificationViewWithImage:[UIImage imageNamed:imagename] title:title message:message isAutoHide:YES onTouch:^(void){
+            [HDNotificationView hideNotificationViewOnComplete:completion];
+        }];
+    }else{
+        [HDNotificationView showNotificationViewWithImage:[UIImage imageNamed:imagename] title:title message:message isAutoHide:NO onTouch:^(void){
+            [HDNotificationView hideNotificationViewOnComplete:completion];
+        }];
+        //Dismiss it after an amount of time
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [HDNotificationView hideNotificationViewOnComplete:nil];
+        });
+    }
+}
+
 
 @end
