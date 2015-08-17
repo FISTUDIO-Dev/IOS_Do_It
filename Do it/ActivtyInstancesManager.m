@@ -10,9 +10,12 @@
 #import "GlobalNoticeHandler.h"
 @interface ActivtyInstancesManager(){
     NSMutableArray* activitiesArray;
+    
     NSMutableArray* ongoingActivityArray;
     NSMutableArray* pastAchievementArray;
     NSMutableArray* failedActivityArray;
+    
+    NSMutableArray* activityListArray;
 }
 
 @end
@@ -36,12 +39,17 @@
         if ([self dataExists]) {
             activitiesArray = [self loadFileToArray];
         }else{
+            //Task mode
             ongoingActivityArray = [[NSMutableArray alloc]init];
             pastAchievementArray = [[NSMutableArray alloc]init];
             failedActivityArray  = [[NSMutableArray alloc]init];
             [activitiesArray addObject:ongoingActivityArray];
             [activitiesArray addObject:pastAchievementArray];
             [activitiesArray addObject:failedActivityArray];
+            
+            //Daily mode
+            activitiesArray = [[NSMutableArray alloc]init];
+            [activitiesArray addObject:activityListArray];
         }
     }
     return self;
@@ -89,7 +97,7 @@
     [self deleteFailedActivityInstanceIdenticalTo:instance];
     //create new ongoing instance
     OngoingActivityInstance* newInstance = [[OngoingActivityInstance alloc]initWithTitle:failedTitle mainDescription:failedDescription remainingSecs:secs];
-    if (ongoingActivityArray.count ==0) {
+    if (ongoingActivityArray.count == 0) {
         [ongoingActivityArray addObject:newInstance];
     }else{
         [GlobalNoticeHandler createInformationalAlertViewWithTitle:@"Oops" Description:@"Hey ! You have an ongoing task ! Please do it first!" ButtonText:@"I Get It"];

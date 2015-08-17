@@ -1,0 +1,24 @@
+Do-It App Plan ->
+
+To Fix:
+- UI Elements (Retained)
+-
+To Implement:
+- Expandable TableViewCell (Retained,Urged)
+- Activity List Instance (Doing) {
+Properties: 
+    Controllable: Task Content (NSString), Is Completed (BOOL), Is Daily Routine (BOOL), is Redundant (BOOL) -> will be automatically placed in higher indexes
+}
+- Activity List Cells{
+Properties:
+    First level Displayable: Task Content [UILabel?], CheckBox (Complete task) [NULL], Pin (turn into daily routine) [UIImage?], Redundancy Indicator (Warning Sign) [UIImage if True]
+	Actionable: Draggable -> Dump into Task -> Present information completion sheet -> Jump to Task Mode
+}
+- Information Completion Sheet{
+Properties:
+    First level Displayable: Task Title (NSString) [MKTextField], Time Picker (CGFloat) [JCDatePicker]
+	Actionable: Receive task description and make up ongoing instance
+}
+- Activity TableView
+- Convertion method from list activities to task
+- Settings Panel

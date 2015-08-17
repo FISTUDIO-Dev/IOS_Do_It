@@ -7,6 +7,11 @@
 //
 
 #import "ListTableViewCell.h"
+@interface ListTableViewCell(){
+    
+}
+
+@end
 
 @implementation ListTableViewCell
 

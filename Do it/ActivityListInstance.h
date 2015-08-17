@@ -10,4 +10,14 @@
 
 @interface ActivityListInstance : NSObject
 
+@property (strong,nonatomic) NSString* taskContent;
+
+//Initialize
+-(id)initListTaskWithContent:(NSString*)value;
+
+//Getters and Setters
+-(BOOL)isRedundant;
+-(void)setRedundancy:(BOOL)value;
+-(BOOL)isDailyRoutine;
+-(void)setTobeDailyRoutine:(BOOL)value;
 @end

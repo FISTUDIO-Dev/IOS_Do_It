@@ -12,8 +12,7 @@
 #import "ViewController.h"
 #import "ActivtyInstancesManager.h"
 #import "LocalNotificationHandler.h"
-@interface AppDelegate (){
-}
+@interface AppDelegate (){}
 
 @end
 
