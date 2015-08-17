@@ -19,6 +19,9 @@
 		2EB6B45E1B26960300D7C7A3 /* FailedActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6B45C1B26960300D7C7A3 /* FailedActivityTableViewCell.m */; };
 		2EB6B45F1B26960300D7C7A3 /* FailedActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB6B45D1B26960300D7C7A3 /* FailedActivityTableViewCell.xib */; };
 		2EC09C931B81660B0094C033 /* HDNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC09C921B81660B0094C033 /* HDNotificationView.m */; };
+		2EC09C981B81ADD40094C033 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC09C961B81ADD40094C033 /* ListTableViewCell.m */; };
+		2EC09C991B81ADD40094C033 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EC09C971B81ADD40094C033 /* ListTableViewCell.xib */; };
+		2EC09C9D1B81C0A80094C033 /* ActivityListInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC09C9C1B81C0A80094C033 /* ActivityListInstance.m */; };
 		2EC7B1441B2802D3007375C9 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B1411B2802D3007375C9 /* MGSwipeButton.m */; };
 		2EC7B1451B2802D3007375C9 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B1431B2802D3007375C9 /* MGSwipeTableCell.m */; };
 		2EFBD5A81B80B5F400AE7520 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBD5A71B80B5F400AE7520 /* Alert.m */; };
@@ -106,6 +109,11 @@
 		2EB6B45D1B26960300D7C7A3 /* FailedActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailedActivityTableViewCell.xib; sourceTree = "<group>"; };
 		2EC09C911B81660B0094C033 /* HDNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDNotificationView.h; sourceTree = "<group>"; };
 		2EC09C921B81660B0094C033 /* HDNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDNotificationView.m; sourceTree = "<group>"; };
+		2EC09C951B81ADD40094C033 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
+		2EC09C961B81ADD40094C033 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
+		2EC09C971B81ADD40094C033 /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		2EC09C9B1B81C0A80094C033 /* ActivityListInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListInstance.h; sourceTree = "<group>"; };
+		2EC09C9C1B81C0A80094C033 /* ActivityListInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListInstance.m; sourceTree = "<group>"; };
 		2EC7B1401B2802D3007375C9 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
 		2EC7B1411B2802D3007375C9 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
 		2EC7B1421B2802D3007375C9 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
@@ -236,26 +244,26 @@
 			name = Ongoings;
 			sourceTree = "<group>";
 		};
-		2E730E8C1B18191400110905 /* Activities TableView */ = {
+		2E730E8C1B18191400110905 /* Activities Task TableView */ = {
 			isa = PBXGroup;
 			children = (
 				2E730E8D1B18194200110905 /* ActivitiesTableViewController.h */,
 				2E730E8E1B18194200110905 /* ActivitiesTableViewController.m */,
 			);
-			name = "Activities TableView";
+			name = "Activities Task TableView";
 			sourceTree = "<group>";
 		};
-		2E79C9BE1B0BFDD0005AEDCD /* Activity TableViewCells */ = {
+		2E79C9BE1B0BFDD0005AEDCD /* Activity Task TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				2EB6B4601B26960F00D7C7A3 /* Failed */,
 				2EB6B44D1B25731C00D7C7A3 /* Achievements */,
 				2E70B8CA1B22D78400A359D9 /* Ongoings */,
 			);
-			name = "Activity TableViewCells";
+			name = "Activity Task TableViewCells";
 			sourceTree = "<group>";
 		};
-		2E8D83741B0ABA1900FD44F5 /* Activity Management  */ = {
+		2E8D83741B0ABA1900FD44F5 /* Activity Task Management  */ = {
 			isa = PBXGroup;
 			children = (
 				2E8D83751B0ABAF800FD44F5 /* ActivtyInstancesManager.h */,
@@ -263,7 +271,7 @@
 				2E70B8CB1B22F61600A359D9 /* ActivityTableViewCellController.h */,
 				2E70B8CC1B22F61600A359D9 /* ActivityTableViewCellController.m */,
 			);
-			name = "Activity Management ";
+			name = "Activity Task Management ";
 			sourceTree = "<group>";
 		};
 		2EB6B44D1B25731C00D7C7A3 /* Achievements */ = {
@@ -295,11 +303,23 @@
 			name = NotifBanner;
 			sourceTree = "<group>";
 		};
-		2EC09C941B81996B0094C033 /* ActivityListCells */ = {
+		2EC09C941B81996B0094C033 /* ActivityList Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2EC09C951B81ADD40094C033 /* ListTableViewCell.h */,
+				2EC09C961B81ADD40094C033 /* ListTableViewCell.m */,
+				2EC09C971B81ADD40094C033 /* ListTableViewCell.xib */,
 			);
-			name = ActivityListCells;
+			name = "ActivityList Cells";
+			sourceTree = "<group>";
+		};
+		2EC09C9A1B81C03D0094C033 /* ActivityList Instance */ = {
+			isa = PBXGroup;
+			children = (
+				2EC09C9B1B81C0A80094C033 /* ActivityListInstance.h */,
+				2EC09C9C1B81C0A80094C033 /* ActivityListInstance.m */,
+			);
+			name = "ActivityList Instance";
 			sourceTree = "<group>";
 		};
 		2EC7B13F1B2802BE007375C9 /* SwipeCell */ = {
@@ -409,13 +429,13 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		8C82022F1B7ECDCC00C59F0B /* ActivityListViewController */ = {
+		8C82022F1B7ECDCC00C59F0B /* ActivityList TableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				8C8202301B7ECE0900C59F0B /* ActivityListTableViewController.h */,
 				8C8202311B7ECE0900C59F0B /* ActivityListTableViewController.m */,
 			);
-			name = ActivityListViewController;
+			name = "ActivityList TableViewController";
 			sourceTree = "<group>";
 		};
 		8C8202331B7ECE1F00C59F0B /* CarbonKit */ = {
@@ -628,16 +648,17 @@
 		99E3B0FA1B0A00C900A13838 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2EC09C941B81996B0094C033 /* ActivityListCells */,
-				8C82022F1B7ECDCC00C59F0B /* ActivityListViewController */,
+				2EC09C941B81996B0094C033 /* ActivityList Cells */,
+				2EC09C9A1B81C03D0094C033 /* ActivityList Instance */,
+				8C82022F1B7ECDCC00C59F0B /* ActivityList TableViewController */,
 				8CA702491B4E2416004E904A /* Constants */,
 				99E073EC1B3A9DC7000C5EFF /* LocalNotificationHandler */,
 				99E073EB1B3A9DB2000C5EFF /* NoticesHandler */,
 				8C675CF91B2FF3C700D517CB /* Extra ViewControllers */,
-				2E730E8C1B18191400110905 /* Activities TableView */,
-				2E79C9BE1B0BFDD0005AEDCD /* Activity TableViewCells */,
-				2E8D83741B0ABA1900FD44F5 /* Activity Management  */,
-				99E3B0FD1B0A00F600A13838 /* Activity Instances */,
+				2E730E8C1B18191400110905 /* Activities Task TableView */,
+				2E79C9BE1B0BFDD0005AEDCD /* Activity Task TableViewCells */,
+				2E8D83741B0ABA1900FD44F5 /* Activity Task Management  */,
+				99E3B0FD1B0A00F600A13838 /* Activity Task Instances */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -670,7 +691,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		99E3B0FD1B0A00F600A13838 /* Activity Instances */ = {
+		99E3B0FD1B0A00F600A13838 /* Activity Task Instances */ = {
 			isa = PBXGroup;
 			children = (
 				99E3B0FE1B0A014200A13838 /* OngoingActivityInstance.h */,
@@ -680,7 +701,7 @@
 				2E8D83711B0AB08300FD44F5 /* FailedActivityInstance.h */,
 				2E8D83721B0AB08300FD44F5 /* FailedActivityInstance.m */,
 			);
-			name = "Activity Instances";
+			name = "Activity Task Instances";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -781,6 +802,7 @@
 				8CD23EB31B3425E300452F43 /* icon_proceed_white@2x.png in Resources */,
 				8C675CFE1B2FF44900D517CB /* DelayTimeSelectionViewController.xib in Resources */,
 				8C8E5FB71B6B8C0D001A2C63 /* SF-UI-Display-Regular.otf in Resources */,
+				2EC09C991B81ADD40094C033 /* ListTableViewCell.xib in Resources */,
 				2E79C9C31B0C4827005AEDCD /* OngoingTableViewCell.xib in Resources */,
 				9984D9881B416FD500330E00 /* TimePickerViewController.xib in Resources */,
 				995EFE6C1AE8D29C00B6ED17 /* LaunchScreen.xib in Resources */,
@@ -817,6 +839,7 @@
 				8CD23EC21B34354A00452F43 /* TimePickerView.m in Sources */,
 				8CE8DC621B5A024B00EC7523 /* ProgressHUD.m in Sources */,
 				8C675D091B303E0A00D517CB /* UIView+MaterialDesign.m in Sources */,
+				2EC09C9D1B81C0A80094C033 /* ActivityListInstance.m in Sources */,
 				995EFE641AE8D29C00B6ED17 /* ViewController.m in Sources */,
 				2EC7B1451B2802D3007375C9 /* MGSwipeTableCell.m in Sources */,
 				2EC7B1441B2802D3007375C9 /* MGSwipeButton.m in Sources */,
@@ -837,6 +860,7 @@
 				8CD23EBE1B3430A500452F43 /* MKColor.swift in Sources */,
 				8C675D1D1B30497300D517CB /* UIColor+flat.m in Sources */,
 				2EB6B4511B25735100D7C7A3 /* AchievedActivityTableViewCell.m in Sources */,
+				2EC09C981B81ADD40094C033 /* ListTableViewCell.m in Sources */,
 				2E70B8CD1B22F61600A359D9 /* ActivityTableViewCellController.m in Sources */,
 				8CA45A0F1B39030400A18768 /* FinalizingTaskView.m in Sources */,
 				8C675D131B30407D00D517CB /* EventCreationViewController.m in Sources */,
