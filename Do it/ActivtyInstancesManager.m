@@ -8,14 +8,21 @@
 
 #import "ActivtyInstancesManager.h"
 #import "GlobalNoticeHandler.h"
+#import "Constants.h"
 @interface ActivtyInstancesManager(){
-    NSMutableArray* activitiesArray;
+    //Use this for storing data
+    NSDictionary* activitiesDictionary;
     
+    //Task mode
     NSMutableArray* ongoingActivityArray;
     NSMutableArray* pastAchievementArray;
     NSMutableArray* failedActivityArray;
     
-    NSMutableArray* activityListArray;
+    //List mode
+    NSMutableArray* dailyListActivityArray;
+    NSMutableArray* redundantListActivityArray;
+    NSMutableArray* normalListActivityArray;
+    
 }
 
 @end
@@ -37,25 +44,26 @@
 -(instancetype)init{
     if (self = [super init]) {
         if ([self dataExists]) {
-            activitiesArray = [self loadFileToArray];
+            
+            [self loadFileToDictionary];
+            
         }else{
             //Task mode
             ongoingActivityArray = [[NSMutableArray alloc]init];
             pastAchievementArray = [[NSMutableArray alloc]init];
             failedActivityArray  = [[NSMutableArray alloc]init];
-            [activitiesArray addObject:ongoingActivityArray];
-            [activitiesArray addObject:pastAchievementArray];
-            [activitiesArray addObject:failedActivityArray];
             
             //Daily mode
-            activitiesArray = [[NSMutableArray alloc]init];
-            [activitiesArray addObject:activityListArray];
+            dailyListActivityArray = [[NSMutableArray alloc]init];
+            redundantListActivityArray = [[NSMutableArray alloc]init];
+            normalListActivityArray = [[NSMutableArray alloc]init];
+    
         }
     }
     return self;
 }
 
-#pragma mark - Instance Managements
+#pragma mark - Task Instance Managements
 //Conversion
 - (void)convertToAchievementWithOngoingInstance:(OngoingActivityInstance*)instance{
     //Remove ongoing activity
@@ -143,29 +151,68 @@
 }
 
 -(BOOL)saveToFile{
+    //Load up the dictionary
+    activitiesDictionary = @{kACTIVITY_DICTIONARY_NORMAL_LIST:normalListActivityArray,kACTIVITY_DICTIONARY_DAILY_ROUTINE:dailyListActivityArray,kACTIVITY_DICTIONARY_REDUNDANCY:redundantListActivityArray,kACTIVITY_DICTIONARY_ONGOING:ongoingActivityArray,kACTIVITY_DICTIONARY_ACHIEVEMENT:pastAchievementArray,kACTIVITY_DICTIONARY_FAIL:failedActivityArray};
+    
+    //Save it
     NSArray*paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [paths objectAtIndex:0];
     NSString *filePath = [NSString stringWithFormat:@"%@/%@", documentDirectory, @"data"];
     //Write to file
-    BOOL status = [NSKeyedArchiver archiveRootObject:activitiesArray toFile:filePath];
+    BOOL status = [NSKeyedArchiver archiveRootObject:activitiesDictionary toFile:filePath];
     return status;
 }
 
--(NSMutableArray*)loadFileToArray{
+-(NSMutableDictionary*)loadFileToDictionary{
     NSArray*paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [paths objectAtIndex:0];
     NSString *filePath = [NSString stringWithFormat:@"%@/%@", documentDirectory, @"data"];
     //load
-    NSMutableArray *array = [[NSMutableArray alloc]init];
+    NSDictionary *dictionary = [[NSDictionary alloc]init];
+    NSMutableDictionary *mutableDictionary;
     if ([[NSFileManager defaultManager]fileExistsAtPath:filePath]) {
-        array = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+        dictionary = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+        mutableDictionary = [[NSMutableDictionary alloc]initWithDictionary:dictionary];
     }else{
         NSLog(@"No file saved");
     }
-    return array;
+    return mutableDictionary;
+}
+#pragma mark - List Instance management 
+//TODO: a lot......
+-(void)addDailyActivityToList:(ActivityListInstance *)instance{
+    
 }
 
-#pragma mark - UI Manipulation
+-(void)completeDailyActivityAtIndex:(NSInteger)index{
+    
+}
+
+-(void)completeDailyActivityIdenticalTo:(ActivityListInstance *)task{
+    
+}
+
+-(void)setToBeDailyActivityAtIndex:(NSInteger)index{
+    
+}
+
+-(void)setToBeDailyActivityIdenticalTo:(ActivityListInstance *)task{
+    
+}
+
+-(void)setToBeRedundantTaskAtIndex:(NSInteger)index{
+    
+}
+
+-(void)setTobeRedundantTaskIdenticalTo:(ActivityListInstance *)task{
+    
+}
+
+-(void)summariseListActivities{
+    
+}
+
+#pragma mark - Data Manipulation
 -(NSDictionary*)constructTimeComponentsWithTimeInSecs:(long)secs{
     
     //Construct compoents
@@ -185,9 +232,6 @@
 
 
 #pragma mark - accessors
-- (NSArray*)getAllActivities{
-    return activitiesArray;
-}
 -(NSArray*)getOngoingActivityInArray{
     return ongoingActivityArray;
 }
@@ -203,5 +247,18 @@
     }
     return nil;
 }
+
+-(NSArray*)getNormalActivitiesArray{
+    return normalListActivityArray;
+}
+
+-(NSArray*)getRedundantActivitiesArray{
+    return redundantListActivityArray;
+}
+
+-(NSArray*)getDailyActivitiesArray{
+    return dailyListActivityArray;
+}
+
 
 @end

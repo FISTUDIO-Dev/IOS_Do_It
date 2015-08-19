@@ -81,8 +81,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) updateTableView{
+- (void)updateTableView{
     [self.tableView reloadData];
+}
+
+- (void)updateTableViewCellAtSection:(NSInteger)section Row:(NSInteger)row{
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:row inSection:section]] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 -(void)loadOngoingInstance{

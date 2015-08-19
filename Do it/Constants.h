@@ -32,3 +32,11 @@ static NSString* const kNOTIF_EC_FINAL_FINISH = @"notif_final_finish";
 static NSString* const kLOCAL_IN_APP_NOTIF_INFO_TRIGGERING_ACTION_KEY = @"local_notif_triggering_action_key";
 static NSString* const kLOCAL_IN_APP_NOTIF_INFO_IMAGE_NAME_KEY = @"local_notif_image_name_key";
 
+/* Activity Dictionary Save Keys */
+static NSString* const kACTIVITY_DICTIONARY_ONGOING = @"activity_dictionary_ongoing";
+static NSString* const kACTIVITY_DICTIONARY_ACHIEVEMENT = @"activity_dictionary_achievement";
+static NSString* const kACTIVITY_DICTIONARY_FAIL = @"activity_dictionary_failures";
+static NSString* const kACTIVITY_DICTIONARY_NORMAL_LIST = @"activity_dictionary_normallist";
+static NSString* const kACTIVITY_DICTIONARY_DAILY_ROUTINE = @"activity_dictionary_dailyroutine";
+static NSString* const kACTIVITY_DICTIONARY_REDUNDANCY = @"activity_dictionary_redundancy";
+
