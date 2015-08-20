@@ -116,7 +116,7 @@
 //---- Add
 -(void)addOngoingActivity:(OngoingActivityInstance*)activity{
     if (ongoingActivityArray.count > 0) {
-        [ongoingActivityArray removeLastObject];
+        [ongoingActivityArray removeAllObjects];
     }
     [ongoingActivityArray addObject:activity];
 }
@@ -180,8 +180,8 @@
 }
 #pragma mark - List Instance management 
 //TODO: a lot......
--(void)addDailyActivityToList:(ActivityListInstance *)instance{
-    
+-(void)addListActivity:(ActivityListInstance *)taskInstance{
+    [normalListActivityArray addObject:taskInstance];
 }
 
 -(void)completeDailyActivityAtIndex:(NSInteger)index{

@@ -30,8 +30,7 @@
 -(void)deleteFailedActivityInstanceAtIndex:(NSInteger)idx;
 
 //Manipulate daily activity
-//add
--(void)addDailyActivityToList:(ActivityListInstance*)instance;
+-(void)addListActivity:(ActivityListInstance*)taskInstance;
 //complete
 -(void)completeDailyActivityAtIndex:(NSInteger)index;
 -(void)completeDailyActivityIdenticalTo:(ActivityListInstance*)task;
@@ -45,6 +44,7 @@
 // - clean old activties
 // - reload daily, redundancies and normal arrays
 -(void)summariseListActivities;
+-(void)refreshListActivities;
 //get redundants array
 -(NSArray*)getRedundantActivitiesArray;
 //get daily routine array
