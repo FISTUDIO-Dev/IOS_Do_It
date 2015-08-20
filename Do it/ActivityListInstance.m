@@ -8,8 +8,10 @@
 
 #import "ActivityListInstance.h"
 @interface ActivityListInstance(){}
+@property (assign,nonatomic) BOOL isCompleted;
 @property (assign,nonatomic) BOOL isRedundant;
 @property (assign,nonatomic) BOOL isDaily;
+@property (strong,nonatomic,setter=setReminder:) NSDate* reminderDate;
 @end
 
 @implementation ActivityListInstance
@@ -24,13 +26,23 @@
     self = [super init];
     if (self) {
         _taskContent = value;
+        _createdDate = [NSDate date];
         self.isRedundant = NO;
         self.isDaily = NO;
+        self.reminderDate = nil;
     }
     return self;
 }
 
 #pragma mark - Getters and Setters
+-(BOOL)isCompleted{
+    return self.isCompleted;
+}
+
+-(void)setCompleted:(BOOL)value{
+    self.isCompleted = value;
+}
+
 -(BOOL)isRedundant{
     return self.isRedundant;
 }
@@ -42,5 +54,12 @@
 }
 -(void)setTobeDailyRoutine:(BOOL)value{
     self.isDaily = value;
+}
+-(void)setReminder:(NSDate *)date{
+    if (self.isDaily) {
+        self.reminderDate = date;
+    }else{
+        [NSException raise:@"Non-daily activities should not be assigned a reminder!" format:@"Set daily first!"];
+    }
 }
 @end

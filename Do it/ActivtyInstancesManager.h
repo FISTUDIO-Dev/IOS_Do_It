@@ -31,20 +31,21 @@
 
 //Manipulate daily activity
 -(void)addListActivity:(ActivityListInstance*)taskInstance;
-//complete
--(void)completeDailyActivityAtIndex:(NSInteger)index;
--(void)completeDailyActivityIdenticalTo:(ActivityListInstance*)task;
+//complete normal list items
+-(void)completeListActivityAtIndex:(NSInteger)index;
+//complete redundant tasks
+-(void)completeRedundantActivityAtIndex:(NSInteger)index;
 //set redundant
 -(void)setToBeRedundantTaskAtIndex:(NSInteger)index;
--(void)setTobeRedundantTaskIdenticalTo:(ActivityListInstance*)task;
 //set as daily activity
 -(void)setToBeDailyActivityAtIndex:(NSInteger)index;
--(void)setToBeDailyActivityIdenticalTo:(ActivityListInstance*)task;
+//remove activity from the daily range
+-(void)removeFromDailyActivitiesWithIndex:(NSInteger)index;
 //summarise Activities for a day
 // - clean old activties
 // - reload daily, redundancies and normal arrays
 -(void)summariseListActivities;
--(void)refreshListActivities;
+
 //get redundants array
 -(NSArray*)getRedundantActivitiesArray;
 //get daily routine array

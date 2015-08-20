@@ -184,32 +184,54 @@
     [normalListActivityArray addObject:taskInstance];
 }
 
--(void)completeDailyActivityAtIndex:(NSInteger)index{
-    
+-(void)completeListActivityAtIndex:(NSInteger)index{
+    [(ActivityListInstance*)[normalListActivityArray objectAtIndex:index] setCompleted:YES];
 }
 
--(void)completeDailyActivityIdenticalTo:(ActivityListInstance *)task{
-    
+-(void)completeRedundantActivityAtIndex:(NSInteger)index{
+    [(ActivityListInstance*)[redundantListActivityArray objectAtIndex:index] setCompleted:YES];
 }
 
 -(void)setToBeDailyActivityAtIndex:(NSInteger)index{
-    
+    //Set the instance to be daily
+    [(ActivityListInstance*)[normalListActivityArray objectAtIndex:index] setTobeDailyRoutine:YES];
+    //Move the instance to the daily array
+    [dailyListActivityArray addObject:[normalListActivityArray objectAtIndex:index]];
+    //Remove from the original
+    [normalListActivityArray removeObjectAtIndex:index];
 }
 
--(void)setToBeDailyActivityIdenticalTo:(ActivityListInstance *)task{
-    
+-(void)removeFromDailyActivitiesWithIndex:(NSInteger)index{
+    //remove from daily
+    [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] setTobeDailyRoutine:NO];
+    //Move the instance to the normal array
+    [normalListActivityArray addObject:[normalListActivityArray objectAtIndex:index]];
+    //Remove from the original
+    [dailyListActivityArray removeObjectAtIndex:index];
 }
 
 -(void)setToBeRedundantTaskAtIndex:(NSInteger)index{
-    
-}
-
--(void)setTobeRedundantTaskIdenticalTo:(ActivityListInstance *)task{
-    
+    //Set the instance to be redundant
+    [(ActivityListInstance*)[normalListActivityArray objectAtIndex:index] setRedundancy:YES];
+    //Move the instance to the redundant array
+    [redundantListActivityArray addObject:[normalListActivityArray objectAtIndex:index]];
+    //Remove from the original
+    [normalListActivityArray removeObjectAtIndex:index];
 }
 
 -(void)summariseListActivities{
-    
+    //Clean up redundancies
+    for (ActivityListInstance*instance in redundantListActivityArray) {
+        if (instance.isCompleted) {
+            [redundantListActivityArray removeObject:instance];
+        }
+    }
+    //Clean up normal lists
+    for (ActivityListInstance*instance in normalListActivityArray) {
+        if (instance.isCompleted) {
+            [normalListActivityArray removeObject:instance];
+        }
+    }
 }
 
 #pragma mark - Data Manipulation
