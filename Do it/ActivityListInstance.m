@@ -7,11 +7,13 @@
 //
 
 #import "ActivityListInstance.h"
-@interface ActivityListInstance(){}
+@interface ActivityListInstance(){
+    NSString *uid;
+}
 @property (assign,nonatomic) BOOL isCompleted;
 @property (assign,nonatomic) BOOL isRedundant;
 @property (assign,nonatomic) BOOL isDaily;
-@property (strong,nonatomic,setter=setReminder:) NSDate* reminderDate;
+@property (strong,nonatomic,setter=setReminder:,getter=getReminderDate) NSDate* reminderDate;
 @end
 
 @implementation ActivityListInstance
@@ -30,6 +32,7 @@
         self.isRedundant = NO;
         self.isDaily = NO;
         self.reminderDate = nil;
+        uid = [NSString stringWithFormat:@"%ld",[_taskContent hash]];
     }
     return self;
 }
@@ -61,5 +64,12 @@
     }else{
         [NSException raise:@"Non-daily activities should not be assigned a reminder!" format:@"Set daily first!"];
     }
+}
+-(NSDate*)getReminderDate{
+    return self.reminderDate;
+}
+
+-(NSString*)getuid{
+    return uid;
 }
 @end

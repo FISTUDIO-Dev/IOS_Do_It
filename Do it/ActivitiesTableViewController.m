@@ -126,12 +126,12 @@
 -(void)backgroundPause{
     if (!ongoingFocused) {
         //Push notification
-        [LocalNotificationHandler pushLocalNotificationWithTitle:@"You left the task!" Message:@"Having an emergency? Don't worry, the task timer is paused for you! Get back quickly!" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
+        [LocalNotificationHandler pushLocalNotificationWithTitle:@"You left the task!" Message:@"Having an emergency? Don't worry, the task timer is paused for you! Get back quickly!" ScheduledAt:[NSDate date] Repeat:NO SoundName:nil ExtraData:nil];
         //Invalidate timer
         [self stop];
     }else{
         //Push a notification to warn user that the focus mode is enabled
-        [LocalNotificationHandler pushLocalNotificationWithTitle:@"Warning! Focus mode enabled!" Message:@"Uh hur? You seems to be distracted! The task will fail if you leave the app for more than ten seconds! Tap me to go back to task quickly!" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
+        [LocalNotificationHandler pushLocalNotificationWithTitle:@"Warning! Focus mode enabled!" Message:@"Uh hur? You seems to be distracted! The task will fail if you leave the app for more than ten seconds! Tap me to go back to task quickly!" ScheduledAt:[NSDate date] Repeat:YES SoundName:nil ExtraData:nil];
         //Meanwhile save the current time for later comparison
         previousDateOfEnteringBG = [NSDate date];
     }
@@ -282,7 +282,7 @@
                 static dispatch_once_t tokenLittle;
                 dispatch_once(&tokenLittle, ^(void){
                     //TODO:Prepare UserInfo With ImageName
-                    [LocalNotificationHandler pushLocalNotificationWithTitle:@"Most of the time are gone!" Message:@"Are you still on the task? Hurry up, there is not much time left!" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
+                    [LocalNotificationHandler pushLocalNotificationWithTitle:@"Most of the time are gone!" Message:@"Are you still on the task? Hurry up, there is not much time left!" ScheduledAt:[NSDate date] Repeat:YES SoundName:nil ExtraData:nil];
                     [ongoingCell increaseIntensityWithCurrentStatus:ONGOINGSTATUS_STRESS];
                 });
                 
@@ -293,7 +293,7 @@
                 static dispatch_once_t tokenHalf;
                 dispatch_once(&tokenHalf, ^(void){
                     //TODO:Prepare UserInfo With ImageName
-                    [LocalNotificationHandler pushLocalNotificationWithTitle:@"Half way through!" Message:@"Hey! You are half way through your task! Carry on !" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
+                    [LocalNotificationHandler pushLocalNotificationWithTitle:@"Half way through!" Message:@"Hey! You are half way through your task! Carry on !" ScheduledAt:[NSDate date] Repeat:YES SoundName:nil ExtraData:nil];
                     [ongoingCell increaseIntensityWithCurrentStatus:ONGOINGSTATUS_MEDIUM];
                 });
                 
@@ -302,7 +302,7 @@
         
     }else{
         // Just to end the activity
-        [LocalNotificationHandler pushLocalNotificationWithTitle:@"The task is now finished!" Message:@"Didn't expect this? Try next time! You can DO IT !" ScheduledAt:[NSDate date] SoundName:nil ExtraData:nil];
+        [LocalNotificationHandler pushLocalNotificationWithTitle:@"The task is now finished!" Message:@"Didn't expect this? Try next time! You can DO IT !" ScheduledAt:[NSDate date] Repeat:YES SoundName:nil ExtraData:nil];
         [GlobalNoticeHandler showHUDWithText:@"Failed! Try again next time!" ForPeriod:2.0 Success:NO Interactive:NO Callback:nil];
         
         [self stop];

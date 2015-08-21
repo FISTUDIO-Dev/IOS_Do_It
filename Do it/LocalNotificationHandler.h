@@ -10,5 +10,6 @@
 @interface LocalNotificationHandler : NSObject
 
 // Standard local notification
-+(void)pushLocalNotificationWithTitle:(NSString*)action Message:(NSString*)body ScheduledAt:(NSDate*)firetime SoundName:(NSString*)soundname ExtraData:(NSDictionary*)data;
++(void)pushLocalNotificationWithTitle:(NSString*)action Message:(NSString*)body ScheduledAt:(NSDate*)firetime Repeat:(BOOL)value SoundName:(NSString*)soundname ExtraData:(NSDictionary*)data;
++(BOOL)cancelLocalNotificationWithID:(NSString*)identifier;
 @end

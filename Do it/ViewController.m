@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSArray *viewControllers = @[@"Task Now",@"Daily Chore"];
+    NSArray *viewControllers = @[@"Doing",@"To Do"];
     UIColor *tintColor = [UIColor whiteColor];
     //Initiate tabs
     tabSwipe = [[CarbonTabSwipeNavigation alloc] createWithRootViewController:self tabNames:viewControllers tintColor:tintColor delegate:self];

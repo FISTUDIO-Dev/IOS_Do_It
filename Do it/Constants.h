@@ -40,3 +40,5 @@ static NSString* const kACTIVITY_DICTIONARY_NORMAL_LIST = @"activity_dictionary_
 static NSString* const kACTIVITY_DICTIONARY_DAILY_ROUTINE = @"activity_dictionary_dailyroutine";
 static NSString* const kACTIVITY_DICTIONARY_REDUNDANCY = @"activity_dictionary_redundancy";
 
+static NSString* const kDAILY_NOTIFICATION_TO_BE_CANCELLED_KEY = @"daily_notification_to_be_cancelled";
+

@@ -23,4 +23,6 @@
 -(BOOL)isDailyRoutine;
 -(void)setTobeDailyRoutine:(BOOL)value;
 -(void)setReminder:(NSDate*)date;
+-(NSDate*)getReminderDate;
+-(NSString*)getuid;
 @end

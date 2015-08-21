@@ -29,22 +29,15 @@
 -(void)deletePastAchievementInstanceAtIndex:(NSInteger)idx;
 -(void)deleteFailedActivityInstanceAtIndex:(NSInteger)idx;
 
-//Manipulate daily activity
 -(void)addListActivity:(ActivityListInstance*)taskInstance;
-//complete normal list items
 -(void)completeListActivityAtIndex:(NSInteger)index;
-//complete redundant tasks
 -(void)completeRedundantActivityAtIndex:(NSInteger)index;
-//set redundant
 -(void)setToBeRedundantTaskAtIndex:(NSInteger)index;
-//set as daily activity
 -(void)setToBeDailyActivityAtIndex:(NSInteger)index;
-//remove activity from the daily range
 -(void)removeFromDailyActivitiesWithIndex:(NSInteger)index;
-//summarise Activities for a day
-// - clean old activties
-// - reload daily, redundancies and normal arrays
+-(void)setReminderForDailyActivityWithIndex:(NSInteger)index AndTime:(NSDate*)date;
 -(void)summariseListActivities;
+-(void)convertListItem:(ActivityListInstance*)listActivity toTask:(OngoingActivityInstance*)ongoingTask WithSetTimeLimit:(long)secs;
 
 //get redundants array
 -(NSArray*)getRedundantActivitiesArray;
