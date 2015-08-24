@@ -30,6 +30,8 @@
 		2EC7B1441B2802D3007375C9 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B1411B2802D3007375C9 /* MGSwipeButton.m */; };
 		2EC7B1451B2802D3007375C9 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B1431B2802D3007375C9 /* MGSwipeTableCell.m */; };
 		2EFBD5A81B80B5F400AE7520 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBD5A71B80B5F400AE7520 /* Alert.m */; };
+		8C45AEE41B8B35560045F1B3 /* icon_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C45AEE31B8B35560045F1B3 /* icon_heart.png */; };
+		8C45AEE81B8B35C90045F1B3 /* BFPaperCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C45AEE71B8B35C90045F1B3 /* BFPaperCheckbox.m */; };
 		8C675CF41B2FF29F00D517CB /* JCDataPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675CF21B2FF29F00D517CB /* JCDataPicker.m */; };
 		8C675CF81B2FF30B00D517CB /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675CF71B2FF30B00D517CB /* UIViewController+CWPopup.m */; };
 		8C675CFD1B2FF44900D517CB /* DelayTimeSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675CFB1B2FF44900D517CB /* DelayTimeSelectionViewController.m */; };
@@ -132,6 +134,10 @@
 		2EC7B1431B2802D3007375C9 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
 		2EFBD5A61B80B5F400AE7520 /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alert.h; sourceTree = "<group>"; };
 		2EFBD5A71B80B5F400AE7520 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alert.m; sourceTree = "<group>"; };
+		8C45AEE31B8B35560045F1B3 /* icon_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_heart.png; sourceTree = "<group>"; };
+		8C45AEE61B8B35C90045F1B3 /* BFPaperCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFPaperCheckbox.h; sourceTree = "<group>"; };
+		8C45AEE71B8B35C90045F1B3 /* BFPaperCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFPaperCheckbox.m; sourceTree = "<group>"; };
+		8C45AEEA1B8B35FD0045F1B3 /* UIColor+BFPaperColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+BFPaperColors.h"; sourceTree = "<group>"; };
 		8C675CF11B2FF29F00D517CB /* JCDataPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCDataPicker.h; sourceTree = "<group>"; };
 		8C675CF21B2FF29F00D517CB /* JCDataPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCDataPicker.m; sourceTree = "<group>"; };
 		8C675CF31B2FF29F00D517CB /* JCDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCDataDelegate.h; sourceTree = "<group>"; };
@@ -392,6 +398,16 @@
 			name = SimpleAlert;
 			sourceTree = "<group>";
 		};
+		8C45AEE51B8B35B80045F1B3 /* BFPaperCheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				8C45AEEA1B8B35FD0045F1B3 /* UIColor+BFPaperColors.h */,
+				8C45AEE61B8B35C90045F1B3 /* BFPaperCheckbox.h */,
+				8C45AEE71B8B35C90045F1B3 /* BFPaperCheckbox.m */,
+			);
+			name = BFPaperCheckBox;
+			sourceTree = "<group>";
+		};
 		8C675CF01B2FF03800D517CB /* PopupPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +591,7 @@
 		8CDFB3A31B313256009B431A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8C45AEE31B8B35560045F1B3 /* icon_heart.png */,
 				8C8E5FBE1B72226B001A2C63 /* icon_cancel_red@2x.png */,
 				8CE8DC861B5D0F4000EC7523 /* icon_cancel_blue@2x.png */,
 				8CE8DC841B5D0B7600EC7523 /* icon_cancel_white@2x.png */,
@@ -717,6 +734,7 @@
 			isa = PBXGroup;
 			children = (
 				8CD23EBA1B342FA200452F43 /* SwiftBridging.h */,
+				8C45AEE51B8B35B80045F1B3 /* BFPaperCheckBox */,
 				2EB2D16F1B8B01B400CE17F1 /* DOButtonEffects */,
 				2EC09C901B8165FB0094C033 /* NotifBanner */,
 				2EFBD5A51B80B5E200AE7520 /* SimpleAlert */,
@@ -841,6 +859,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				995EFE671AE8D29C00B6ED17 /* Main.storyboard in Resources */,
+				8C45AEE41B8B35560045F1B3 /* icon_heart.png in Resources */,
 				2E0B61401B8AF65A003CFB13 /* NormalListActivityTableViewCell.xib in Resources */,
 				8CDFB3A21B3130AE009B431A /* TaskCreation.xib in Resources */,
 				8C8E5FB61B6B8C0D001A2C63 /* SF-UI-Display-Medium.otf in Resources */,
@@ -916,6 +935,7 @@
 				8CD23EBE1B3430A500452F43 /* MKColor.swift in Sources */,
 				8C675D1D1B30497300D517CB /* UIColor+flat.m in Sources */,
 				2E0B614D1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.m in Sources */,
+				8C45AEE81B8B35C90045F1B3 /* BFPaperCheckbox.m in Sources */,
 				2EB6B4511B25735100D7C7A3 /* AchievedActivityTableViewCell.m in Sources */,
 				2E70B8CD1B22F61600A359D9 /* ActivityTableViewCellController.m in Sources */,
 				8CA45A0F1B39030400A18768 /* FinalizingTaskView.m in Sources */,

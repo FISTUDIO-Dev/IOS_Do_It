@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ActivityListInstance.h"
 @interface NormalListActivityTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *taskContentLabel;
+@property (strong, nonatomic) ActivityListInstance* cellInstance;
 @end
