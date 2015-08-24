@@ -8,12 +8,23 @@
 
 #import "ActivityListInstance.h"
 @interface ActivityListInstance(){
-    NSString *uid;
+    NSInteger redundantDays;
+    
+    NSDate* dateCreatedAsDaily;
+    NSInteger completedDailyTimes;
+    float dailyCompletionRate;
 }
+//first level
 @property (assign,nonatomic) BOOL isCompleted;
 @property (assign,nonatomic) BOOL isRedundant;
 @property (assign,nonatomic) BOOL isDaily;
+
+//second level configurable
 @property (strong,nonatomic,setter=setReminder:,getter=getReminderDate) NSDate* reminderDate;
+@property (strong,nonatomic) NSString* dailyCompletionString;
+@property (strong,nonatomic) NSString* redundantDaysString;
+//hidden
+@property (strong,nonatomic) NSString* uid;
 @end
 
 @implementation ActivityListInstance
@@ -27,12 +38,10 @@
 -(id)initListTaskWithContent:(NSString *)value{
     self = [super init];
     if (self) {
+        //First level
         _taskContent = value;
         _createdDate = [NSDate date];
-        self.isRedundant = NO;
-        self.isDaily = NO;
-        self.reminderDate = nil;
-        uid = [NSString stringWithFormat:@"%ld",[_taskContent hash]];
+        self.uid = [NSString stringWithFormat:@"%ld",[_taskContent hash]];
     }
     return self;
 }
@@ -44,6 +53,14 @@
 
 -(void)setCompleted:(BOOL)value{
     self.isCompleted = value;
+    //if detected redundant-> remove the redundancy
+    if (self.isRedundant) {
+        [self setRedundancy:NO];
+    }
+    //if detected daily -> increase activty counter
+    if (self.isDaily) {
+        completedDailyTimes++;
+    }
 }
 
 -(BOOL)isRedundant{
@@ -57,19 +74,32 @@
 }
 -(void)setTobeDailyRoutine:(BOOL)value{
     self.isDaily = value;
+    dateCreatedAsDaily = [NSDate date];
 }
 -(void)setReminder:(NSDate *)date{
-    if (self.isDaily) {
-        self.reminderDate = date;
-    }else{
-        [NSException raise:@"Non-daily activities should not be assigned a reminder!" format:@"Set daily first!"];
-    }
+    self.reminderDate = date;
 }
 -(NSDate*)getReminderDate{
     return self.reminderDate;
 }
 
 -(NSString*)getuid{
-    return uid;
+    return self.uid;
 }
+
+#pragma mark - configurable
+-(void)incrementRedundancy{
+    redundantDays++;
+    self.redundantDaysString = [NSString stringWithFormat:@"%i",(int)redundantDays];
+}
+
+-(void)refreshDailyCounter{
+    //Set completion time
+    int daysSinceCreation = [[NSDate date] timeIntervalSinceDate:dateCreatedAsDaily]/86400 < 1?1:[[NSDate date] timeIntervalSinceDate:dateCreatedAsDaily]/86400;
+    dailyCompletionRate = completedDailyTimes/daysSinceCreation;
+    self.dailyCompletionString = [NSString stringWithFormat:@"%f%%",ceilf(dailyCompletionRate)];
+    //Reset
+    completedDailyTimes = 0;
+}
+
 @end

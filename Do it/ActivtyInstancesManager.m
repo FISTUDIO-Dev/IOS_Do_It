@@ -143,7 +143,7 @@
 }
 
 #pragma mark - List Instance management
-//add a new daily activity
+//add a new list activity
 -(void)addListActivity:(ActivityListInstance *)taskInstance{
     [normalListActivityArray addObject:taskInstance];
 }
@@ -161,6 +161,11 @@
     [(ActivityListInstance*)[redundantListActivityArray objectAtIndex:index] setCompleted:YES];
 }
 
+//complete daily tasks
+-(void)completeDailyActivityAtIndex:(NSInteger)index{
+    [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] setCompleted:YES];
+    
+}
 
 //set as daily activity
 -(void)setToBeDailyActivityAtIndex:(NSInteger)index{
@@ -172,7 +177,7 @@
     [normalListActivityArray removeObjectAtIndex:index];
 }
 
-//remove activity from the daily range
+//remove activity from being daily
 -(void)removeFromDailyActivitiesWithIndex:(NSInteger)index{
     //remove from daily
     [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] setTobeDailyRoutine:NO];
@@ -222,7 +227,20 @@
     for (ActivityListInstance*instance in normalListActivityArray) {
         if (instance.isCompleted) {
             [normalListActivityArray removeObject:instance];
+        }else{
+            //Set instance to be redundant
+            [instance setRedundancy:YES];
+            //increase redundant days
+            [instance incrementRedundancy];
+            //add instance to redundant array
+            [redundantListActivityArray addObject:instance];
+            //remove from normal list array
+            [redundantListActivityArray removeObject:instance];
         }
+    }
+    //Fresh up daily lists
+    for (ActivityListInstance* instance in dailyListActivityArray) {
+        [instance refreshDailyCounter];
     }
 }
 

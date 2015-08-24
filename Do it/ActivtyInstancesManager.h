@@ -32,6 +32,7 @@
 -(void)addListActivity:(ActivityListInstance*)taskInstance;
 -(void)completeListActivityAtIndex:(NSInteger)index;
 -(void)completeRedundantActivityAtIndex:(NSInteger)index;
+-(void)completeDailyActivityAtIndex:(NSInteger)index;
 -(void)setToBeRedundantTaskAtIndex:(NSInteger)index;
 -(void)setToBeDailyActivityAtIndex:(NSInteger)index;
 -(void)removeFromDailyActivitiesWithIndex:(NSInteger)index;

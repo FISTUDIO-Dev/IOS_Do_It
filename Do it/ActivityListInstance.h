@@ -25,4 +25,8 @@
 -(void)setReminder:(NSDate*)date;
 -(NSDate*)getReminderDate;
 -(NSString*)getuid;
+
+//configurable
+-(void)incrementRedundancy;
+-(void)refreshDailyCounter;
 @end
