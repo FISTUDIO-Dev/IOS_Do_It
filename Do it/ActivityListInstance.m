@@ -41,7 +41,7 @@
         //First level
         _taskContent = value;
         _createdDate = [NSDate date];
-        self.uid = [NSString stringWithFormat:@"%ld",[_taskContent hash]];
+        self.uid = [NSString stringWithFormat:@"%ld",(unsigned long)[_taskContent hash]];
     }
     return self;
 }

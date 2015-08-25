@@ -28,6 +28,13 @@ static NSString* const kNOTIF_EC_TASK_VIEW_PROCEEDING = @"notif_task_view_proc";
 static NSString* const kNOTIF_EC_TIME_PICKER_PROCEEDING = @"notif_time_picker_proc";
 static NSString* const kNOTIF_EC_FINAL_FINISH = @"notif_final_finish";
 
+static NSString* const kNOTIF_NORMAL_LIST_REQUEST_DAILY_AT_INDEX = @"notif_normal_list_request_daily";
+static NSString* const kNOTIF_NORMAL_LIST_SET_COMPLETED = @"notif_normal_list_set_completed";
+static NSString* const kNOTIF_REDUNDANT_LIST_SET_COMPLETED = @"notif_redundant_list_set_completed";
+static NSString* const kNOTIF_DAILT_LIST_CANCEL_DAILY = @"notif_daily_list_cancel_daily";
+static NSString* const kNOTIF_DAILY_LIST_SET_COMPLETED = @"notif_daily_list_set_completed";
+static NSString* const kNOTIF_DAILY_LIST_PRESENT_SET_REMINDER = @"notif_daily_list_present_reminder";
+
 /* LocalNotification to LNNotification User Info Keys */
 static NSString* const kLOCAL_IN_APP_NOTIF_INFO_TRIGGERING_ACTION_KEY = @"local_notif_triggering_action_key";
 static NSString* const kLOCAL_IN_APP_NOTIF_INFO_IMAGE_NAME_KEY = @"local_notif_image_name_key";

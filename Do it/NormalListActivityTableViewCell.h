@@ -11,5 +11,7 @@
 @interface NormalListActivityTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *taskContentLabel;
-@property (strong, nonatomic) ActivityListInstance* cellInstance;
+
+//row index to be assigned and to be sent back for identification
+@property (assign, nonatomic) NSInteger rowIndex;
 @end

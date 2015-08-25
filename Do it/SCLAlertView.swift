@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-
 // Pop Up Styles
 public enum SCLAlertViewStyle {
     case Success, Error, Notice, Warning, Info, Edit, Wait
@@ -41,7 +40,7 @@ public class SCLButton: UIButton {
 
 // Allow alerts to be closed/renamed in a chainable manner
 // Example: SCLAlertView().showSuccess(self, title: "Test", subTitle: "Value").close()
-@objc public class SCLAlertViewResponder {
+public class SCLAlertViewResponder {
     let alertview: SCLAlertView
 
     // Initialisation and Title/Subtitle/Close functions

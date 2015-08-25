@@ -183,8 +183,8 @@
     [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] setTobeDailyRoutine:NO];
     //remove daily reminder if any
     [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] setReminder:nil];
-    //Move the instance to the normal array
-    [normalListActivityArray addObject:[normalListActivityArray objectAtIndex:index]];
+    //Move the instance to the top of normal array
+    [normalListActivityArray insertObject:[normalListActivityArray objectAtIndex:index] atIndex:0];
     //Cancel the notification
     NSString* notificationID = [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] getuid];
     [LocalNotificationHandler cancelLocalNotificationWithID:notificationID];

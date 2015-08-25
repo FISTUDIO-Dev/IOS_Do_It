@@ -7,10 +7,10 @@
 //
 
 #import "GlobalNoticeHandler.h"
-#import "Do_it-Swift.h"
 #import "ProgressHUD.h"
 #import "Alert.h"
 #import "HDNotificationView.h"
+#import "Do_it-Swift.h"
 //indicator alert styles
 static const NSUInteger DIALERT_TINT_SUCCESS = 0x22B573;
 static const NSUInteger DIALERT_TINT_ERROR = 0xC1272D;
@@ -56,7 +56,6 @@ static const NSUInteger DIALERT_BTN_BLACK = 0x000000;
 +(void)showIndicativeAlertWithTitle:(NSString*)title Subtitle:(NSString*)subtitle Closebuttontitle:(NSString*)cbtitle AlertType:(DIAlertTypes)type Duration:(NSTimeInterval)interval{
     //Create alert instance
     SCLAlertView * indiAlert = [[SCLAlertView alloc]init];
-    
     switch (type) {
         case DIALERT_SUCCESS:{
             [indiAlert showSuccess:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval colorStyle:DIALERT_TINT_SUCCESS colorTextButton:DIALERT_BTN_WHITE];
