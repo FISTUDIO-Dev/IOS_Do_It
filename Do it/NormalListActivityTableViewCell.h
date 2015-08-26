@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *taskContentLabel;
 
 //row index to be assigned and to be sent back for identification
-@property (assign, nonatomic) NSInteger rowIndex;
+@property (strong, nonatomic) NSNumber* rowIndex;
 @end

@@ -10,9 +10,12 @@
 #import "Do_it-Swift.h"
 #import "UIColor+BFPaperColors.h"
 #import "BFPaperCheckbox.h"
-@interface NormalListActivityTableViewCell()<BFPaperCheckboxDelegate>
-@property (strong,nonatomic) DOFavoriteButton* dailyButton;
-@property (strong,nonatomic) BFPaperCheckbox* completeCheckbox;
+#import "Constants.h"
+@interface NormalListActivityTableViewCell()<BFPaperCheckboxDelegate>{
+    DOFavoriteButton* dailyButton;
+    BFPaperCheckbox* completeCheckbox;
+}
+
 @end
 
 @implementation NormalListActivityTableViewCell
@@ -31,29 +34,31 @@
 #pragma mark - UI Elements
 -(void)setUp{
     //Add daily favourite button
-    self.dailyButton = [[DOFavoriteButton alloc]initWithFrame:CGRectMake(231, 16, 34, 34) image:[UIImage imageNamed:@"icon_heart"]];
-    self.dailyButton.imageColorOff = [UIColor lightGrayColor];
-    self.dailyButton.imageColorOn = [UIColor redColor];
-    [self.dailyButton addTarget:self action:@selector(dailyButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.dailyButton];
+    dailyButton = [[DOFavoriteButton alloc]initWithFrame:CGRectMake(231, 16, 34, 34) image:[UIImage imageNamed:@"icon_heart"]];
+    dailyButton.imageColorOff = [UIColor lightGrayColor];
+    dailyButton.imageColorOn = [UIColor redColor];
+    [dailyButton addTarget:self action:@selector(dailyButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:dailyButton];
     
     //Add complete checkbox
-    self.completeCheckbox = [[BFPaperCheckbox alloc]initWithFrame:CGRectMake(275, 16, 34, 34)];
-    self.completeCheckbox.tag = 1002;
-    self.completeCheckbox.delegate = self;
-    self.completeCheckbox.checkmarkColor = [UIColor paperColorLightBlue];
-    self.completeCheckbox.rippleFromTapLocation = NO;
-    [self addSubview:self.completeCheckbox];
+    completeCheckbox = [[BFPaperCheckbox alloc]initWithFrame:CGRectMake(275, 16, 34, 34)];
+    completeCheckbox.tag = 1002;
+    completeCheckbox.delegate = self;
+    completeCheckbox.checkmarkColor = [UIColor paperColorLightBlue];
+    completeCheckbox.rippleFromTapLocation = NO;
+    [self addSubview:completeCheckbox];
     
 }
 
 #pragma mark - Button actions
 -(void)dailyButtonTapped:(id)sender{
-    
+    //post notification to request update self to become daily activity
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_NORMAL_LIST_REQUEST_DAILY_AT_INDEX object:nil userInfo:@{@"rowIndex":_rowIndex}];
 }
 
 -(void)paperCheckboxChangedState:(BFPaperCheckbox *)checkbox{
-    
+    //post notification to request complete self
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_NORMAL_LIST_SET_COMPLETED object:nil userInfo:@{@"rowIndex":_rowIndex}];
 }
 
 

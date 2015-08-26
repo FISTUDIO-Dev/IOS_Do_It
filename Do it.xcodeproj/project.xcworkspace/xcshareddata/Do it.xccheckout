@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>95B62610-D9BB-457C-9EFA-6F28976F891D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Do it</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>DE8C9BFC099F37FFB7DEB6871E12C8B77BF1A1BE</key>
 		<string>https://github.com/FISTUDIO-Dev/IOS_Do_It.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Do it.xcodeproj</string>
+	<string>Do it.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>DE8C9BFC099F37FFB7DEB6871E12C8B77BF1A1BE</key>

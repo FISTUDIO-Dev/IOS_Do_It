@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface DailyListActivityTableViewCell : UITableViewCell
+#import "MGSwipeTableCell.h"
+@interface DailyListActivityTableViewCell : MGSwipeTableCell
+@property (weak, nonatomic) IBOutlet UILabel *completionRateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taskContentLabel;
 
 @end

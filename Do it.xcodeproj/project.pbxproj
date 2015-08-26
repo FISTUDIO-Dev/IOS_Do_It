@@ -54,6 +54,7 @@
 		8CA45A0F1B39030400A18768 /* FinalizingTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA45A0E1B39030400A18768 /* FinalizingTaskView.m */; };
 		8CA45A111B39032C00A18768 /* FinalizingTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CA45A101B39032C00A18768 /* FinalizingTaskView.xib */; };
 		8CA45A131B39059A00A18768 /* icon_finish_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CA45A121B39059A00A18768 /* icon_finish_white@2x.png */; };
+		8CC35BB11B8DD55100D5B470 /* icon_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC35BB01B8DD55100D5B470 /* icon_clock.png */; };
 		8CD23EB31B3425E300452F43 /* icon_proceed_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CD23EB21B3425E300452F43 /* icon_proceed_white@2x.png */; };
 		8CD23EB91B342EA400452F43 /* MKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD23EB81B342EA400452F43 /* MKTextField.swift */; };
 		8CD23EBD1B3430A500452F43 /* MKLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD23EBB1B3430A500452F43 /* MKLayer.swift */; };
@@ -179,6 +180,7 @@
 		8CA45A121B39059A00A18768 /* icon_finish_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_finish_white@2x.png"; sourceTree = "<group>"; };
 		8CA45A151B39116300A18768 /* EventCreationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCreationDelegate.h; sourceTree = "<group>"; };
 		8CA7024A1B4E242E004E904A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8CC35BB01B8DD55100D5B470 /* icon_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_clock.png; sourceTree = "<group>"; };
 		8CD23EB21B3425E300452F43 /* icon_proceed_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_proceed_white@2x.png"; sourceTree = "<group>"; };
 		8CD23EB81B342EA400452F43 /* MKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKTextField.swift; sourceTree = "<group>"; };
 		8CD23EBA1B342FA200452F43 /* SwiftBridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftBridging.h; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 		8CDFB3A31B313256009B431A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8CC35BB01B8DD55100D5B470 /* icon_clock.png */,
 				8C45AEE31B8B35560045F1B3 /* icon_heart.png */,
 				8C8E5FBE1B72226B001A2C63 /* icon_cancel_red@2x.png */,
 				8CE8DC861B5D0F4000EC7523 /* icon_cancel_blue@2x.png */,
@@ -878,6 +881,7 @@
 				2E0B61481B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.xib in Resources */,
 				8CE8DC851B5D0B7600EC7523 /* icon_cancel_white@2x.png in Resources */,
 				8CA45A111B39032C00A18768 /* FinalizingTaskView.xib in Resources */,
+				8CC35BB11B8DD55100D5B470 /* icon_clock.png in Resources */,
 				8CDFB3A51B3133B2009B431A /* icon_proceed_blue@2x.png in Resources */,
 				8CD23EC41B34359800452F43 /* TimePickerView.xib in Resources */,
 				2EB6B4521B25735100D7C7A3 /* AchievedActivityTableViewCell.xib in Resources */,
