@@ -45,6 +45,7 @@
 		8C675D1D1B30497300D517CB /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675D1B1B30497300D517CB /* UIColor+flat.m */; };
 		8C675D201B30498F00D517CB /* FeBasicAnimationBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675D1F1B30498F00D517CB /* FeBasicAnimationBlock.m */; };
 		8C675D221B3049A300D517CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C675D211B3049A300D517CB /* QuartzCore.framework */; };
+		8C80835D1B9A7C1A00740978 /* UIColor+BFPaperColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C80835C1B9A7C1A00740978 /* UIColor+BFPaperColors.m */; };
 		8C8202321B7ECE0900C59F0B /* ActivityListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8202311B7ECE0900C59F0B /* ActivityListTableViewController.m */; };
 		8C8202371B7ECE3F00C59F0B /* CarbonTabSwipeNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8202361B7ECE3F00C59F0B /* CarbonTabSwipeNavigation.m */; };
 		8C8E5FB51B6B8C0D001A2C63 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E5FB21B6B8C0D001A2C63 /* SF-UI-Display-Light.otf */; };
@@ -165,6 +166,7 @@
 		8C675D1E1B30498F00D517CB /* FeBasicAnimationBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeBasicAnimationBlock.h; sourceTree = "<group>"; };
 		8C675D1F1B30498F00D517CB /* FeBasicAnimationBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeBasicAnimationBlock.m; sourceTree = "<group>"; };
 		8C675D211B3049A300D517CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8C80835C1B9A7C1A00740978 /* UIColor+BFPaperColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BFPaperColors.m"; sourceTree = "<group>"; };
 		8C8202301B7ECE0900C59F0B /* ActivityListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListTableViewController.h; sourceTree = "<group>"; };
 		8C8202311B7ECE0900C59F0B /* ActivityListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListTableViewController.m; sourceTree = "<group>"; };
 		8C8202341B7ECE3F00C59F0B /* CarbonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonKit.h; sourceTree = "<group>"; };
@@ -183,7 +185,6 @@
 		8CC35BB01B8DD55100D5B470 /* icon_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_clock.png; sourceTree = "<group>"; };
 		8CD23EB21B3425E300452F43 /* icon_proceed_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_proceed_white@2x.png"; sourceTree = "<group>"; };
 		8CD23EB81B342EA400452F43 /* MKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKTextField.swift; sourceTree = "<group>"; };
-		8CD23EBA1B342FA200452F43 /* SwiftBridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftBridging.h; sourceTree = "<group>"; };
 		8CD23EBB1B3430A500452F43 /* MKLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLayer.swift; sourceTree = "<group>"; };
 		8CD23EBC1B3430A500452F43 /* MKColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKColor.swift; sourceTree = "<group>"; };
 		8CD23EC01B34354A00452F43 /* TimePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerView.h; sourceTree = "<group>"; };
@@ -369,8 +370,8 @@
 		2EC09C941B81996B0094C033 /* ActivityList Cells */ = {
 			isa = PBXGroup;
 			children = (
-				8CE29B1D1B8C7F5A007C3FA9 /* Completed activity */,
 				2E0B61431B8AF68A003CFB13 /* Normal Activity */,
+				8CE29B1D1B8C7F5A007C3FA9 /* Completed activity */,
 				2E0B61491B8AF73B003CFB13 /* Daily Activity */,
 				2E0B61421B8AF67F003CFB13 /* Redundant Activity */,
 			);
@@ -410,6 +411,7 @@
 		8C45AEE51B8B35B80045F1B3 /* BFPaperCheckBox */ = {
 			isa = PBXGroup;
 			children = (
+				8C80835C1B9A7C1A00740978 /* UIColor+BFPaperColors.m */,
 				8C45AEEA1B8B35FD0045F1B3 /* UIColor+BFPaperColors.h */,
 				8C45AEE61B8B35C90045F1B3 /* BFPaperCheckbox.h */,
 				8C45AEE71B8B35C90045F1B3 /* BFPaperCheckbox.m */,
@@ -727,10 +729,10 @@
 		99E3B0FA1B0A00C900A13838 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8CA702491B4E2416004E904A /* Constants */,
 				2EC09C941B81996B0094C033 /* ActivityList Cells */,
 				2EC09C9A1B81C03D0094C033 /* ActivityList Instance */,
 				8C82022F1B7ECDCC00C59F0B /* ActivityList TableViewController */,
-				8CA702491B4E2416004E904A /* Constants */,
 				99E073EC1B3A9DC7000C5EFF /* LocalNotificationHandler */,
 				99E073EB1B3A9DB2000C5EFF /* NoticesHandler */,
 				8C675CF91B2FF3C700D517CB /* Extra ViewControllers */,
@@ -745,7 +747,6 @@
 		99E3B0FB1B0A00CF00A13838 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				8CD23EBA1B342FA200452F43 /* SwiftBridging.h */,
 				8C45AEE51B8B35B80045F1B3 /* BFPaperCheckBox */,
 				2EB2D16F1B8B01B400CE17F1 /* DOButtonEffects */,
 				2EC09C901B8165FB0094C033 /* NotifBanner */,
@@ -828,7 +829,9 @@
 		995EFE501AE8D29C00B6ED17 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Future Innovation Studio";
 				TargetAttributes = {
 					995EFE571AE8D29C00B6ED17 = {
@@ -917,6 +920,7 @@
 			files = (
 				2EFBD5A81B80B5F400AE7520 /* Alert.m in Sources */,
 				99E073EF1B3A9E27000C5EFF /* GlobalNoticeHandler.m in Sources */,
+				8C80835D1B9A7C1A00740978 /* UIColor+BFPaperColors.m in Sources */,
 				9984D9871B416FD500330E00 /* TimePickerViewController.m in Sources */,
 				2E8D83701B0AADF800FD44F5 /* PastAcheievementActivityInstance.m in Sources */,
 				8CDFB3A01B31308C009B431A /* TaskCreation.m in Sources */,
@@ -1022,6 +1026,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1088,8 +1093,10 @@
 				INFOPLIST_FILE = "Do it/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.fistudio.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Do it/SwiftBridging.h";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1104,8 +1111,10 @@
 				INFOPLIST_FILE = "Do it/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.fistudio.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Do it/SwiftBridging.h";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
@@ -1123,6 +1132,7 @@
 				);
 				INFOPLIST_FILE = "Do itTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.fistudio.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Do it.app/Do it";
 			};
@@ -1138,6 +1148,7 @@
 				);
 				INFOPLIST_FILE = "Do itTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.fistudio.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Do it.app/Do it";
 			};

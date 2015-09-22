@@ -58,7 +58,9 @@ static const NSUInteger DIALERT_BTN_BLACK = 0x000000;
     SCLAlertView * indiAlert = [[SCLAlertView alloc]init];
     switch (type) {
         case DIALERT_SUCCESS:{
+            
             [indiAlert showSuccess:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval colorStyle:DIALERT_TINT_SUCCESS colorTextButton:DIALERT_BTN_WHITE];
+            
         }
             break;
         case DIALERT_ERROR:{
