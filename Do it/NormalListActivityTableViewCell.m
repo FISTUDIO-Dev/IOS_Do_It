@@ -11,6 +11,7 @@
 #import "UIColor+BFPaperColors.h"
 #import "BFPaperCheckbox.h"
 #import "Constants.h"
+
 @interface NormalListActivityTableViewCell()<BFPaperCheckboxDelegate>{
     DOFavoriteButton* dailyButton;
     BFPaperCheckbox* completeCheckbox;

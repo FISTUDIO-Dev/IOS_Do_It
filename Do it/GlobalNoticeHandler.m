@@ -10,7 +10,8 @@
 #import "ProgressHUD.h"
 #import "Alert.h"
 #import "HDNotificationView.h"
-#import "Do_it-Swift.h"
+#import "SCLAlertView.h"
+
 //indicator alert styles
 static const NSUInteger DIALERT_TINT_SUCCESS = 0x22B573;
 static const NSUInteger DIALERT_TINT_ERROR = 0xC1272D;
@@ -54,37 +55,43 @@ static const NSUInteger DIALERT_BTN_BLACK = 0x000000;
 }
 
 +(void)showIndicativeAlertWithTitle:(NSString*)title Subtitle:(NSString*)subtitle Closebuttontitle:(NSString*)cbtitle AlertType:(DIAlertTypes)type Duration:(NSTimeInterval)interval{
+    
     //Create alert instance
     SCLAlertView * indiAlert = [[SCLAlertView alloc]init];
+    
     switch (type) {
+            
         case DIALERT_SUCCESS:{
             
-            [indiAlert showSuccess:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval colorStyle:DIALERT_TINT_SUCCESS colorTextButton:DIALERT_BTN_WHITE];
+            [indiAlert showSuccess:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
             
         }
             break;
         case DIALERT_ERROR:{
-            [indiAlert showError:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval colorStyle:DIALERT_TINT_ERROR colorTextButton:DIALERT_BTN_WHITE];
+            [indiAlert showError:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
         }
             
             break;
         case DIALERT_INFO:{
-            [indiAlert showInfo:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval colorStyle:DIALERT_TINT_INFO colorTextButton:DIALERT_BTN_WHITE];
+            [indiAlert showInfo:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
         }
             
             break;
         case DIALERT_NOTICE:{
-            [indiAlert showNotice:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval colorStyle:DIALERT_TINT_NOTICE colorTextButton:DIALERT_BTN_WHITE];
+            [indiAlert showNotice:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
         }
             
             break;
             
         case DIALERT_WARNING:{
-            [indiAlert showWarning:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval colorStyle:DIALERT_TINT_WARNING colorTextButton:DIALERT_BTN_BLACK];
+            [indiAlert showWarning:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
+            
         }
             
             break;
+            
         default:
+            
             break;
     }
 }
