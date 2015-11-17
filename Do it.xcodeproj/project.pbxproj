@@ -1138,7 +1138,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.fistudio.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SwiftBridging.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Do it/SwiftBridging.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1156,7 +1156,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.fistudio.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SwiftBridging.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Do it/SwiftBridging.h";
 			};
 			name = Release;
 		};

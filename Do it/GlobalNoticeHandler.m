@@ -12,14 +12,6 @@
 #import "HDNotificationView.h"
 #import "SCLAlertView.h"
 
-//indicator alert styles
-static const NSUInteger DIALERT_TINT_SUCCESS = 0x22B573;
-static const NSUInteger DIALERT_TINT_ERROR = 0xC1272D;
-static const NSUInteger DIALERT_TINT_NOTICE = 0x727375;
-static const NSUInteger DIALERT_TINT_WARNING = 0xFFD110;
-static const NSUInteger DIALERT_TINT_INFO = 0x2866BF;
-static const NSUInteger DIALERT_BTN_WHITE = 0xFFFFFF;
-static const NSUInteger DIALERT_BTN_BLACK = 0x000000;
 
 @interface GlobalNoticeHandler()
 
