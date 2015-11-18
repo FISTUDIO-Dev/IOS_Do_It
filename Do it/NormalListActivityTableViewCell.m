@@ -13,7 +13,9 @@
 #import "Constants.h"
 
 @interface NormalListActivityTableViewCell()<BFPaperCheckboxDelegate>{
+    
     DOFavoriteButton* dailyButton;
+    
     BFPaperCheckbox* completeCheckbox;
 }
 
@@ -34,6 +36,7 @@
 
 #pragma mark - UI Elements
 -(void)setUp{
+    
     //Add daily favourite button
     dailyButton = [[DOFavoriteButton alloc]initWithFrame:CGRectMake(265, 11, 45, 45) image:[UIImage imageNamed:@"icon_heart"]];
     dailyButton.imageColorOff = [UIColor lightGrayColor];
@@ -54,12 +57,12 @@
 #pragma mark - Button actions
 -(void)dailyButtonTapped:(id)sender{
     //post notification to request update self to become daily activity
-    //[[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_NORMAL_LIST_REQUEST_DAILY_AT_INDEX object:nil userInfo:@{@"rowIndex":_rowIndex}];
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_NORMAL_LIST_REQUEST_DAILY_AT_INDEX object:nil userInfo:@{@"rowIndex":_rowIndex}];
 }
 
 -(void)paperCheckboxChangedState:(BFPaperCheckbox *)checkbox{
     //post notification to request complete self
-    //[[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_NORMAL_LIST_SET_COMPLETED object:nil userInfo:@{@"rowIndex":_rowIndex}];
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNOTIF_NORMAL_LIST_SET_COMPLETED object:nil userInfo:@{@"rowIndex":_rowIndex}];
 }
 
 

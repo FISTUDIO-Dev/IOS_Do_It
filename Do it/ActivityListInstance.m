@@ -31,7 +31,7 @@
 
 #pragma mark - Initialize
 -(id)init{
-    [NSException raise:@"Use designated initialize" format:@"Initialize with task content"];
+    [NSException raise:@"Use designated initialization" format:@"Initialize with task content"];
     return nil;
 }
 

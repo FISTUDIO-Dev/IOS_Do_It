@@ -19,12 +19,30 @@
 
 @implementation GlobalNoticeHandler
 
+
+/**
+ 
+ * @brief  Create basic informational alert
+ 
+ * @param  Title , Description , btnText
+ 
+ * @return UIAlertView
+ 
+ */
 +(void)createInformationalAlertViewWithTitle:(NSString *)title Description:(NSString *)description ButtonText:(NSString *)btnText{
     UIAlertView * infoAlert = [[UIAlertView alloc]initWithTitle:title message:description delegate:self cancelButtonTitle:btnText otherButtonTitles:nil, nil];
     [infoAlert show];
 }
 
-
+/**
+ 
+ * @brief   Create HUD with configuration
+ 
+ * @param   Title , Duration , isSuccess , isInteractive , Callback
+ 
+ * @return  ProgressHUD
+ 
+ */
 +(void)showHUDWithText:(NSString*)title ForPeriod:(CGFloat)time Success:(BOOL)isSuccess Interactive:(BOOL)isinteractive Callback:(void (^)())callback{
     //Show the HUD
     if (isSuccess) {
@@ -45,6 +63,16 @@
         callback();
     }
 }
+
+/**
+ 
+ * @brief   Show fly-in alert
+ 
+ * @param   Title , subtitle , close button text , Alert Type , Duration
+ 
+ * @return  SCLAlertView
+ 
+ */
 
 +(void)showIndicativeAlertWithTitle:(NSString*)title Subtitle:(NSString*)subtitle Closebuttontitle:(NSString*)cbtitle AlertType:(DIAlertTypes)type Duration:(NSTimeInterval)interval{
     
@@ -88,6 +116,16 @@
     }
 }
 
+/**
+ 
+ * @brief   Show alert that looks like notification
+ 
+ * @param   Message , Duration , Banner Type , Completion Block
+ 
+ * @return  Alert ( a notification plugin )
+ 
+ */
+
 +(void)showNotificationAlertWithMessage:(NSString *)message Duration:(CGFloat)duration Type:(DNBannerTypes)type Completion:(void (^)())completion{
     Alert* alert = [[Alert alloc]initWithTitle:message duration:duration completion:completion];
     switch (type) {
@@ -110,6 +148,16 @@
     
     [alert showAlert];
 }
+
+/**
+ 
+ * @brief   Show alert that looks like native iOS notification
+ 
+ * @param   Title , Message , Duration , Image Name as an icon , Completion method on tapping
+ 
+ * @return  HDNotification
+ 
+ */
 
 +(void)showNotificationBannerWithTitle:(NSString *)title Message:(NSString *)message Duration:(CGFloat)duration ImageName:(NSString *)imagename OnTapCompletion:(void (^)())completion{
     if (duration == 0) {
