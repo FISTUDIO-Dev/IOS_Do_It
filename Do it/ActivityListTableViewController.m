@@ -7,9 +7,7 @@
 //
 
 #import "ActivityListTableViewController.h"
-#import "ActivtyInstancesManager.h"
-#import "NormalListActivityTableViewCell.h"
-#import "GlobalNoticeHandler.h"
+
 @interface ActivityListTableViewController ()
 
 @end
@@ -53,13 +51,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NormalListActivityTableViewCell *cell = (NormalListActivityTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"cellID"];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle]loadNibNamed:@"NormalListActivityTableViewCell" owner:self options:nil]firstObject];
-    }
-    // Configure the cell...
-    cell.taskContentLabel.text = @"test haha";
-    return cell;
+    return nil;
 }
 
 

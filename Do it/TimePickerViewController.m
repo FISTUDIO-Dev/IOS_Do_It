@@ -29,6 +29,8 @@
     // Add to view
     [self.view addSubview:_timePickerView];
     
+    [_timePickerView removeProceedBtn];
+    
     // Set up finish button
     setBtn = [[FeRippleButton alloc]initWithFrame:CGRectMake(65, 255, 180, 60)];
     setBtn.center = CGPointMake(self.view.frame.size.width/2, setBtn.frame.origin.y);

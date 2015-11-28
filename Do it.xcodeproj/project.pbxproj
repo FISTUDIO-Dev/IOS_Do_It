@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E0B613F1B8AF65A003CFB13 /* NormalListActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0B613D1B8AF65A003CFB13 /* NormalListActivityTableViewCell.m */; };
-		2E0B61401B8AF65A003CFB13 /* NormalListActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E0B613E1B8AF65A003CFB13 /* NormalListActivityTableViewCell.xib */; };
-		2E0B61471B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0B61451B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.m */; };
-		2E0B61481B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E0B61461B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.xib */; };
-		2E0B614D1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0B614B1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.m */; };
-		2E0B614E1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E0B614C1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.xib */; };
 		2E70B8CD1B22F61600A359D9 /* ActivityTableViewCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E70B8CC1B22F61600A359D9 /* ActivityTableViewCellController.m */; };
 		2E730E8F1B18194200110905 /* ActivitiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E730E8E1B18194200110905 /* ActivitiesTableViewController.m */; };
 		2E79C9C21B0C4827005AEDCD /* OngoingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E79C9C01B0C4827005AEDCD /* OngoingTableViewCell.m */; };
@@ -26,7 +20,6 @@
 		2EB6B45E1B26960300D7C7A3 /* FailedActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6B45C1B26960300D7C7A3 /* FailedActivityTableViewCell.m */; };
 		2EB6B45F1B26960300D7C7A3 /* FailedActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB6B45D1B26960300D7C7A3 /* FailedActivityTableViewCell.xib */; };
 		2EC09C931B81660B0094C033 /* HDNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC09C921B81660B0094C033 /* HDNotificationView.m */; };
-		2EC09C9D1B81C0A80094C033 /* ActivityListInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC09C9C1B81C0A80094C033 /* ActivityListInstance.m */; };
 		2EC7B1441B2802D3007375C9 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B1411B2802D3007375C9 /* MGSwipeButton.m */; };
 		2EC7B1451B2802D3007375C9 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7B1431B2802D3007375C9 /* MGSwipeTableCell.m */; };
 		2EFBD5A81B80B5F400AE7520 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFBD5A71B80B5F400AE7520 /* Alert.m */; };
@@ -44,6 +37,9 @@
 		8C675D1D1B30497300D517CB /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675D1B1B30497300D517CB /* UIColor+flat.m */; };
 		8C675D201B30498F00D517CB /* FeBasicAnimationBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C675D1F1B30498F00D517CB /* FeBasicAnimationBlock.m */; };
 		8C675D221B3049A300D517CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C675D211B3049A300D517CB /* QuartzCore.framework */; };
+		8C7BF8DF1C09CBCB0088D863 /* DailyItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BF8DE1C09CBCB0088D863 /* DailyItemTableViewCell.m */; };
+		8C7BF8E21C09CC960088D863 /* LeftOverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BF8E11C09CC960088D863 /* LeftOverTableViewCell.m */; };
+		8C7BF8E51C09CCA80088D863 /* TodoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BF8E41C09CCA80088D863 /* TodoListTableViewCell.m */; };
 		8C80835D1B9A7C1A00740978 /* UIColor+BFPaperColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C80835C1B9A7C1A00740978 /* UIColor+BFPaperColors.m */; };
 		8C81FD0D1BF9E9970080B96A /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C81FCFF1BF9E9970080B96A /* SCLAlertView.m */; };
 		8C81FD0E1BF9E9970080B96A /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C81FD011BF9E9970080B96A /* SCLAlertViewResponder.m */; };
@@ -52,6 +48,10 @@
 		8C81FD111BF9E9970080B96A /* SCLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C81FD081BF9E9970080B96A /* SCLTextView.m */; };
 		8C81FD121BF9E9970080B96A /* SCLTimerDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C81FD0A1BF9E9970080B96A /* SCLTimerDisplay.m */; };
 		8C81FD131BF9E9970080B96A /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C81FD0C1BF9E9970080B96A /* UIImage+ImageEffects.m */; };
+		8C81FD1A1BFC74C50080B96A /* TodoListItemInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C81FD191BFC74C50080B96A /* TodoListItemInstance.m */; };
+		8C81FD1D1BFC76170080B96A /* LeftOverItemInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C81FD1C1BFC76170080B96A /* LeftOverItemInstance.m */; };
+		8C81FD201BFC7E1B0080B96A /* DailyItemInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C81FD1F1BFC7E1B0080B96A /* DailyItemInstance.m */; };
+		8C81FD231BFC9C3D0080B96A /* EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C81FD221BFC9C3D0080B96A /* EventManager.m */; };
 		8C8202321B7ECE0900C59F0B /* ActivityListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8202311B7ECE0900C59F0B /* ActivityListTableViewController.m */; };
 		8C8202371B7ECE3F00C59F0B /* CarbonTabSwipeNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8202361B7ECE3F00C59F0B /* CarbonTabSwipeNavigation.m */; };
 		8C8E5FB51B6B8C0D001A2C63 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E5FB21B6B8C0D001A2C63 /* SF-UI-Display-Light.otf */; };
@@ -73,8 +73,6 @@
 		8CDFB3A21B3130AE009B431A /* TaskCreation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CDFB3A11B3130AE009B431A /* TaskCreation.xib */; };
 		8CDFB3A51B3133B2009B431A /* icon_proceed_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CDFB3A41B3133B2009B431A /* icon_proceed_blue@2x.png */; };
 		8CDFB3AA1B313A12009B431A /* FeRippleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDFB3A91B313A12009B431A /* FeRippleButton.m */; };
-		8CE29B211B8C7F7E007C3FA9 /* CompletedListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE29B1F1B8C7F7E007C3FA9 /* CompletedListTableViewCell.m */; };
-		8CE29B221B8C7F7E007C3FA9 /* CompletedListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CE29B201B8C7F7E007C3FA9 /* CompletedListTableViewCell.xib */; };
 		8CE8DC611B5A024B00EC7523 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8CE8DC5E1B5A024B00EC7523 /* ProgressHUD.bundle */; };
 		8CE8DC621B5A024B00EC7523 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8DC601B5A024B00EC7523 /* ProgressHUD.m */; };
 		8CE8DC661B5A0FF400EC7523 /* LocalNotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8DC651B5A0FF400EC7523 /* LocalNotificationHandler.m */; };
@@ -104,15 +102,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2E0B613C1B8AF65A003CFB13 /* NormalListActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalListActivityTableViewCell.h; sourceTree = "<group>"; };
-		2E0B613D1B8AF65A003CFB13 /* NormalListActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalListActivityTableViewCell.m; sourceTree = "<group>"; };
-		2E0B613E1B8AF65A003CFB13 /* NormalListActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalListActivityTableViewCell.xib; sourceTree = "<group>"; };
-		2E0B61441B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedundantListActivityTableViewCell.h; sourceTree = "<group>"; };
-		2E0B61451B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedundantListActivityTableViewCell.m; sourceTree = "<group>"; };
-		2E0B61461B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedundantListActivityTableViewCell.xib; sourceTree = "<group>"; };
-		2E0B614A1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyListActivityTableViewCell.h; sourceTree = "<group>"; };
-		2E0B614B1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyListActivityTableViewCell.m; sourceTree = "<group>"; };
-		2E0B614C1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyListActivityTableViewCell.xib; sourceTree = "<group>"; };
 		2E566A3A1B0C554500F05D55 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
 		2E70B8CB1B22F61600A359D9 /* ActivityTableViewCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCellController.h; sourceTree = "<group>"; };
 		2E70B8CC1B22F61600A359D9 /* ActivityTableViewCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCellController.m; sourceTree = "<group>"; };
@@ -136,8 +125,6 @@
 		2EB6B45D1B26960300D7C7A3 /* FailedActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailedActivityTableViewCell.xib; sourceTree = "<group>"; };
 		2EC09C911B81660B0094C033 /* HDNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDNotificationView.h; sourceTree = "<group>"; };
 		2EC09C921B81660B0094C033 /* HDNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDNotificationView.m; sourceTree = "<group>"; };
-		2EC09C9B1B81C0A80094C033 /* ActivityListInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListInstance.h; sourceTree = "<group>"; };
-		2EC09C9C1B81C0A80094C033 /* ActivityListInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListInstance.m; sourceTree = "<group>"; };
 		2EC7B1401B2802D3007375C9 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
 		2EC7B1411B2802D3007375C9 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
 		2EC7B1421B2802D3007375C9 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
@@ -171,6 +158,12 @@
 		8C675D1E1B30498F00D517CB /* FeBasicAnimationBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeBasicAnimationBlock.h; sourceTree = "<group>"; };
 		8C675D1F1B30498F00D517CB /* FeBasicAnimationBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeBasicAnimationBlock.m; sourceTree = "<group>"; };
 		8C675D211B3049A300D517CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8C7BF8DD1C09CBCB0088D863 /* DailyItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyItemTableViewCell.h; sourceTree = "<group>"; };
+		8C7BF8DE1C09CBCB0088D863 /* DailyItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyItemTableViewCell.m; sourceTree = "<group>"; };
+		8C7BF8E01C09CC960088D863 /* LeftOverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftOverTableViewCell.h; sourceTree = "<group>"; };
+		8C7BF8E11C09CC960088D863 /* LeftOverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftOverTableViewCell.m; sourceTree = "<group>"; };
+		8C7BF8E31C09CCA80088D863 /* TodoListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoListTableViewCell.h; sourceTree = "<group>"; };
+		8C7BF8E41C09CCA80088D863 /* TodoListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoListTableViewCell.m; sourceTree = "<group>"; };
 		8C80835C1B9A7C1A00740978 /* UIColor+BFPaperColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BFPaperColors.m"; sourceTree = "<group>"; };
 		8C81FCFE1BF9E9970080B96A /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
 		8C81FCFF1BF9E9970080B96A /* SCLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertView.m; sourceTree = "<group>"; };
@@ -188,6 +181,14 @@
 		8C81FD0B1BF9E9970080B96A /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		8C81FD0C1BF9E9970080B96A /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		8C81FD141BF9EDC60080B96A /* SwiftBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftBridging.h; sourceTree = "<group>"; };
+		8C81FD181BFC74C50080B96A /* TodoListItemInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoListItemInstance.h; sourceTree = "<group>"; };
+		8C81FD191BFC74C50080B96A /* TodoListItemInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoListItemInstance.m; sourceTree = "<group>"; };
+		8C81FD1B1BFC76170080B96A /* LeftOverItemInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftOverItemInstance.h; sourceTree = "<group>"; };
+		8C81FD1C1BFC76170080B96A /* LeftOverItemInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftOverItemInstance.m; sourceTree = "<group>"; };
+		8C81FD1E1BFC7E1B0080B96A /* DailyItemInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyItemInstance.h; sourceTree = "<group>"; };
+		8C81FD1F1BFC7E1B0080B96A /* DailyItemInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyItemInstance.m; sourceTree = "<group>"; };
+		8C81FD211BFC9C3D0080B96A /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
+		8C81FD221BFC9C3D0080B96A /* EventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventManager.m; sourceTree = "<group>"; };
 		8C8202301B7ECE0900C59F0B /* ActivityListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListTableViewController.h; sourceTree = "<group>"; };
 		8C8202311B7ECE0900C59F0B /* ActivityListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListTableViewController.m; sourceTree = "<group>"; };
 		8C8202341B7ECE3F00C59F0B /* CarbonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonKit.h; sourceTree = "<group>"; };
@@ -218,9 +219,6 @@
 		8CDFB3A41B3133B2009B431A /* icon_proceed_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_proceed_blue@2x.png"; sourceTree = "<group>"; };
 		8CDFB3A81B313A12009B431A /* FeRippleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeRippleButton.h; sourceTree = "<group>"; };
 		8CDFB3A91B313A12009B431A /* FeRippleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeRippleButton.m; sourceTree = "<group>"; };
-		8CE29B1E1B8C7F7E007C3FA9 /* CompletedListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedListTableViewCell.h; sourceTree = "<group>"; };
-		8CE29B1F1B8C7F7E007C3FA9 /* CompletedListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedListTableViewCell.m; sourceTree = "<group>"; };
-		8CE29B201B8C7F7E007C3FA9 /* CompletedListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompletedListTableViewCell.xib; sourceTree = "<group>"; };
 		8CE8DC5E1B5A024B00EC7523 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		8CE8DC5F1B5A024B00EC7523 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		8CE8DC601B5A024B00EC7523 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
@@ -270,36 +268,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E0B61421B8AF67F003CFB13 /* Redundant Activity */ = {
-			isa = PBXGroup;
-			children = (
-				2E0B61441B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.h */,
-				2E0B61451B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.m */,
-				2E0B61461B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.xib */,
-			);
-			name = "Redundant Activity";
-			sourceTree = "<group>";
-		};
-		2E0B61431B8AF68A003CFB13 /* Normal Activity */ = {
-			isa = PBXGroup;
-			children = (
-				2E0B613C1B8AF65A003CFB13 /* NormalListActivityTableViewCell.h */,
-				2E0B613D1B8AF65A003CFB13 /* NormalListActivityTableViewCell.m */,
-				2E0B613E1B8AF65A003CFB13 /* NormalListActivityTableViewCell.xib */,
-			);
-			name = "Normal Activity";
-			sourceTree = "<group>";
-		};
-		2E0B61491B8AF73B003CFB13 /* Daily Activity */ = {
-			isa = PBXGroup;
-			children = (
-				2E0B614A1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.h */,
-				2E0B614B1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.m */,
-				2E0B614C1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.xib */,
-			);
-			name = "Daily Activity";
-			sourceTree = "<group>";
-		};
 		2E566A391B0C552400F05D55 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,26 +354,6 @@
 				2EC09C921B81660B0094C033 /* HDNotificationView.m */,
 			);
 			name = NotifBanner;
-			sourceTree = "<group>";
-		};
-		2EC09C941B81996B0094C033 /* ActivityList Cells */ = {
-			isa = PBXGroup;
-			children = (
-				2E0B61431B8AF68A003CFB13 /* Normal Activity */,
-				8CE29B1D1B8C7F5A007C3FA9 /* Completed activity */,
-				2E0B61491B8AF73B003CFB13 /* Daily Activity */,
-				2E0B61421B8AF67F003CFB13 /* Redundant Activity */,
-			);
-			name = "ActivityList Cells";
-			sourceTree = "<group>";
-		};
-		2EC09C9A1B81C03D0094C033 /* ActivityList Instance */ = {
-			isa = PBXGroup;
-			children = (
-				2EC09C9B1B81C0A80094C033 /* ActivityListInstance.h */,
-				2EC09C9C1B81C0A80094C033 /* ActivityListInstance.m */,
-			);
-			name = "ActivityList Instance";
 			sourceTree = "<group>";
 		};
 		2EC7B13F1B2802BE007375C9 /* SwipeCell */ = {
@@ -541,6 +489,86 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		8C7BF8D61C0720380088D863 /* Activity List TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8C7BF8D91C07207F0088D863 /* Daily item */,
+				8C7BF8D81C0720700088D863 /* Leftover Item */,
+				8C7BF8D71C07205A0088D863 /* Todolist Item */,
+			);
+			name = "Activity List TableViewCells";
+			sourceTree = "<group>";
+		};
+		8C7BF8D71C07205A0088D863 /* Todolist Item */ = {
+			isa = PBXGroup;
+			children = (
+				8C7BF8E31C09CCA80088D863 /* TodoListTableViewCell.h */,
+				8C7BF8E41C09CCA80088D863 /* TodoListTableViewCell.m */,
+			);
+			name = "Todolist Item";
+			sourceTree = "<group>";
+		};
+		8C7BF8D81C0720700088D863 /* Leftover Item */ = {
+			isa = PBXGroup;
+			children = (
+				8C7BF8E01C09CC960088D863 /* LeftOverTableViewCell.h */,
+				8C7BF8E11C09CC960088D863 /* LeftOverTableViewCell.m */,
+			);
+			name = "Leftover Item";
+			sourceTree = "<group>";
+		};
+		8C7BF8D91C07207F0088D863 /* Daily item */ = {
+			isa = PBXGroup;
+			children = (
+				8C7BF8DD1C09CBCB0088D863 /* DailyItemTableViewCell.h */,
+				8C7BF8DE1C09CBCB0088D863 /* DailyItemTableViewCell.m */,
+			);
+			name = "Daily item";
+			sourceTree = "<group>";
+		};
+		8C81FD151BFC744D0080B96A /* Task mode */ = {
+			isa = PBXGroup;
+			children = (
+				2E730E8C1B18191400110905 /* Activities Task TableView */,
+				2E79C9BE1B0BFDD0005AEDCD /* Activity Task TableViewCells */,
+				2E8D83741B0ABA1900FD44F5 /* Activity Task Management  */,
+				99E3B0FD1B0A00F600A13838 /* Activity Task Instances */,
+			);
+			name = "Task mode";
+			sourceTree = "<group>";
+		};
+		8C81FD161BFC74710080B96A /* List mode */ = {
+			isa = PBXGroup;
+			children = (
+				8C7BF8D61C0720380088D863 /* Activity List TableViewCells */,
+				8C82022F1B7ECDCC00C59F0B /* ActivityList TableViewController */,
+				8C81FD171BFC747C0080B96A /* Activity List Instances */,
+			);
+			name = "List mode";
+			sourceTree = "<group>";
+		};
+		8C81FD171BFC747C0080B96A /* Activity List Instances */ = {
+			isa = PBXGroup;
+			children = (
+				8C81FD181BFC74C50080B96A /* TodoListItemInstance.h */,
+				8C81FD191BFC74C50080B96A /* TodoListItemInstance.m */,
+				8C81FD1B1BFC76170080B96A /* LeftOverItemInstance.h */,
+				8C81FD1C1BFC76170080B96A /* LeftOverItemInstance.m */,
+				8C81FD1E1BFC7E1B0080B96A /* DailyItemInstance.h */,
+				8C81FD1F1BFC7E1B0080B96A /* DailyItemInstance.m */,
+			);
+			name = "Activity List Instances";
+			sourceTree = "<group>";
+		};
+		8C81FD241BFC9C420080B96A /* Event Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8C81FD211BFC9C3D0080B96A /* EventManager.h */,
+				8C81FD221BFC9C3D0080B96A /* EventManager.m */,
+			);
+			name = "Event Manager";
+			sourceTree = "<group>";
+		};
 		8C82022F1B7ECDCC00C59F0B /* ActivityList TableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,16 +667,6 @@
 				8CDFB3A41B3133B2009B431A /* icon_proceed_blue@2x.png */,
 			);
 			name = Images;
-			sourceTree = "<group>";
-		};
-		8CE29B1D1B8C7F5A007C3FA9 /* Completed activity */ = {
-			isa = PBXGroup;
-			children = (
-				8CE29B1E1B8C7F7E007C3FA9 /* CompletedListTableViewCell.h */,
-				8CE29B1F1B8C7F7E007C3FA9 /* CompletedListTableViewCell.m */,
-				8CE29B201B8C7F7E007C3FA9 /* CompletedListTableViewCell.xib */,
-			);
-			name = "Completed activity";
 			sourceTree = "<group>";
 		};
 		8CE8DC5D1B5A024300EC7523 /* HUD */ = {
@@ -765,17 +783,13 @@
 		99E3B0FA1B0A00C900A13838 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8C81FD241BFC9C420080B96A /* Event Manager */,
+				8C81FD161BFC74710080B96A /* List mode */,
+				8C81FD151BFC744D0080B96A /* Task mode */,
 				8CA702491B4E2416004E904A /* Constants */,
-				2EC09C941B81996B0094C033 /* ActivityList Cells */,
-				2EC09C9A1B81C03D0094C033 /* ActivityList Instance */,
-				8C82022F1B7ECDCC00C59F0B /* ActivityList TableViewController */,
 				99E073EC1B3A9DC7000C5EFF /* LocalNotificationHandler */,
 				99E073EB1B3A9DB2000C5EFF /* NoticesHandler */,
 				8C675CF91B2FF3C700D517CB /* Extra ViewControllers */,
-				2E730E8C1B18191400110905 /* Activities Task TableView */,
-				2E79C9BE1B0BFDD0005AEDCD /* Activity Task TableViewCells */,
-				2E8D83741B0ABA1900FD44F5 /* Activity Task Management  */,
-				99E3B0FD1B0A00F600A13838 /* Activity Task Instances */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -910,14 +924,10 @@
 			files = (
 				995EFE671AE8D29C00B6ED17 /* Main.storyboard in Resources */,
 				8C45AEE41B8B35560045F1B3 /* icon_heart.png in Resources */,
-				2E0B61401B8AF65A003CFB13 /* NormalListActivityTableViewCell.xib in Resources */,
-				8CE29B221B8C7F7E007C3FA9 /* CompletedListTableViewCell.xib in Resources */,
 				8CDFB3A21B3130AE009B431A /* TaskCreation.xib in Resources */,
 				8C8E5FB61B6B8C0D001A2C63 /* SF-UI-Display-Medium.otf in Resources */,
 				8C8E5FBF1B72226B001A2C63 /* icon_cancel_red@2x.png in Resources */,
 				8C8E5FB51B6B8C0D001A2C63 /* SF-UI-Display-Light.otf in Resources */,
-				2E0B614E1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.xib in Resources */,
-				2E0B61481B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.xib in Resources */,
 				8CE8DC851B5D0B7600EC7523 /* icon_cancel_white@2x.png in Resources */,
 				8CA45A111B39032C00A18768 /* FinalizingTaskView.xib in Resources */,
 				8CC35BB11B8DD55100D5B470 /* icon_clock.png in Resources */,
@@ -954,20 +964,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C81FD1D1BFC76170080B96A /* LeftOverItemInstance.m in Sources */,
 				2EFBD5A81B80B5F400AE7520 /* Alert.m in Sources */,
 				99E073EF1B3A9E27000C5EFF /* GlobalNoticeHandler.m in Sources */,
 				8C80835D1B9A7C1A00740978 /* UIColor+BFPaperColors.m in Sources */,
 				9984D9871B416FD500330E00 /* TimePickerViewController.m in Sources */,
+				8C81FD201BFC7E1B0080B96A /* DailyItemInstance.m in Sources */,
 				2E8D83701B0AADF800FD44F5 /* PastAcheievementActivityInstance.m in Sources */,
+				8C7BF8DF1C09CBCB0088D863 /* DailyItemTableViewCell.m in Sources */,
 				8CDFB3A01B31308C009B431A /* TaskCreation.m in Sources */,
 				2EB6B45E1B26960300D7C7A3 /* FailedActivityTableViewCell.m in Sources */,
+				8C7BF8E21C09CC960088D863 /* LeftOverTableViewCell.m in Sources */,
 				8CD23EC21B34354A00452F43 /* TimePickerView.m in Sources */,
 				8CE8DC621B5A024B00EC7523 /* ProgressHUD.m in Sources */,
 				8C675D091B303E0A00D517CB /* UIView+MaterialDesign.m in Sources */,
-				2EC09C9D1B81C0A80094C033 /* ActivityListInstance.m in Sources */,
 				995EFE641AE8D29C00B6ED17 /* ViewController.m in Sources */,
-				2E0B613F1B8AF65A003CFB13 /* NormalListActivityTableViewCell.m in Sources */,
 				2EC7B1451B2802D3007375C9 /* MGSwipeTableCell.m in Sources */,
+				8C81FD231BFC9C3D0080B96A /* EventManager.m in Sources */,
 				8C81FD0D1BF9E9970080B96A /* SCLAlertView.m in Sources */,
 				2EC7B1441B2802D3007375C9 /* MGSwipeButton.m in Sources */,
 				8C8202321B7ECE0900C59F0B /* ActivityListTableViewController.m in Sources */,
@@ -975,6 +988,7 @@
 				8C81FD111BF9E9970080B96A /* SCLTextView.m in Sources */,
 				2E8D83731B0AB08300FD44F5 /* FailedActivityInstance.m in Sources */,
 				995EFE611AE8D29C00B6ED17 /* AppDelegate.m in Sources */,
+				8C81FD1A1BFC74C50080B96A /* TodoListItemInstance.m in Sources */,
 				2E730E8F1B18194200110905 /* ActivitiesTableViewController.m in Sources */,
 				8C675CFD1B2FF44900D517CB /* DelayTimeSelectionViewController.m in Sources */,
 				8C81FD0E1BF9E9970080B96A /* SCLAlertViewResponder.m in Sources */,
@@ -991,16 +1005,14 @@
 				8C81FD121BF9E9970080B96A /* SCLTimerDisplay.m in Sources */,
 				8C675CF41B2FF29F00D517CB /* JCDataPicker.m in Sources */,
 				8CDFB3AA1B313A12009B431A /* FeRippleButton.m in Sources */,
-				2E0B61471B8AF6E5003CFB13 /* RedundantListActivityTableViewCell.m in Sources */,
-				8CE29B211B8C7F7E007C3FA9 /* CompletedListTableViewCell.m in Sources */,
 				8CD23EBE1B3430A500452F43 /* MKColor.swift in Sources */,
 				8C675D1D1B30497300D517CB /* UIColor+flat.m in Sources */,
-				2E0B614D1B8AF7C4003CFB13 /* DailyListActivityTableViewCell.m in Sources */,
 				8C45AEE81B8B35C90045F1B3 /* BFPaperCheckbox.m in Sources */,
 				2EB6B4511B25735100D7C7A3 /* AchievedActivityTableViewCell.m in Sources */,
 				2E70B8CD1B22F61600A359D9 /* ActivityTableViewCellController.m in Sources */,
 				8CA45A0F1B39030400A18768 /* FinalizingTaskView.m in Sources */,
 				8C675D131B30407D00D517CB /* EventCreationViewController.m in Sources */,
+				8C7BF8E51C09CCA80088D863 /* TodoListTableViewCell.m in Sources */,
 				99E3B1001B0A014200A13838 /* OngoingActivityInstance.m in Sources */,
 				8CD23EB91B342EA400452F43 /* MKTextField.swift in Sources */,
 				8C675D171B30412100D517CB /* IntroView.m in Sources */,

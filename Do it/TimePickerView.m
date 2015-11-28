@@ -54,6 +54,12 @@
     [self addSubview:infoLabel];
 }
 
+-(void)removeProceedBtn{
+    
+    [proceedBtn removeFromSuperview];
+    
+}
+
 #pragma mark - notfication sender
 -(void)proceedBtnPressed{
     //Make user info

@@ -10,6 +10,9 @@
 #import "JCDataPicker.h"
 
 @interface TimePickerView : UIView
+
 @property (strong,nonatomic)JCDataPicker * dataPicker;
+
+-(void)removeProceedBtn;
 
 @end

@@ -102,10 +102,10 @@
 }
 
 -(void)completeButtonPressed{
+    //Push success message
+    [GlobalNoticeHandler showIndicativeAlertInController:self WithTitle:@"Fantastic! You DID IT!" Subtitle:@"Congratulations on you success! You can now show to your friends you've done this:)" Closebuttontitle:@"Great!" AlertType:DIALERT_SUCCESS Duration:INFINITY];
     //End timer
     [self stop];
-    //Push success message
-    [GlobalNoticeHandler showIndicativeAlertWithTitle:@"Fantastic! You DID IT!" Subtitle:@"Congratulations on you success! You can now show to your friends you've done this:)" Closebuttontitle:@"Great!" AlertType:DIALERT_SUCCESS Duration:INFINITY];
 }
 
 // NSTimer Controls

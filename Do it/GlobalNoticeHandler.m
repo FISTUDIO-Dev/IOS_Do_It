@@ -64,47 +64,39 @@
     }
 }
 
-/**
- 
- * @brief   Show fly-in alert
- 
- * @param   Title , subtitle , close button text , Alert Type , Duration
- 
- * @return  SCLAlertView
- 
- */
 
-+(void)showIndicativeAlertWithTitle:(NSString*)title Subtitle:(NSString*)subtitle Closebuttontitle:(NSString*)cbtitle AlertType:(DIAlertTypes)type Duration:(NSTimeInterval)interval{
++(void)showIndicativeAlertInController:(UIViewController *)controller WithTitle:(NSString *)title Subtitle:(NSString *)subtitle Closebuttontitle:(NSString *)cbtitle AlertType:(DIAlertTypes)type Duration:(NSTimeInterval)interval{
     
     //Create alert instance
+    
     SCLAlertView * indiAlert = [[SCLAlertView alloc]init];
     
     switch (type) {
             
         case DIALERT_SUCCESS:{
             
-            [indiAlert showSuccess:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
+            [indiAlert showSuccess:controller title:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
             
         }
             break;
         case DIALERT_ERROR:{
-            [indiAlert showError:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
+            [indiAlert showError:controller title:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
         }
             
             break;
         case DIALERT_INFO:{
-            [indiAlert showInfo:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
+            [indiAlert showInfo:controller title:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
         }
             
             break;
         case DIALERT_NOTICE:{
-            [indiAlert showNotice:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
+            [indiAlert showNotice:controller title:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
         }
             
             break;
             
         case DIALERT_WARNING:{
-            [indiAlert showWarning:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
+            [indiAlert showWarning:controller title:title subTitle:subtitle closeButtonTitle:cbtitle duration:interval];
             
         }
             

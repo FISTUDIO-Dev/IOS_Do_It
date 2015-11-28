@@ -10,7 +10,9 @@
 #import "GlobalNoticeHandler.h"
 #import "LocalNotificationHandler.h"
 #import "Constants.h"
+#import "EventManager.h"
 @interface ActivtyInstancesManager(){
+    
     //Use this for storing data
     NSDictionary* activitiesDictionary;
     
@@ -20,9 +22,9 @@
     NSMutableArray* failedActivityArray;
     
     //List mode
-    NSMutableArray* dailyListActivityArray;
-    NSMutableArray* redundantListActivityArray;
-    NSMutableArray* normalListActivityArray;
+    NSMutableArray* dailyListArray;
+    NSMutableArray* leftOverListArray;
+    NSMutableArray* todoListArray;
     
 }
 
@@ -55,16 +57,16 @@
             failedActivityArray  = [[NSMutableArray alloc]init];
             
             //Daily mode
-            dailyListActivityArray = [[NSMutableArray alloc]init];
-            redundantListActivityArray = [[NSMutableArray alloc]init];
-            normalListActivityArray = [[NSMutableArray alloc]init];
+            dailyListArray = [[NSMutableArray alloc]init];
+            leftOverListArray = [[NSMutableArray alloc]init];
+            todoListArray = [[NSMutableArray alloc]init];
     
         }
     }
     return self;
 }
 
-#pragma mark - Task Instance Managements
+#pragma mark - Task Mode Managements
 //Conversion
 - (void)convertToAchievementWithOngoingInstance:(OngoingActivityInstance*)instance{
     //Remove ongoing activity
@@ -142,121 +144,91 @@
     [failedActivityArray removeObjectAtIndex:idx];
 }
 
-#pragma mark - List Instance management
-//add a new list activity
--(void)addListActivity:(ActivityListInstance *)taskInstance{
-    [normalListActivityArray addObject:taskInstance];
-}
+#pragma mark - List Mode Management
 
-//complete normal list items
--(void)completeListActivityAtIndex:(NSInteger)index{
-    [(ActivityListInstance*)[normalListActivityArray objectAtIndex:index] setCompleted:YES];
-    //make this completed one is dumped to the end
-    [normalListActivityArray insertObject:(ActivityListInstance*)[normalListActivityArray objectAtIndex:index] atIndex:normalListActivityArray.count-1];
-    [normalListActivityArray removeObjectAtIndex:index];
-}
-
-//complete redundant tasks
--(void)completeRedundantActivityAtIndex:(NSInteger)index{
-    [(ActivityListInstance*)[redundantListActivityArray objectAtIndex:index] setCompleted:YES];
-}
-
-//complete daily tasks
--(void)completeDailyActivityAtIndex:(NSInteger)index{
-    [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] setCompleted:YES];
+-(void)addTodoListItem:(TodoListItemInstance *)item{
+    
+    [todoListArray addObject:item];
     
 }
 
-//set as daily activity
--(void)setToBeDailyActivityAtIndex:(NSInteger)index{
-    //Set the instance to be daily
-    [(ActivityListInstance*)[normalListActivityArray objectAtIndex:index] setTobeDailyRoutine:YES];
-    //Move the instance to the daily array
-    [dailyListActivityArray addObject:[normalListActivityArray objectAtIndex:index]];
-    //Remove from the original
-    [normalListActivityArray removeObjectAtIndex:index];
+-(void)convertToDailyTaskWithCurrentTaskItem:(TodoListItemInstance *)todo AndReminder:(NSDateComponents *)components{
+    
+    NSString* content = todo.content;
+    
+    DailyItemInstance* newDailyItem = [[DailyItemInstance alloc]initWithContent:content Reminder:components];
+    
+    [dailyListArray addObject:newDailyItem];
+    
+    [todoListArray removeObject:todo];
+    
 }
 
-//remove activity from being daily
--(void)removeFromDailyActivitiesWithIndex:(NSInteger)index{
-    //remove from daily
-    [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] setTobeDailyRoutine:NO];
-    //remove daily reminder if any
-    [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] setReminder:nil];
-    //Move the instance to the top of normal array
-    [normalListActivityArray insertObject:[normalListActivityArray objectAtIndex:index] atIndex:0];
-    //Cancel the notification
-    NSString* notificationID = [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] getuid];
-    [LocalNotificationHandler cancelLocalNotificationWithID:notificationID];
-    //Remove from the original
-    [dailyListActivityArray removeObjectAtIndex:index];
+-(void)completeTodoListItem:(TodoListItemInstance *)item {
+    
+    [todoListArray removeObject:item];
+    
 }
 
-//set reminder for daily activity
--(void)setReminderForDailyActivityWithIndex:(NSInteger)index AndTime:(NSDate *)date{
-    //Set the reminder date for selected list item
-    [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] setReminder:[NSDate dateWithTimeInterval:-1.0 sinceDate:date]];
-    //Prepare some data
-    NSString* notificationBody = [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] taskContent];
-    NSString* notificationID = [(ActivityListInstance*)[dailyListActivityArray objectAtIndex:index] getuid];
-    //Set notification to be scheduled
-    [LocalNotificationHandler pushLocalNotificationWithTitle:@"Daily activity warning!" Message:[NSString stringWithFormat:@"Your task [%@] is waiting for you! Come and Do It!",notificationBody] ScheduledAt:date Repeat:YES SoundName:UILocalNotificationDefaultSoundName ExtraData:@{kDAILY_NOTIFICATION_TO_BE_CANCELLED_KEY:notificationID}];
-}
 
-//set redundant
--(void)setToBeRedundantTaskAtIndex:(NSInteger)index{
-    //Set the instance to be redundant
-    [(ActivityListInstance*)[normalListActivityArray objectAtIndex:index] setRedundancy:YES];
-    //Move the instance to the redundant array
-    [redundantListActivityArray addObject:[normalListActivityArray objectAtIndex:index]];
-    //Remove from the original
-    [normalListActivityArray removeObjectAtIndex:index];
-}
-
-//summarise Activities for a day
-// - clean old activties
-// - reload daily, redundancies and normal arrays
--(void)summariseListActivities{
-    //Clean up redundancies
-    for (ActivityListInstance*instance in redundantListActivityArray) {
-        if (instance.isCompleted) {
-            [redundantListActivityArray removeObject:instance];
-        }
-    }
-    //Clean up normal lists
-    for (ActivityListInstance*instance in normalListActivityArray) {
-        if (instance.isCompleted) {
-            [normalListActivityArray removeObject:instance];
-        }else{
-            //Set instance to be redundant
-            [instance setRedundancy:YES];
-            //increase redundant days
-            [instance incrementRedundancy];
-            //add instance to redundant array
-            [redundantListActivityArray addObject:instance];
-            //remove from normal list array
-            [redundantListActivityArray removeObject:instance];
-        }
-    }
-    //Fresh up daily lists
-    for (ActivityListInstance* instance in dailyListActivityArray) {
-        [instance refreshDailyCounter];
-    }
-}
-
-//convert activty to task mode
--(void)convertListItem:(ActivityListInstance *)listActivity toTask:(OngoingActivityInstance *)ongoingTask WithSetTimeLimit:(long)secs{
-    if ([ongoingActivityArray count]>0) {
-        [GlobalNoticeHandler createInformationalAlertViewWithTitle:@"Oops! What a conflict!" Description:@"You already have a task going on! Please finish that one first." ButtonText:@"I Get It"];
+-(void)completeLeftOverItem:(LeftOverItemInstance *)leftover {
+    
+    if (leftover.accumulatingDays > 1) {
+        
+        [leftover decumulate];
+        
     }else{
-        static NSString* taskTitle = @"Task is Streaming";
-        OngoingActivityInstance* newOngoing = [[OngoingActivityInstance alloc]initWithTitle:taskTitle mainDescription:listActivity.taskContent remainingSecs:secs];
-        [self addOngoingActivity:newOngoing];
+        
+        [leftOverListArray removeObject:leftover];
+        
     }
-    //Complete receiver shall be configured in cell
     
 }
 
+-(void)setReminder:(NSDateComponents *)dateComponents ForDailyItem:(DailyItemInstance *)dailyItem{
+    
+    [dailyItem setReminderDate:dateComponents];
+    
+}
+
+-(void)addToCalendarWithDailyItem:(DailyItemInstance *)dailyItem {
+    
+    [[EventManager sharedManager]createDailyEventAssignedByDailyListInstance:dailyItem];
+
+}
+
+-(void)removeFromCalendarWithDailyItem:(DailyItemInstance *)dailyItem{
+    
+    [[EventManager sharedManager]removeDailyEventAssignedByDailyListInstance:dailyItem];
+}
+
+-(void)dealWithLeftOvers {
+    
+    // check unfinished todo list items
+    
+    for (TodoListItemInstance* todoItem in todoListArray) {
+        
+        // assuming all are not completed
+        
+        LeftOverItemInstance* newLeftOver = [[LeftOverItemInstance alloc]initWithContent:todoItem.content];
+        
+        [leftOverListArray addObject:newLeftOver];
+        
+        [todoListArray removeObject:todoItem];
+        
+    }
+    
+    // check left over itemd
+    
+    for (LeftOverItemInstance* leftOverItem in leftOverListArray) {
+        
+        // assuming all are still not completed
+        
+        [leftOverItem accumulate];
+        
+    }
+    
+}
 #pragma mark - File Manipulation
 -(BOOL)dataExists{
     NSArray*paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -268,7 +240,7 @@
 
 -(BOOL)saveToFile{
     //Load up the dictionary
-    activitiesDictionary = @{kACTIVITY_DICTIONARY_NORMAL_LIST:normalListActivityArray,kACTIVITY_DICTIONARY_DAILY_ROUTINE:dailyListActivityArray,kACTIVITY_DICTIONARY_REDUNDANCY:redundantListActivityArray,kACTIVITY_DICTIONARY_ONGOING:ongoingActivityArray,kACTIVITY_DICTIONARY_ACHIEVEMENT:pastAchievementArray,kACTIVITY_DICTIONARY_FAIL:failedActivityArray};
+    activitiesDictionary = @{kACTIVITY_DICTIONARY_TODO_LIST:todoListArray,kACTIVITY_DICTIONARY_DAILY_LIST:dailyListArray,kACTIVITY_DICTIONARY_TODO_LIST:leftOverListArray,kACTIVITY_DICTIONARY_ONGOING:ongoingActivityArray,kACTIVITY_DICTIONARY_ACHIEVEMENT:pastAchievementArray,kACTIVITY_DICTIONARY_FAIL:failedActivityArray};
     
     //Save it
     NSArray*paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -295,7 +267,7 @@
     return mutableDictionary;
 }
 
-#pragma mark - Data Manipulation
+#pragma mark - Helper Methods
 -(NSDictionary*)constructTimeComponentsWithTimeInSecs:(long)secs{
     
     //Construct compoents
@@ -315,6 +287,7 @@
 
 
 #pragma mark - accessors
+
 -(NSArray*)getOngoingActivityInArray{
     return ongoingActivityArray;
 }
@@ -331,16 +304,19 @@
     return nil;
 }
 
--(NSArray*)getNormalActivitiesArray{
-    return normalListActivityArray;
+-(NSArray*)getTodoListArray{
+    
+    return todoListArray;
+    
 }
-
--(NSArray*)getRedundantActivitiesArray{
-    return redundantListActivityArray;
+-(NSArray*)getLeftOverListArray{
+    
+    return leftOverListArray;
+    
 }
-
--(NSArray*)getDailyActivitiesArray{
-    return dailyListActivityArray;
+-(NSArray*)getDailytListArray{
+    
+    return dailyListArray;
 }
 
 

@@ -19,7 +19,6 @@
 @end
 
 @implementation OngoingTableViewCell
-@synthesize cellDataInstance = _cellDataInstance;
 
 #pragma mark - Initialization
 

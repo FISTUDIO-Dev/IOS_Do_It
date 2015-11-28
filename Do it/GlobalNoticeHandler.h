@@ -32,10 +32,11 @@ typedef NS_ENUM(NSInteger, DNBannerTypes) {
 +(void)showHUDWithText:(NSString*)title ForPeriod:(CGFloat)time Success:(BOOL)isSuccess Interactive:(BOOL)isinteractive Callback:(void (^)())callback;
 
 //Indicator alert with close button
-+(void)showIndicativeAlertWithTitle:(NSString*)title Subtitle:(NSString*)subtitle Closebuttontitle:(NSString*)cbtitle AlertType:(DIAlertTypes)type Duration:(NSTimeInterval)interval;
++(void)showIndicativeAlertInController:(UIViewController*)controller WithTitle:(NSString*)title Subtitle:(NSString*)subtitle Closebuttontitle:(NSString*)cbtitle AlertType:(DIAlertTypes)type Duration:(NSTimeInterval)interval;
 
 //Notification Alert
 +(void)showNotificationAlertWithMessage:(NSString*)message Duration:(CGFloat)duration Type:(DNBannerTypes)type Completion:(void(^)())completion;
 
 +(void)showNotificationBannerWithTitle:(NSString*)title Message:(NSString*)message Duration:(CGFloat)duration ImageName:(NSString*)imagename OnTapCompletion:(void(^)())completion;
+
 @end

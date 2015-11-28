@@ -43,9 +43,9 @@ static NSString* const kLOCAL_IN_APP_NOTIF_INFO_IMAGE_NAME_KEY = @"local_notif_i
 static NSString* const kACTIVITY_DICTIONARY_ONGOING = @"activity_dictionary_ongoing";
 static NSString* const kACTIVITY_DICTIONARY_ACHIEVEMENT = @"activity_dictionary_achievement";
 static NSString* const kACTIVITY_DICTIONARY_FAIL = @"activity_dictionary_failures";
-static NSString* const kACTIVITY_DICTIONARY_NORMAL_LIST = @"activity_dictionary_normallist";
-static NSString* const kACTIVITY_DICTIONARY_DAILY_ROUTINE = @"activity_dictionary_dailyroutine";
-static NSString* const kACTIVITY_DICTIONARY_REDUNDANCY = @"activity_dictionary_redundancy";
+static NSString* const kACTIVITY_DICTIONARY_TODO_LIST = @"activity_dictionary_normallist";
+static NSString* const kACTIVITY_DICTIONARY_DAILY_LIST = @"activity_dictionary_dailyroutine";
+static NSString* const kACTIVITY_DICTIONARY_LEFTOVER_LIST = @"activity_dictionary_redundancy";
 
 static NSString* const kDAILY_NOTIFICATION_TO_BE_CANCELLED_KEY = @"daily_notification_to_be_cancelled";
 
